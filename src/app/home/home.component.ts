@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {Subscription} from 'rxjs/Subscription';
+import { SlickModule } from 'ngx-slick';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -23,13 +24,16 @@ import { LanguageInterface } from '../shared/classes/language-interface';
 })
 
 export class HomeComponent implements OnInit {
-	
+	public slides : SlickModule[]; 
+    public slick:any; 
+
 	public language: LanguageInterface = new LanguageInterface;
 
     public origin; 
     public destination;
     public distance;
-
+    public slideConfig;
+    public slickModal = '';
 	constructor(  
         private _sharedService: SharedService,
 		private _languageService: LanguageService,
@@ -39,8 +43,18 @@ export class HomeComponent implements OnInit {
         this._languageService.language.subscribe( language => {
             this.language.setLabels(language);
         });
+
+        this.slides = [
+            {img: "http://placehold.it/350x150/000000"},
+            {img: "http://placehold.it/350x150/111111"},
+            {img: "http://placehold.it/350x150/333333"},
+            {img: "http://placehold.it/350x150/666666"}
+        ];
+        this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+       // this.afterChange;
 	}
 
+    
     getData( ) {
         console.log("This is a test!");
 

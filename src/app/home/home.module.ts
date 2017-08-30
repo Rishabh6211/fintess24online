@@ -8,7 +8,7 @@ import {  HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
-
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
 	imports: [
@@ -16,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
 	    FormsModule,
 		CustomFormsModule,
 	    HomeRoutingModule,
-        SharedModule    
+        SharedModule,
+        SlickModule.forRoot()   
 	],
 	declarations: [HomeComponent]
 })

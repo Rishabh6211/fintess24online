@@ -32,6 +32,22 @@ export const routes: Routes = [
                 loadChildren: './home/home.module#HomeModule'
             },
             {
+                path: 'aboutus',
+                loadChildren: './aboutus/aboutus.module#AboutusModule'
+            },
+            {
+                path: 'trainors',
+                loadChildren: './trainor/trainor.module#TrainorModule'
+            },
+            {
+                path: 'category',
+                loadChildren: './category/category.module#CategoryModule'
+            },
+            {
+                path: 'contact',
+                loadChildren: './contact/contact.module#ContactModule'
+            },
+            {
                 path: 'login',
                 loadChildren: './auth/login/login.module#LoginModule'
             },
@@ -40,29 +56,15 @@ export const routes: Routes = [
                 loadChildren: './auth/register/register.module#RegisterModule'
             },
             {
-                path: 'crops',
-                loadChildren: './crops/crops.module#CropsModule',
-            },
-            {
-                path: 'inputs',
-                loadChildren: './inputs/inputs.module#InputsModule',
-            },
-            {
                 path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
-            {
-                path: 'equipments',
-                loadChildren: './equipments/equipments.module#EquipmentsModule',
-            },
+            
             {
                 path: 'cart',
                 loadChildren: './cart/cart.module#CartModule',
             },
-            {
-                path: 'wishlist',
-                loadChildren: './wishlist/wishlist.module#WishlistModule',
-            },
+           
             {
 
                 path: 'external',

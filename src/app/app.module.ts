@@ -39,6 +39,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 
 import { LanguageService } from './shared/services/language.service';
 
+
 import 'rxjs/Rx';
 
 let providers = {
@@ -68,6 +69,7 @@ let providers = {
         CustomFormsModule,
         FlashMessagesModule,
         NgxGalleryModule
+
     ],
     declarations: [
         AppComponent,

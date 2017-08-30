@@ -981,4 +981,42 @@ section#banner {
 	}
 	
 }
- 
+/*========================================================================================
+About us page
+======================================================================================*/
+.about-img {
+	width: 100%;
+	margin-top: 10px;
+}
+.about-img img {
+	width: 100%;
+}
+.about-content h2 {
+	font-size: 36px;
+	font-weight: 600;
+	color: #161616;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+.about-content p {
+	font-size: 16px;
+	color: #767676;
+	line-height: 28px;
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 25px;
+}
+#about-qoutation {
+	position: relative;
+}
+.about #qoute {
+	padding-top: 0px;
+}
+.about #pro-trainer {
+	background-color: #f7f7f8;
+	padding-bottom: 114px;
+	margin-bottom: 85px;
+}
+.about .counter-area {
+	top: -141px;
+}
