@@ -1,0 +1,121 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-crop'" [class]="'greencolor'" [page]="'bid_accept'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+<main class="green-theme">
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row mt-2">
+
+            <!-- col-lg-3 -->
+            <div class="col-lg-3 col-sm-12 col-12 col-md-4">
+                <mysidebar></mysidebar>
+            </div>
+            <!-- col-lg-3 -->
+
+            <!-- col-lg-9-->
+            <div class="col-lg-9 col-sm-12 col-12 col-md-8">
+                <div class="card mb-2">
+                    <div class="row">
+                        <!-- image left section-->
+                       <!-- <div class="col-lg-5 rightborder">
+                            <ngx-gallery class="nggallery" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                        </div>-->
+                        <!-- image left section-->
+
+                        <!-- bid right section-->
+                        <div class="col-lg-12 bidsection bidlist pt-1 pb-1">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="paddingblock">
+                                        <h1>{{crop?.name}}</h1>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="paddingblock text-right">
+                                        <h3 class="greentext"> {{language.getLabel('deal_price')}}&nbsp;&nbsp; <strong><i class="fa fa-rupee"></i> {{crop?.price}}</strong></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="paddingblock">
+                                        <h2 class="greentext">{{crop?.category?.type}}</h2>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="paddingblock text-right">
+                                        <h3>{{crop?.quantity}} / {{language.getLabel(crop?.quantityUnit)}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="paddingblock">
+                                        <h4>{{crop?.variety}}</h4>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="paddingblock text-right">
+                                        <h3><strong>{{language.getLabel('quality')}}:</strong> {{crop?.grade}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <hr>
+
+                            <div class="paddingblock">
+                                <div class="colorstrip" *ngIf="!bidStatus && !isloading">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="float-left imgcircle"><img src="assets/img/noimage-placeholder.png" alt="user-image"></div>
+                                            <div class="float-left"> <strong>{{bid?.user?.fullName}}</strong> <span>{{bid?.user?.district}}, {{bid?.user?.state}}</span> </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                </div>
+
+
+                                <div *ngIf="bidStatus && !isloading" class="col align-self-center">
+
+                                    <div class="card text-center p20 mt-3 bggrey">
+                                        <div class="circleicon"><i class="greentext fa fa-thumbs-o-up"></i></div>
+                                        <h1>{{language.getLabel('bid_accepted_subject_payment')}} {{bid?.user?.fullName}}</h1>
+                                        <h2 class="orange-text">{{language.getLabel('deal_price')}}: {{crop?.price | currency:'INR':true}}</h2>
+                                        <h3>{{language.getLabel('current_status')}}: {{language.getLabel('waiting_for_payment')}}.</h3>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div *ngIf="!bidStatus && !isloading && bidProcessStatus == 'Pending'" class="btn-group width100">
+                                    <button (click)="acceptBid()" class="btn btn-success greentext w-60 fontsize2"><i class="fa fa-check"></i> {{language.getLabel('accept_bid')}}</button>
+                                    <div class="greentext greencolor w-40 fontsize2"><i class="fa fa-rupee"></i> {{bid?.amount}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- bid right section-->
+                    </div>
+                </div>               
+            </div>
+            <!-- col-lg-9-->
+
+        </div>
+        <!-- row -->
+
+    </div>
+</main>
+<!--Main layout-->

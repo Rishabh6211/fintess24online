@@ -1,0 +1,62 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-equipment'" [class]="'redishcolor'" [page]="'equipments'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+<main class="redish-theme">
+    <div class="container-fluid">
+
+        <!-- row -->
+        <div class="row my-2">
+
+            <!-- col-lg-3 -->
+            <div class="col-lg-3 col-sm-12 col-12 col-md-4">
+                <app-sidebar-filter (category)="checkCategory($event)"></app-sidebar-filter>
+            </div>
+            <!-- col-lg-3 -->
+
+            <!-- col-lg-9-->
+            <div class="col-lg-9 col-sm-12 col-12 col-md-8">
+                <div class="card p20 redish-theme homeproducts listing">
+
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-md-8 col-6">
+                                    <h2 class="h2-responsive">{{language.getLabel('total_items')}}: {{total}}</h2>
+                                </div>
+                                <div class="col-md-4 col-6 text-right">
+                                    <sortingDropdown></sortingDropdown>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-7">
+                                    <h1>{{language.getLabel('best_offers')}}</h1>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-5 text-right">
+                                    <button *ngIf="total > 4 && equipments.length != total" class="btn btn-border-warning custombtnredish" (click)="viewMore()">{{language.getLabel('view_more')}}</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-2" *ngFor="let equipment of equipments">
+                            <listItems [id]="equipment.id" [item]="equipment" [page]="'equipments'"></listItems>
+                        </div>
+
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- col-lg-9-->
+            </div>
+            <!-- row -->
+        </div>
+    </div>
+</main>
+<!--/Main layout-->

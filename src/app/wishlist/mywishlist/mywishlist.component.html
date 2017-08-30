@@ -1,0 +1,52 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner'" [class]="''" [page]="'wishlist'"></breadcrumb>
+<!-- small banner-->
+
+
+
+<!--Main layout-->
+<main>
+    <div class="container-fluid">
+
+        <!-- wishlist-->
+        <div class="mycart my-2">
+
+            <div class="card">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th colspan="2" width="35%">Product Name</th>
+                            <th>Product Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let list of wishlist">
+                            <td width="8%" colspan="1" data-label="Product Name">
+                                <a href="" [routerLink]="['/'+list.product_type+'/detail/'+list.product_id]"><img alt="" class="card-img-top img-fluid" src="{{_host}}/images/{{list.product_type}}/{{list.productdata.images[0]}}"></a>
+                            </td>
+                            <td colspan="1" data-label="Product Type"> {{list.productdata.name}}</td>
+                            <td data-label="Product Type">{{list.product_type}}</td>
+                            <td data-label="Actions">
+                                <ul>
+                                    <li><a href="" title="Delete" (click)="removeWishlist()"><i class="fa fa-close redtext"></i></a></li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <!-- wishlist-->
+
+
+    </div>
+</main>
+<!--/Main layout-->

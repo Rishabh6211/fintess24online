@@ -1,0 +1,357 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-input'" [class]="'skycolor'" [page]="'inputs'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+<main class="sky-blue-theme">
+
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row mt-2">
+
+            <!-- col-lg-9-->
+            <div class="col-lg-9">
+                <div class="card mb-2">
+                    <div class="row">
+
+                        <!-- image left section-->
+                        <div class="col-md-6 rightborder">
+                            <ngx-gallery class="nggallery" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                            <div class="text-center">
+                                <button class="btn btn-default" (click)="saveWishlist(input.id)"><i [ngClass]="{'fa-heart-o': heartO, 'fa-heart': heart}" class="fa"></i> {{language.getLabel('add_to_wishlist')}}</button>
+                            </div>
+                        </div>
+                        <!-- image left section-->
+
+                        <!-- bid right section-->
+                        <div class="col-md-6 pb-1 bidsection">
+                            <div class="row pt-1">
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0">
+                                        <h1>{{input?.name}}</h1>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0 text-right">
+                                        <h3>{{input?.price | currency:'INR':true: maximumFractionDigits: 0}} </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0">
+                                        <h2 class="skybluetext">{{input?.category?.name}} </h2>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0 text-right">
+                                        <h4>{{input?.quantity}} {{input?.quantityUnit}} ({{language.getLabel('available')}}) </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0">
+                                        <h4>{{input?.variety}} </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-6">
+                                    <div class="paddingblock pl-0">
+                                        <h4>{{input?.manufacturer?.name }} </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="paddingblock pl-0">
+                                <form #bidForm="ngForm" (ngSubmit)="addtocart()">
+                                    <div class="colorstrip">
+                                        <div class="float-left"> <!--<i class="fa fa-rupee skybluetext"></i>--> {{language.getLabel('price')}} </div>
+                                        <div class="float-right"> {{input?.price | currency:'INR':true: maximumFractionDigits: 0}} / {{language.getLabel(input?.priceUnit)}} </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="colorstrip">
+                                        <div class="row">
+                                            <div class="col-sm-6"> <!--<i class="fa fa-clock-o skybluetext"></i>--> <strong class="lineheight32">{{language.getLabel('quantity')}}</strong> </div>
+                                            <div class="col-sm-6">
+                                                <div class="md-form has-required">
+                                                    <div class="flex relative addform">
+                                                        <input class="form-control" id="quantity" max="9999999999" min="1" oninput="validity.valid||(value='');" name="quantity" required="" type="number" #quantityTotal="ngModel" [(ngModel)]="inputs" required>
+                                                        <div class="input-group-btn">
+                                                            <select name="quantityUnit">
+                                                                <option *ngFor="let item of quantityItems" value="item">{{language.getLabel(item)}}</option>
+                                                                <!-- <option selected="" value="Kg">Kg</option>
+                                                                <option value="Quintal">Quintal</option>
+                                                                <option value="Tonnes">Ton</option>
+                                                                <option value="Count">Count</option>
+                                                                <option value="Dozen">Dozen</option> -->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="error-block"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="colorstrip" [hidden]="isMyCrop">
+
+                                            <div class="float-left"> <!--<i class="fa fa-rupee skybluetext"></i>-->
+                                             <strong class="fontsize2"> {{language.getLabel('total')}} </strong>
+                                            </div>
+
+                                            <div class="float-right totalprice">
+												<strong>{{ totalPrice * inputs | currency:'INR':true}}</strong>
+                                            </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-6 bidbutton">
+                                            <button class="btn btn-default sky-blue width100" (click)="booknow()" [disabled]="true">{{language.getLabel('book_now')}}</button>
+                                        </div>
+
+                                        <div class="col-sm-6 bidbutton pl-0">
+                                            <button class="btn btn-success width100" [disabled]="!bidForm.valid">{{language.getLabel('add_to_cart')}}</button>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <!-- bid right section-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-12  mb-1" *ngIf="crop?.verified == 'Yes'"> Verified: <i class="fa fa-check-circle greentext"></i> </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <!-- <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#sellerprofile" role="tab">{{language.getLabel('seller_profile')}}</a> </li> -->
+
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#input" role="tab">{{language.getLabel('input_detail')}}</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#productdescription" role="tab">{{language.getLabel('product_description')}}</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#termsconditions" role="tab">{{language.getLabel('terms_and_conditions')}}</a> </li>
+                        </ul>
+                        <!-- Nav tabs -->
+
+                    </div>
+                </div>
+                <div class="card mb-2 crop-listing pb-70">
+                    <div class="tab-content">
+                        <!--  <div class="tab-pane pt-2 pl-3 active" id="sellerprofile" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> <strong>{{language.getLabel('name')}} : </strong> {{input?.user?.username}} </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> <strong>{{language.getLabel('email')}} : </strong> {{input?.user?.email}} </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> <strong>{{language.getLabel('mobile')}} : </strong> {{input?.user?.mobile }} </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> <strong>{{language.getLabel('company_name')}} : </strong> {{input?.user?.companyName }} </div>
+                            </div>
+                        </div> -->
+                        <div class="tab-pane pt-2 pl-3 active" id="input" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <strong>{{language.getLabel('manufacturer')}} : </strong> {{input?.manufacturer?.name }}
+                                </div>
+                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+                                    <strong>{{language.getLabel('address')}} : </strong> {{input?.address}} 
+                                </div>
+                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+                                    <strong>{{language.getLabel('description')}} : </strong> {{input?.manufacturer?.description}} 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="productdescription" role="tabpanel">
+                            <div class="col-md-12 pt-2">
+                                <p>{{input?.additionalInformation}}</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="termsconditions" role="tabpanel">
+                            <div class="col-md-12 pt-2">
+                                <p>{{input?.terms}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="card crop-listing mb-2" *ngIf="input?.additionalInformation">
+                    <div class="col-md-12 col-12 pt-1">
+                        <h2>Product Description</h2>
+                        <p> {{input?.additionalInformation}} </p>                        
+                    </div>
+                </div> -->
+
+            </div>
+            <!-- col-lg-9-->
+
+            <!-- col-lg-3 -->
+            <div class="col-lg-3 sidebar-listing">
+
+                <!--sidebar listings-->
+
+                <h2>{{language.getLabel('input_posted_by_this_user')}}</h2>
+
+                <!-- card-->
+                <div class="card">
+                    <div class="row cropcoloumn">
+                        <div class="col-md-4 col-4 col-lg-4 col-xl-4">
+                            <div class="imageblock"> <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots"> </div>
+                        </div>
+                        <div class="col-md-8 col-8 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p><i class="fa fa-rupee"></i>1457</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Add to Cart</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+                    <div class="row cropcoloumn">
+                        <div class="col-md-4 col-4 col-lg-4 col-xl-4">
+                            <div class="imageblock"> <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots"> </div>
+                        </div>
+                        <div class="col-md-8 col-8 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p><i class="fa fa-rupee"></i>1457</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Add to Cart</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+                    <div class="row cropcoloumn">
+                        <div class="col-md-4 col-4 col-lg-4 col-xl-4">
+                            <div class="imageblock"> <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots"> </div>
+                        </div>
+                        <div class="col-md-8 col-8 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p><i class="fa fa-rupee"></i>1457</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Add to Cart</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+                    <div class="row cropcoloumn">
+                        <div class="col-md-4 col-4 col-lg-4 col-xl-4">
+                            <div class="imageblock"> <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots"> </div>
+                        </div>
+                        <div class="col-md-8 col-8 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p><i class="fa fa-rupee"></i>1457</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Add to Cart</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+                    <div class="row cropcoloumn">
+                        <div class="col-md-4 col-4 col-lg-4 col-xl-4">
+                            <div class="imageblock"> <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots"> </div>
+                        </div>
+                        <div class="col-md-8 col-8 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p><i class="fa fa-rupee"></i>1457</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Add to Cart</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-->
+
+                <!--sidebar listings-->
+
+            </div>
+            <!-- col-lg-3 -->
+
+
+        </div>
+
+    </div>
+
+</main>
+<!--Main layout-->

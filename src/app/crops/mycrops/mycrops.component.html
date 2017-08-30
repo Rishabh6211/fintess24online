@@ -1,0 +1,171 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-crop'" [class]="'greencolor'" [page]="'my_crops'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+<main>
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row my-2">
+
+            <!-- col-lg-3 -->
+            <div class="col-lg-3 col-sm-12 col-12 col-md-4">
+                <mysidebar></mysidebar>
+            </div>
+            <!-- col-lg-3 -->
+
+            <!-- col-lg-9-->
+            <div class="col-lg-9 col-sm-12 col-12 col-md-8">
+
+                <h1 class="res-view">{{language.getLabel('my_crops')}}</h1>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-12">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#active" role="tab">{{language.getLabel('active')}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#expired" role="tab">{{language.getLabel('expired')}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 col-12 text-right">
+                        <button class="btn btn-border-warning custombtngreen waves-effect waves-light" [routerLink]="['/crops/add']">{{language.getLabel('add_crops')}}</button>
+                    </div>
+
+                </div>
+
+
+                <div class="card crop-listing pb-70">
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+
+                        <!-- tab active -->
+                        <div class="tab-pane active" id="active" role="tabpanel">
+                            <p class="nodisplay" *ngIf="totalCrops == 0">{{language.getLabel('no_crop_to_display')}}.</p>
+                            <!-- 1-->
+                            <div  *ngFor="let crop of crops"> 
+                                <div class="row border-bottom" *ngIf="crop.isExpired == false">
+                                    <div class="col-md-3 col-sm-3 col-lg-2">
+                                        <thumbnail [id]="crop.id" [item]="crop" [page]="'crops'"></thumbnail>
+                                    </div>
+
+                                    <div class="col-md-9 col-sm-9 col-lg-10" *ngIf="crop.isExpired == false">
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <h2><a [routerLink]="['/crops/detail/'+crop.id]">{{crop?.name}}</a></h2>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <h3>{{crop?.price | currency:'INR':true}}</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <a [routerLink]="['/crops/detail/'+crop.id]"> <span class="bold">{{crop?.category?.name}} {{crop?.variety != '' ? (bracketStart + crop?.variety + bracketEnd) : '' }}</span> </a>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <h4>{{crop?.quantity}} {{language.getLabel(crop?.quantityUnit)}}</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <p><a [routerLink]="['/crops/detail/'+crop.id]">{{crop?.description | truncate : 120 : "…"}}</a></p>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <div class="buttons">
+                                                    <button class="btn btn-warning" (click)="bidsList(crop.id)" title="{{language.getLabel('bids')}}"><i class="fa fa-gavel"></i></button>
+                                                    <button class="btn btn-success" (click)="editCrop(crop.id)" title="{{language.getLabel('edit')}}" [disabled]="crop.key"><i class="fa fa-pencil"></i></button>
+                                                    <button class="btn btn-danger" (click)="removeCrop(crop.id)" title="{{language.getLabel('delete')}}"><i class="fa fa-trash"></i></button>
+                                                </div>
+                                                <!--<div class="buttons" *ngIf="crop.bids !== 'Accepted'">
+                                                    <button class="btn btn-warning" (click)="bidsList(crop.id)" title="{{language.getLabel('bids')}}"><i class="fa fa-gavel"></i></button>
+                                                    <button class="btn btn-success" (click)="editCrop(crop.id)" title="{{language.getLabel('edit')}}"><i class="fa fa-pencil"></i></button>
+                                                    <button class="btn btn-danger" (click)="removeCrop(crop.id)" title="{{language.getLabel('delete')}}"><i class="fa fa-trash"></i></button>
+                                                </div>-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+
+                           </div>
+                           <!-- 1-->
+                          </div>    
+
+                        </div>
+                        <!-- tab active -->
+
+                        <!-- tab expired-->
+                        <div class="tab-pane" id="expired" role="tabpanel">
+                            <p class="nodisplay" *ngIf="totalCrops == 0">{{language.getLabel('no_crop_to_display')}}.</p>
+                            <!-- 1-->
+                            <div *ngFor="let crop of crops">
+                                <div class="row border-bottom" *ngIf="crop.isExpired == true">
+                                
+                                    <div class="col-md-3 col-sm-3 col-lg-2" >
+                                        <thumbnail [id]="crop.id" [item]="crop" [page]="'crops'"></thumbnail>
+                                    </div>
+
+                                    <div class="col-md-9 col-sm-9 col-lg-10" *ngIf="crop.isExpired == true">
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <h2><a [routerLink]="['/crops/detail/'+crop.id]">{{crop?.name}}</a></h2>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <h3>{{crop?.price | currency:'INR':true}}</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <a [routerLink]="['/crops/detail/'+crop.id]"> <span class="bold">{{crop?.category?.name}} {{crop?.variety != '' ? (bracketStart + crop?.variety + bracketEnd) : '' }}</span> </a>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <h4>{{crop?.quantity}} {{language.getLabel(crop?.quantityUnit)}}</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-lg-8">
+                                                <p><a [routerLink]="['/crops/detail/'+crop.id]">{{crop?.description | truncate : 120 : "…"}}</a></p>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-lg-4 text-right">
+                                                <div class="buttons">
+                                                    <!-- <button class="btn btn-warning" (click)="bidsList(crop.id)" title="{{language.getLabel('bids')}}"><i class="fa fa-gavel"></i></button>
+                                                    <button class="btn btn-success" (click)="editCrop(crop.id)" title="{{language.getLabel('edit')}}" [disabled]="crop.key"><i class="fa fa-pencil"></i></button>
+                                                    <button class="btn btn-danger" (click)="removeCrop(crop.id)" title="{{language.getLabel('delete')}}"><i class="fa fa-trash"></i></button> -->
+                                                </div>                                          
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                                <!-- 1-->
+                            </div>
+                        </div>
+                        <!-- tab expired-->
+
+                    </div>
+                    <!-- Tab panels -->
+
+                </div>
+
+            </div>
+            <!-- col-lg-9-->
+
+        </div>
+        <!-- row -->
+    </div>
+
+</main>
+<!--Main layout-->

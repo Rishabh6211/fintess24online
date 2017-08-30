@@ -1,0 +1,878 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-crop'" [class]="'greencolor'" [page]="'crops'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+<main class="green-theme">
+
+    <div class="container-fluid">
+
+        <!-- row -->
+        <div class="row mt-2">
+
+            <!-- col-lg-9-->
+            <div class="col-lg-9">
+
+                <div class="card mb-2">
+
+                    <div class="row">
+
+                        <!-- image left section-->
+                        <div class="col-md-6 rightborder responsivepb0">
+
+                            <image-slider [item]="crop" [type]="'crops'"></image-slider>
+
+                            <div class="text-center responsiveborder">
+                                <button class="btn btn-default" (click)="saveWishlist(crop.id)"><i [ngClass]="{'fa-heart-o': heartO, 'fa-heart': heart}" class="fa fa heart-o text-danger"></i> {{language.getLabel('add_to_wishlist')}}</button>
+                            </div>
+
+                        </div>
+                        <!-- image left section-->
+
+                        <!-- bid right section-->
+                        <div class="col-md-6 bidsection pb-1">
+
+                            <div class="row pt5">
+                               
+                                <div class="col-sm-8 col-7">
+                                    <div class="paddingblock pl-0">
+										<h1 class="d-inline-block"> {{language.getLabel(crop.name)}} </h1> <!-- <span [hidden]="isMyCrop" [routerLink]="['/crops/edit/'+crop?.id]" class="d-inline-block"><i class="fa fa-pencil-square-o fontsize2"></i></span> -->
+                                        <h2 class="greentext"> {{language.getLabel(crop?.category?.name)}}</h2>
+                                        <h4>{{language.getLabel(crop?.variety)}}</h4>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-4 col-5">
+                                    <div class="paddingblock pl-0 text-right textalignresponsive">
+                                      <h3>{{crop?.quantity}} {{language.getLabel(crop?.quantityUnit)}}</h3>
+                                        <h3><strong>{{language.getLabel('quality')}}: </strong>{{crop?.grade}}</h3>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="paddingblock pl-0">
+
+                                <div class="row mb-1">
+                                    <div class="col-sm-6 col-6">
+                                     <div class="verified"></div>
+                                    </div>
+                                    <div class="col-sm-6 col-6 text-right">
+                                       
+                                        <button type="button" class="btn btn-warning underline m0 orange p6" [routerLink]="['/crops/userbidlist/'+crop?.id]">{{language.getLabel('total_bids')}} <span class="badge">{{totalBids}}  </span></button>
+                                        
+                                    </div>
+                                </div>
+
+                                    <div class="colorstrip">
+                                        <div class="float-left">
+                                            <!--<i class="fa fa-clock-o greentext"></i>-->
+                                            {{language.getLabel('bid_end_on')}}
+                                        </div>
+                                        <div class="float-right greentext">
+                                            {{crop?.bidEndDate?.formatted ? (crop?.bidEndDate?.momentObj | date: 'd MMM y'): '-'}}
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                      <div class="colorstrip">
+                                        <div class="float-left">
+                                            <!--<i class="fa fa-clock-o greentext"></i>-->
+                                            {{language.getLabel('Available_on')}}
+                                        </div>
+                                        <div class="float-right greentext">
+                                            {{crop?.bidEndDate?.formatted ? (crop?.bidEndDate?.momentObj | date: 'd MMM y'): '-'}}
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="colorstrip">
+                                        <div class="float-left">
+                                            <!-- <i class="fa fa-rupee greentext"></i>-->
+                                            {{language.getLabel('offer_price')}} 
+                                        </div>
+                                        <div class="float-right">
+                                           {{crop?.price | currency:'INR':true: maximumFractionDigits: 0}}
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="colorstrip">
+                                        <div class="float-left">
+                                            <!--<i class="fa fa-rupee greentext"></i>-->
+                                           {{language.getLabel('highest_bid')}}
+                                        </div>
+                                        <div class="float-right">
+                                            {{highestBid | currency:'INR':true: maximumFractionDigits: 0}}
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    
+                                    
+                              <!--      <div class="colorstrip" [hidden]="isMyCrop  || isProcessing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-lg-7 col-md-5">
+                                                <strong class="lineheight32">{{language.getLabel('quantity')}} </strong>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-5 col-md-7">
+
+                                                <div class="input-group">
+                                                    <input type="text" step="0.01"  min="1" max={{crop?.quantity}} name="quantity" class="form-control" maxlength="6" id="quantity" (keypress)="_keyPress($event)" [(ngModel)]="quantity" #quantityX="ngModel" required>
+                                                    <span class="input-group-addon" id="basic-addon1">{{language.getLabel(crop?.quantityUnit)}}</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-12 text-right">
+                                                <div class="error-block">
+                                                    <small *ngIf="quantityX.errors?.required && quantityX.dirty" class="text-danger">
+                                                            {{language.getLabel('please_fill_quantity')}}
+                                                    </small>
+                                                
+                                                    <small *ngIf="quantityX.errors?.min && quantityX.dirty" class="text-danger">
+                                                               {{language.getLabel('minimum_quantity_should_be_1')}}
+                                                        </small>
+                                                    <small *ngIf="quantityX.errors?.max && quantityX.dirty" class="text-danger">
+                                                               {{language.getLabel('maximum_quantity_should_not_be_more_than')}} {{crop?.quantity}}
+                                                        </small>
+                                                </div>
+                                            </div>  
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>-->
+
+                                 <!--   <div class="colorstrip" [hidden]="isMyCrop  || isProcessing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-lg-7 col-md-5">
+                                                <strong class="lineheight32">{{language.getLabel('my_bid')}} </strong>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-5 col-md-7">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-rupee"></i></span>
+                                                    <input type="number" step="0.01"  name="amount" class="form-control" id="amount" #amountX="ngModel" max="9999999" onKeyPress="if(this.value.length==6) return false;" min={{crop?.minBidAmount}} [(ngModel)]="amount" [value]="myBidAmmount" required>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-12 text-right">
+                                                <div class="error-block">
+                                                    <small *ngIf="amountX.errors?.required && amountX.dirty" class="text-danger">
+                                                            {{language.getLabel('please_fill_my_bid')}}
+                                                    </small>
+                                                    <small *ngIf="amountX.errors?.min && amountX.dirty" class="text-danger">
+                                                           {{language.getLabel('minimum_amount_should_be')}} {{crop?.minBidAmount}}
+                                                    </small>
+                                                </div>
+											</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>-->
+                                    
+                             <!--       <div class="colorstrip" [hidden]="isMyCrop  || isProcessing">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-lg-7 col-md-5">
+                                                <strong class="lineheight32">{{language.getLabel('logistics_partner')}}</strong>
+                                            </div>
+                                            <div class="col-sm-6 col-lg-5 col-md-7">
+
+                                                <div class="input-group">
+                                                    <select name="logisticsOption" class="form-control" [(ngModel)]="logisticsOption" required>
+                                                        <option value="">{{language.getLabel('select_logistics')}}</option>
+                                                        <option value="self">{{language.getLabel('self')}}</option>
+                                                        <option value="efarmx">{{language.getLabel('efarmx')}}</option>                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 text-right">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>-->
+                                    
+                                    
+                                 <!-- taxes and other fees -->
+                              <!--    <div class="taxesandfees colorstrip" [hidden]="isMyCrop">
+                                   
+										<div class="float-left">
+											{{language.getLabel('taxes')}}<label>(10%)</label>
+										</div>
+										<div class="float-right" *ngIf="amount">
+											{{ taxesRate/100 * amount | currency:'INR':true }}
+										</div>
+										<div class="float-right" *ngIf="!amount">-</div>
+									<div class="clearfix"></div>
+										<div class="float-left">
+										   {{language.getLabel('other_efarm_fees')}}<label>(10%)</label>
+										</div>
+										<div class="float-right" *ngIf="amount">
+											{{ efarmCommission/100 * amount | currency:'INR':true }}
+										</div>
+										<div class="float-right" *ngIf="!amount">-</div>
+                                    <div class="clearfix"></div>
+                                    <hr>
+										<div class="float-left">
+											<strong class="fontsize2">{{language.getLabel('total')}}</strong>
+										</div>
+										<div class="float-right totalprice" *ngIf="amount">
+											<Strong> {{ (( taxesRate/100 * amount ) + ( efarmCommission/100 * amount ) + amount) | currency:'INR':true }}</Strong>
+										</div>
+										<div class="float-right totalprice" *ngIf="!amount">-</div>
+                                    <div class="clearfix"></div>
+
+								 </div>-->
+                                <!-- taxes and other fees -->
+                                
+                                   <!-- terms and conditions start -->
+                                    <!-- <div class="row" [hidden]="isMyCrop || isProcessing">
+                                            <div class="col-sm-12">
+
+                                                <div class="input-group">
+                                                    <input materialize type="checkbox" class="filled-in" id="filled-in-box" id="agree" name="agree" [(ngModel)]="agree" checked required />
+
+                                                    <label for="agree"> <a class="underline" href="javascript:void(0);" (click)="largeModal.show()">{{language.getLabel('i_agree_with_
+                                                    s_and_conditions')}}</a> </label>
+                                                </div>
+                                            </div>                                           
+                                            <div class="clearfix"></div>
+                                        </div>-->
+                                    <!-- terms and conditions ends -->
+                                      
+                                    <div class="bidbutton mt-1" > 
+                                        <button class="btn btn-success width100 m0" *ngIf="bidStatus == 'Pending' || bidStatus == 'Rejected'" [hidden]="isMyCrop" (click)="newModal.show()">{{language.getLabel('bid_now')}}</button>                                      	
+									</div>
+                                       
+                                    
+                                   <!-- <div class="bidbutton mt-1" [hidden]="isMyCrop || isProcessing"> 
+                                     
+                                       when only single button
+                                        <div class="row">
+                                            <div class="col-sm-12" *ngIf="isHidden">
+                                                <button class="btn btn-success width100" [disabled]="!bidForm.valid">{{language.getLabel('update_bid')}}</button>
+                                            </div>
+                                            <div class="col-sm-12" *ngIf="!isHidden">
+                                                <button class="btn btn-success width100" [disabled]="!bidForm.valid">{{language.getLabel('bid_now')}}</button>
+                                            </div>
+									    </div>                                     
+                                       
+                                    </div>
+                                    
+                                    <div *ngIf="(amountX.errors?.min) && amountX.touched && _accessToken" class="alert alert-danger mt-1 text-center">
+                                        <small class="text-danger">
+                                            {{language.getLabel('enter_a_valid_amount')}}
+                                        </small>
+                                        <small *ngIf="(amountX.errors?.max) && amountX.touched && _accessToken" class="text-danger">
+                                            {{language.getLabel('maximum_price_should_be_9999999999')}}
+                                        </small>
+                                    </div>-->
+
+                            </div>
+
+                        </div>
+                        <!-- bid right section-->
+                    </div>
+
+                </div>
+
+              <!--  <div class="row">
+
+                    <div class="col-md-12 col-12 mb-1" *ngIf="crop?.verified == 'Yes'">
+                        <div class="verified"></div>
+                    </div>
+                </div>-->
+
+                <div class="row">
+
+                    <div class="col-md-12 col-12">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                           <!-- <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#shipping" role="tab">{{language.getLabel('shipping_detail')}}</a>
+                            </li>-->
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#productdescription" role="tab">{{language.getLabel('product_description')}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#termsconditions" role="tab">{{language.getLabel('terms_and_conditions')}}</a>
+                            </li>
+                        </ul>
+                        <!-- Nav tabs -->
+
+                    </div>
+
+                </div>
+
+                <div class="card mb-2 crop-listing pb-70">
+                    <div class="tab-content">
+
+                     <!-- tab shipping-->
+                      <!--  <div class="tab-pane pt-2 pl-3 active" id="shipping" role="tabpanel">
+                            <div class="row">
+
+                                <div class="col-sm-12 col-md-4 col-xl-4">
+                                    <div class="row">a
+                                        <div class="col-sm-12">
+                                            <strong>{{language.getLabel('shipping_ability')}}:</strong> {{crop?.supplyAbility}}
+                                        </div>
+                                    </div>
+                                </div>
+
+a
+
+                                <div class="col-sm-12 col-md-4 col-xl-4">
+                                    <div class="row">
+                                        <div *ngIf="crop?.supplyAbility == 'Yes'" class="col-sm-12">
+                                            <strong>{{language.getLabel('shipping_area')}}:</strong> {{language.getLabel(crop?.supplyArea)}}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12 col-md-4 col-xl-4">
+                                    <div class="row">
+                                        <div *ngIf="crop?.supplyAbility == 'Yes'" class="col-sm-12">
+                                            <strong>{{language.getLabel('shipping_range')}}:</strong> {{language.getLabel(crop?.supplyRange)}}{{language.getLabel('km')}}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>-->
+                        <!-- tab shipping-->
+
+
+                     <div class="tab-pane active" id="productdescription" role="tabpanel">
+						<div class="col-md-12 pt-2">
+							<p>{{language.getLabel(crop?.description)}}</p>
+						</div>
+                     </div>
+
+					<div class="tab-pane" id="termsconditions" role="tabpanel">
+						<div class="col-md-12 pt-2">
+							<p> {{language.getLabel(crop?.terms)}}</p>
+						</div>
+					</div>
+
+                   </div>
+                </div>
+
+         
+
+            </div>
+            <!-- col-lg-9-->
+
+            <!-- crop posted by farmer -->
+            <div class="col-lg-3 sidebar-listing">
+                
+			 <!-- card-->
+                <div class="card">
+                    
+                    <h2 class="p-0">{{language.getLabel('farmer')}}</h2>
+                      
+                    <div class="cropcoloumn">
+                      
+                        <div class="col-md-12 col-12 col-lg-12 col-xl-12">
+                            
+                           <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+									<i class="fa fa-star orangetext"></i>
+                                    <i class="fa fa-star orangetext"></i>
+                                    <i class="fa fa-star orangetext"></i>
+                                    <i class="fa fa-star-half-full orangetext"></i>
+                                    <i class="fa fa-star-o orangetext"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-9 col-8 pl-0">
+                                    <p>{{language.getLabel('total_posted_crops')}}</p>
+                                </div>
+                                <div class="col-md-3 col-4 text-right">
+                                    <p>10</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-9 col-8 pl-0">
+                                    <p>{{language.getLabel('crops_sold')}}</p>
+                                </div>
+                                <div class="col-md-3 col-4 text-right">
+                                    <p>8</p>
+                                </div>
+                            </div> 
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+
+                <h2>{{language.getLabel('crop_posted_by_this_farmer')}}</h2>
+
+               
+
+                <!-- card-->
+                <div class="card">
+
+                    <div class="row cropcoloumn">
+                        <div class="col-md-2 col-3 col-lg-4 col-xl-4">
+                            <div class="imageblock">
+                                <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots">
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Bids end in</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p>1 day</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Bid now</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+
+                    <div class="row cropcoloumn">
+                        <div class="col-md-2 col-3 col-lg-4 col-xl-4">
+                            <div class="imageblock">
+                                <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots">
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Bids end in</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p>1 day</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Bid now</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+
+                    <div class="row cropcoloumn">
+                        <div class="col-md-2 col-3 col-lg-4 col-xl-4">
+                            <div class="imageblock">
+                                <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots">
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Bids end in</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p>1 day</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Bid now</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+
+                <!-- card-->
+                <div class="card">
+
+                    <div class="row cropcoloumn">
+                        <div class="col-md-2 col-3 col-lg-4 col-xl-4">
+                            <div class="imageblock">
+                                <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots">
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Bids end in</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p>1 day</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Bid now</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+                
+                <!-- card-->
+                <div class="card">
+
+                    <div class="row cropcoloumn">
+                        <div class="col-md-2 col-3 col-lg-4 col-xl-4">
+                            <div class="imageblock">
+                                <img class="img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="Carrots">
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9 col-lg-8 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0">
+                                    <h2>Scarlet Seeds</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-8 pl-0">
+                                    <p>Bids end in</p>
+                                </div>
+                                <div class="col-md-5 col-4 text-right">
+                                    <p>1 day</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-12 pl-0"> <span><a href="javascript:void(0)">Bid now</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- card-->
+              
+
+			</div>
+            <!-- crop posted by farmer -->
+
+		</div>
+				<!-- row -->
+	</div>
+
+			<!-- terms & conditions modal --> 
+			<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog mt-12" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">{{language.getLabel('terms_and_conditions')}}</h4>
+							<button type="button" class="close" (click)="largeModal.hide()" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+						</div>
+						<div class="modal-body">
+							<p>{{language.getLabel(crop?.terms)}}</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-success orange" (click)="largeModal.hide()">{{language.getLabel('close')}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- terms & conditions modal --> 
+			
+			
+			
+			<!-- new popup --> 
+			<div bsModal #newModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lgg mt-2" role="document">
+				
+					<div class="modal-content">
+					
+						<div class="modal-header">
+							<h4 class="modal-title">{{language.getLabel('bid_for')}} {{crop?.name}} <strong class="greentext pl-3"> {{crop?.price | currency:'INR':true: maximumFractionDigits: 0}}</strong></h4>
+							<button type="button" class="close" (click)="newModal.hide()" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+						</div>
+
+                        <form #bidForm="ngForm" (ngSubmit)="placeBid()">
+    						<div class="modal-body bidsection">						  
+    							<div class="row">
+    								<div class="col-sm-4">
+    									<label>{{language.getLabel('quantity')}}</label>
+    									<div class="input-group">
+    										<input type="text" step="0.01"  min="1" max={{crop?.quantity}} name="quantity" class="form-control" maxlength="6" id="quantity" [(ngModel)]="quantity" #quantityX="ngModel" required>
+    										<span class="input-group-addon" id="basic-addon1">{{language.getLabel(crop?.quantityUnit)}}</span>
+    									</div>
+                                        <div class="error-block">
+                                            <small *ngIf="quantityX.errors?.required && quantityX.dirty" class="text-danger">
+                                                    {{language.getLabel('please_fill_quantity')}}
+                                            </small>
+                                             <small *ngIf="quantityX.errors?.min && quantityX.dirty" class="text-danger">
+                                                   {{language.getLabel('minimum_quantity_should_be_1')}}
+                                            </small>
+                                            <small *ngIf="quantityX.errors?.max && quantityX.dirty" class="text-danger">
+                                                   {{language.getLabel('maximum_quantity_should_not_be_more_than')}} {{crop?.quantity}}
+                                            </small>
+                                        </div>
+    								</div>
+    								
+    								<div class="col-sm-4">
+    							     <label>{{language.getLabel('bid_amount')}}</label>
+    								   <div class="input-group">
+    										<span class="input-group-addon" id="basic-addon1"><i class="fa fa-rupee"></i></span>
+    										<input type="number" step="0.01"  name="amount" class="form-control" id="amount" #amountX="ngModel" max="9999999999" onKeyPress="if(this.value.length==9) return Quantityfalse;" min={{crop?.minBidAmount}} [(ngModel)]="amount" [value]="myBidAmmount" required>
+                                       </div>
+                                        <div class="error-block">
+                                            <small *ngIf="amountX.errors?.required && amountX.dirty" class="text-danger">
+                                                    {{language.getLabel('please_fill_bid_amount')}}
+                                            </small>
+                                            <small *ngIf="amountX.errors?.min && amountX.dirty" class="text-danger">
+                                                   {{language.getLabel('minimum_amount_should_be')}} {{crop?.minBidAmount}}
+                                            </small>
+                                        </div>
+    								</div>
+    								
+    								<div class="col-sm-4">
+    								 <label>{{language.getLabel('logistic_partner')}}</label>
+    								 <select name="logisticsOption" class="form-control" [(ngModel)]="logisticsOption" (change)="changeLogistics()" required>
+    									<option value="self">{{language.getLabel('self')}}</option>
+    									<option value="efarmx">{{language.getLabel('efarmx')}}</option>
+    								 </select>
+    								</div>
+    							</div>
+    							<!-- Address row. -->
+    							<div class="row" *ngIf="logisticsOption == 'efarmx'">
+    								<div class="col-sm-4">
+    									<label>{{language.getLabel('delivery_address')}}</label>
+    									 <textarea class="form-control p6 min-height6" [(ngModel)]="selectedAddress"  id="selectedAddress" name="selectedAddress" rows="6"></textarea>
+    								</div>
+    								
+    								<div class="col-sm-8">
+                                        <div>
+                                            <a class="button btn-success orange btn mt-35 m-0" (click)="getDistance()" [class.disabled]="selectedAddress == '' || amount == '' || quantity == ''">Calculate Distance and Charges</a>
+                                        </div>
+    									<div class="borderbox mt-1">
+                                            
+                                            <div class="colorstrip conditions m-0">										  
+                                                
+    											<div class="float-left pr-5" *ngIf="totalDistance !== 'Input address not valid'">
+    												<strong>{{language.getLabel('distance')}}: </strong>
+    											</div>
+                                                <div class="float-left">{{totalDistance}}</div>
+
+    										    <div class="clearfix"></div>
+    									   </div>										  
+    									 </div>
+    								</div>
+    								
+    							</div>
+    							
+    							
+    						     <div class="row pt-2"> 
+    						     
+    								 <div class="col-sm-7 col-md-12 col-lg-7">
+    								 	
+    								 	 <div class="borderbox">
+    									    
+    									    <div class="colorstrip conditions m-0">
+    										  
+    											<div class="float-left pr-5">
+    												<strong>{{language.getLabel('earnest_amount')}}:</strong>
+    											</div>
+
+    											<div class="float-left" *ngIf="amount">
+    												{{(amount * bidEarnestPercent / 100) | currency:'INR':true }}  <label>( To be paid while bidding (refundable) )</label>
+    											</div>
+                                                <div class="float-left" *ngIf="!amount">-</div>                                            
+                                                <div class="clearfix"></div>
+
+    											<div class="float-left pr-5">
+    												<strong>{{language.getLabel('upfront_amount')}}: </strong>
+    											</div>
+    											
+                                                <div class="float-left" *ngIf="amount">
+                                                    {{(amount * upfrontPercent / 100) | currency:'INR':true }}  <label>({{language.getLabel('to_be_paid_within_two_days_after_bid_acceptance')}}  )</label>
+                                                </div>
+                                                <div class="float-left" *ngIf="!amount">-</div>    
+
+    											<div class="clearfix"></div>
+                                                
+    											
+                                                <div class="float-left pr-5" *ngIf="logisticsOption == 'efarmx'">
+    												<strong>{{language.getLabel('delivery_charges')}}: </strong>
+    											</div>
+
+    											<div class="float-left" *ngIf="logisticsOption == 'efarmx'">
+                                                    {{ deliveryCharges | currency:'INR':true }}
+                                                    <label>&nbsp;</label>
+    											</div>
+    										    <div class="clearfix" *ngIf="logisticsOption == 'efarmx'"></div>
+
+                                                <div class="float-left pr-5">
+                                                    <strong>{{language.getLabel('final_payment')}}: </strong>
+                                                </div>
+
+                                                <div class="float-left">
+                                                    <div class="float-left" *ngIf="amount">
+                                                        {{((( taxesRate/100 * amount ) + ( efarmCommission/100 * amount ) + amount ) - ( bidEarnestPercent/100 * amount ) - ( upfrontPercent/100 * amount )  + deliveryCharges ) | currency:'INR':true }} <label>( To be paid by {{crop?.endDate | date: 'd MMM y'}} )</label>
+                                                    </div>
+                                                    <div class="float-left" *ngIf="!amount">-</div>
+                                                </div>
+                                                <div class="clearfix"></div>
+    									   </div>
+    										  
+    									 </div>
+    									 
+    									  
+    										<!--<div class="input-group pt-1">
+    											<input materialize type="checkbox" class="filled-in" id="filled-in-box" id="terms"  name="terms"  [(ngModel)]="termsAndCon" required  />
+    											<label for="terms"> <a class="underline" href="javascript:void(0);">{{language.getLabel('i_agree_with_terms_and_conditions')}}</a> </label>
+    									    </div>-->
+    									    
+										 <h4 class="mt-1">Terms & Conditions</h4>
+    									  <div class="borderbox mt-1 p10 pt-0">
+   									    
+    									    <div class="pt-10">
+												<input materialize type="checkbox" class="filled-in" id="filled-in-box" id="tc" name="agree" [(ngModel)]="agree" required />
+												<label for="tc"><a class="underline" href="/#/crops/terms/toc/{{crop.id}}" target="_blank">{{language.getLabel('i_agree_with_terms_and_conditions')}}</a> </label>												
+    						            	</div>
+    							
+										    <div class="pt-0">
+												<input materialize type="checkbox" class="filled-in" id="deliveryagree" name="deliveryagree" [(ngModel)]="deliveryAgree" required/>
+												<label for="deliveryagree"> <a class="underline" href="/#/crops/terms/dtc/{{crop.id}}" target="_blank" >{{language.getLabel('i_agree_with_delivery_conditions')}}</a> </label>
+										    </div>
+											
+										 </div>
+                                
+    								 </div>
+    								 
+
+    								 <div class="col-sm-5 col-md-12 col-lg-5">
+
+    							      <!-- taxes and other fees -->
+                                         <div class="taxesandfees colorstrip borderbox" >
+                                       
+    										<div class="float-left">
+                                               <strong>{{language.getLabel('bid_amount')}}</strong><label>&nbsp;</label>
+                                            </div>
+                                            
+                                            <div class="float-right" *ngIf="amount">
+                                                {{ amount | currency:'INR':true }}
+                                            </div>                                        
+                                            <div class="float-right" *ngIf="!amount">-</div>                                       
+                                            
+                                            <div class="clearfix"></div>
+
+
+                                            <div class="float-left" *ngIf="logisticsOption == 'efarmx'">
+    											<strong>{{language.getLabel('delivery_charges')}}</strong> <label>({{totalDistance}})</label>
+    										</div>
+    										
+    										<div class="float-right" *ngIf="logisticsOption == 'efarmx'">
+    											{{ deliveryCharges | currency:'INR':true }}
+    										</div>
+    								        <div class="clearfix" *ngIf="logisticsOption == 'efarmx'"></div>
+    									    
+
+    										<div class="float-left">
+    										   <strong>{{language.getLabel('facilitation_charges')}}</strong> <label>({{efarmCommission}}%)</label>
+    										</div>
+    										
+    										<div class="float-right" *ngIf="amount">
+    											{{ efarmCommission/100 * amount | currency:'INR':true }}
+    										</div>
+    										
+    										<div class="float-right" *ngIf="!amount">-</div>
+                                           
+                                            <div class="clearfix"></div>
+
+                                           
+                                            <div class="float-left">
+    											<strong>{{language.getLabel('taxes')}}</strong> <label>({{taxesRate}}%)</label>
+    										</div>
+    										
+    										<div class="float-right" *ngIf="amount">
+    											{{ taxesRate/100 * amount | currency:'INR':true }}
+    										</div>
+    										
+    										<div class="float-right" *ngIf="!amount">-</div>
+                                            <div class="clearfix"></div>
+
+                                            <hr>
+    										<div class="float-left">
+    											<strong class="fontsize2">{{language.getLabel('total')}}</strong>
+    										</div>
+    										
+    										<div class="float-right totalprice" *ngIf="amount">
+    											<Strong> {{ ((( taxesRate/100 * amount ) + ( efarmCommission/100 * amount ) + amount) + deliveryCharges ) | currency:'INR':true }}</Strong>
+    										</div>
+    										
+    										<div class="float-right totalprice" *ngIf="!amount">-</div>
+                                           
+                                            <div class="clearfix"></div>
+
+    								 </div>
+                                    <!-- taxes and other fees -->
+    								 </div>
+    							 </div>
+    							
+    						  
+    						</div>
+    						
+    						<div class="modalfooter">								
+    							
+                                
+    					        <div class="float-right">
+    								<input type="submit"  [disabled]="!bidForm.valid" class="btn btn-success orange" value="{{language.getLabel('Proceed_with_payment')}}" />
+    					        </div>	
+								<div class="clearfix"></div>		
+    						</div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<!-- new popup -->  
+
+			<!-- bid placed successfully modal --> 
+			<div bsModal #successModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog mt-12" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">{{language.getLabel('Bid Placed')}}</h4>
+							<button type="button" class="close" (click)="successModal.hide()" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+						</div>
+						<div class="modal-body">
+							<p><!-- {{language.getLabel('i_accept_terms')}} -->
+								{{language.getLabel(responseMessage)}}.
+							</p>
+							<p>
+								{{language.getLabel('your_bidid_is')}}: <strong>{{bidCode}}.</strong>
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-success orange" (click)="successModal.hide()">{{language.getLabel('close')}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- bid placed successfully modal --> 
+
+</main>
+<!--Main layout-->

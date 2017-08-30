@@ -1,0 +1,105 @@
+<app-loader [isloading]="isloading"></app-loader>
+<!-- <app-header [isloading]="isloading"></app-header> -->
+<!-- small banner-->
+<breadcrumb [id]="'banner-crop'" [class]="''" [page]="'login'"></breadcrumb>
+<!-- small banner-->
+
+<!--Main layout-->
+
+<main>
+  <div class="container-fluid"> 
+    
+    <!-- loginbox-->
+    <div class="loginbox my-2"> 
+      
+      <!--Form without header-->
+      
+      <div class="text-center">
+        <h2>{{language.getLabel('login_to_your_account')}}</h2>
+        <p>{{language.getLabel('dont_have_an_account')}} <a [routerLink]="['/register']"> {{language.getLabel('register')}}</a></p>
+      </div>
+           <div class="card">
+
+                <!--Header-->
+
+                <div class="card-block">
+                    <div class="error-block" *ngIf="isError">
+                        <p class="text-danger text-center">
+                            {{errorMessage}}
+                        </p>
+                    </div>
+                    <div class="error-block" *ngIf="isSuccess">
+                        <p class="text-success text-center">
+                            {{errorMessage}}
+                        </p>
+                    </div>
+                    <form role="form" #loginForm="ngForm" (ngSubmit)="login()">
+                        <!--Body-->
+                        <div class="md-form has-required">
+                            <label for="form2" [ngClass]="{'active': hasUser}">{{language.getLabel('email')}}</label>
+                            <i class="fa fa-envelope prefix"></i>
+                            <input type="email" name="username" #username="ngModel" [(ngModel)]="normalUser.username" id="form2" class="form-control" email required />
+
+                            <div class="error-block">
+                                <small *ngIf="username.errors?.required && username.touched" class="text-danger">
+                                    {{language.getLabel('email_is_required')}}
+                                </small>
+                                <small *ngIf="username.errors?.email && username.touched" class="text-danger">
+                                    {{language.getLabel('email_is_not_valid')}}
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="md-form has-required">
+                            <label for="form4" [ngClass]="{'active': hasUser}">{{language.getLabel('password')}}</label>
+                            <i class="fa fa-lock prefix"></i>
+                            <input type="password" name="password" #password="ngModel" [(ngModel)]="normalUser.password" id="form4" class="form-control" required />
+                            <div class="error-block">
+                                <small *ngIf="password.errors?.required && password.touched" class="text-danger">
+                                    {{language.getLabel('password_is_required')}}
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="btn btn-success signin" [disabled]="!loginForm.valid">{{language.getLabel('login')}}</button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p class="forgotpswd pull-right"><a [routerLink]="['/forgotpassword']">{{language.getLabel('forgot_password')}}</a></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-12 md-form">
+                                <div class="custome-check loginpage">
+                                    <input [(ngModel)]="rememberMe" id="option5" name="status" type="checkbox" ng-reflect-name="status" class="ng-valid ng-dirty ng-touched">
+                                    <label for="option5">{{language.getLabel('remember_me')}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              
+         
+        </div>
+      </div>
+      <!--/Form without header--> 
+      
+      <!-- <div class="row">
+                <div class="col-md-12">
+                    <button type="button" (click)="signIn('facebook')" class="btn btn-fb btn-lg btn-block waves-effect waves-light"><i class="fa fa-facebook left"></i><span>Login with <strong>Facebook</strong></span></button>
+                    <button type="button" (click)="signIn('google')" class="btn btn-gplus btn-lg btn-block waves-effect waves-light"><i class="fa fa-google-plus left"></i><span>Login with <strong>Google+</strong></span></button>
+                </div>
+            </div> --> 
+      
+    </div>
+    <!-- loginbox--> 
+    
+  
+</main>
+<!--/Main layout--> 
+
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,97 @@
+<app-loader [isloading]="isloading"></app-loader>
+
+<!-- small banner-->
+<breadcrumb [id]="'banner-crop'" [class]="'greencolor'" [page]="'crops'"></breadcrumb>
+<!-- small banner-->
+
+
+<!--Main layout-->
+
+<main class="green-theme">
+  <div class="container-fluid"> 
+    
+    <!-- row -->
+    <div class="row mt-2"> 
+      
+      <!-- col-lg-9-->
+      <div class="col-lg-12 col-sm-12 col-12 col-md-12">
+        <div class="card mb-2">
+          <div class="row">
+          
+               <!-- image left section-->
+				<div class="col-md-4 rightborder responsivepb0">
+          
+          <image-slider [item]="crop" [type]="'crops'"></image-slider>
+
+				</div>
+				<!-- image left section-->
+
+          
+            <div class="col-md-8 bidsection bidlist pt-1">
+              <div class="row">
+                <div class="col-sm-6 col-6">
+                  <div class="paddingblock pl-0">
+                    <h1 class="lineheight20">{{crop?.name}}</h1>
+                    <h2 class="greentext">{{crop?.category?.name}}</h2>
+                    <h4>{{crop?.variety}}</h4>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-6">
+                  <div class="paddingblock pl-0 text-right">
+
+                    <h3> {{language.getLabel('offer_price')}}&nbsp;&nbsp; <strong class="greentext"> {{crop?.price | currency:'INR':true: maximumFractionDigits: 0}}</strong></h3>
+                     <h3>{{crop?.quantity}} {{language.getLabel(crop?.quantityUnit)}}</h3>
+                    <h3><strong>{{language.getLabel('quality')}}:</strong> {{crop?.grade}}</h3>
+                    
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="paddingblock pl-0 bidsall pt3">
+               
+                <div class="row">
+                  <div class="col-sm-7">
+                    <h2 class="greentext"><strong>{{language.getLabel('bids')}}</strong></h2>
+                  </div>
+                </div>
+
+                <div class="colorstrip mt8" *ngIf="totalBids == 0"> {{language.getLabel('no_bids')}} </div>
+                <div class="colorstrip userlist mt8" *ngFor="let bid of crop.bids">
+                  <a href="javascript: void();">
+                    <div class="float-left responsivewidth100 pt3"> 
+					  <div class="name"><a href="javascript:void(0);">{{bid.user.fullName}}</a>	</div>
+
+                      <span><a href="javascript:void(0);"><i class="fa fa-calendar"></i>{{bid?.createdAt | date}}</a></span>
+					  <span><a href="javascript:void(0);"><i class="fa fa-clock-o"></i> {{bid?.createdAt | date:"HH:mm"}}</a></span>
+                      <span><a href="javascript:void(0);">{{language.getLabel('quantity')}}: {{bid?.quantity}} {{bid?.quantityUnit}}</a></span>                      
+                    </div>
+                    <div class="float-right responsivewidth100 text-right">
+                      <!--
+                      <h3 class="pt3"> <a class="greentext" href="javascript:void(0);">{{bid.amount | currency:'INR':true}}</a></h3>
+                       -->
+                      <button class="btn btn-success orange">{{bid.amount | currency:'INR':true}}</button>
+                    </div>
+					<div class="clearfix"></div>
+                  </a>
+                 </div>
+                
+                <!--<div class="text-right">
+                  <button class="btn btn-success">Send Message</button>
+                </div>--> 
+              </div>
+            </div>
+            
+            <!-- bid right section--> 
+          </div>
+        </div>
+      </div>
+      <!-- col-lg-9--> 
+      
+      
+      
+    </div>
+    <!-- row --> 
+    
+  </div>
+</main>
+<!--Main layout-->

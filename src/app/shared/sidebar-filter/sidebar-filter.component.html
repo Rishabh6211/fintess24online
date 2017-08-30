@@ -1,0 +1,115 @@
+<div class="list-group">
+    <!--Sorting: checkbox-->
+    <div class="card sort-panel text-center">
+        <!-- 1 -->
+        <form>
+            <h5 class="col-title">{{language.getLabel('categories')}}</h5>
+            <div class="categories">
+                <p>
+                    <input (click)="setCategory('cat-11')" name="group1" type="checkbox" id="cat-11" />
+                    <label for="cat-11">{{language.getLabel('vegetables')}} <label>(500)</label></label>
+                </p>
+                <p>
+                    <input (click)="setCategory('cat-12')" name="group1" type="checkbox" id="cat-12" />
+                    <label for="cat-12">{{language.getLabel('fruits')}} <label>(20)</label></label>
+                </p>
+                <p>
+                    <input (click)="setCategory('cat-13')" name="group1" type="checkbox" id="cat-13" />
+                    <label for="cat-13">{{language.getLabel('dry_fruits')}} <label>(30)</label></label>
+                </p>
+                <p>
+                    <input (click)="setCategory('cat-14')" name="group1" type="checkbox" id="cat-14" />
+                    <label for="cat-14">{{language.getLabel('fresh_herbs')}} <label>(500)</label></label>
+                </p>
+                <p>
+                    <input (click)="setCategory('cat-15')" name="group1" type="checkbox" id="cat-15" />
+                    <label for="cat-15">{{language.getLabel('spices')}} <label>(200)</label></label>
+                </p>
+            </div>
+            <!-- 1 -->
+
+            <!-- 2 -->
+            <h5 class="col-title">{{language.getLabel('distance')}}</h5>
+            <div class="range-field">
+                <input type="range" id="test5" min="0" max="100" />
+            </div>
+            <!--2 -->
+
+            <!-- 3 -->
+            <h5 class="col-title">{{language.getLabel('price')}}</h5>
+            <div class="categories">
+                <p>
+                    <input name="group1" type="checkbox" id="cat-1" />
+                    <label for="cat-1">{{language.getLabel('less_than')}} <i class="fa fa-rupee"></i> <label>20 (11)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-2" />
+                    <label for="cat-2"><i class="fa fa-rupee"></i> <label>21</label> {{language.getLabel('to')}} <i class="fa fa-rupee"></i> <label>50 (2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-3" />
+                    <label for="cat-3"><i class="fa fa-rupee"></i> <label>51</label> {{language.getLabel('to')}} <i class="fa fa-rupee"></i> <label>100 (2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-4" />
+                    <label for="cat-4"><i class="fa fa-rupee"></i> <label>101</label> {{language.getLabel('to')}} <i class="fa fa-rupee"></i> <label>250 (2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-5" />
+                    <label for="cat-5"><i class="fa fa-rupee"></i> <label>251</label> {{language.getLabel('to')}} <i class="fa fa-rupee"></i> <label>500 (2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-6" />
+                    <label for="cat-6"><i class="fa fa-rupee"></i> {{language.getLabel('more_than')}} <i class="fa fa-rupee"></i> <label>500 (211)</label> </label>
+                </p>
+            </div>
+            <!-- 3 -->
+
+            <!-- 4 -->
+            <h5 class="col-title">{{language.getLabel('weight')}}</h5>
+            <div class="categories">
+                <p>
+                    <input name="group1" type="checkbox" id="cat-7" />
+                    <label for="cat-7">{{language.getLabel('less_than')}} <label>100</label> {{language.getLabel('quintal')}} <label>(11)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-8" />
+                    <label for="cat-8"> <label>101</label> {{language.getLabel('quintal')}} {{language.getLabel('to')}} <label>1.0</label> {{language.getLabel('ton')}} <label>(5)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-9" />
+                    <label for="cat-9"><label>1.1</label> {{language.getLabel('ton')}} {{language.getLabel('to')}} <label>2</label> {{language.getLabel('ton')}} <label>(2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-10" />
+                    <label for="cat-10"><label>2.1</label> {{language.getLabel('ton')}} {{language.getLabel('to')}} <label>3</label> {{language.getLabel('ton')}} <label>(2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-16" />
+                    <label for="cat-16"><label>3.1</label> {{language.getLabel('ton')}} {{language.getLabel('to')}} <label>4</label> {{language.getLabel('ton')}} <label>(2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-17" />
+                    <label for="cat-17"><label>4.1</label> {{language.getLabel('ton')}} {{language.getLabel('to')}} <label>5</label> {{language.getLabel('ton')}} <label>(2)</label> </label>
+                </p>
+
+                <p>
+                    <input name="group1" type="checkbox" id="cat-18" />
+                    <label for="cat-18">{{language.getLabel('more_than')}} <label>5</label> {{language.getLabel('ton')}} <label>(4)</label> </label>
+                </p>
+            </div>
+            <!-- 4 -->
+        </form>
+    </div>
+    <!--/.Sorting: checkbox-->
+</div>
