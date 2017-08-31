@@ -1,5 +1,5 @@
 <!-- header -->
-<header [ngClass]="theme.themeColor">
+<header >
 
     <!-- top-->
     
@@ -23,13 +23,13 @@
             <div class="col-md-3 col-xl-2 last">
                 <ul class="row float-right">
                     <li *ngIf="!isLoggedIn" class="nav-item">
-                        <a class="btn btn-border-warning custombtn"><i class="fa fa-mobile"></i> | {{language.getLabel('Download App')}}</a>
+                        <a class="btn btn-border-warning custombtn"><i class="fa fa-mobile"></i> | Download App</a>
                     </li>
-                    <li *ngIf="isLoggedIn" class="nav-item dropdown btn-group"> <a class="nav-link dropdown-toggle pr20" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ (userData?.fullName) ? userData?.fullName: userData?.username}}">{{language.getLabel('hello')}} {{ (userData?.fullName) ? (userData?.fullName | truncate : 13 : "…"): (userData?.username | truncate : 13 : "…")}}</a>
+                    <li *ngIf="isLoggedIn" class="nav-item dropdown btn-group"> <a class="nav-link dropdown-toggle pr20" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ (userData?.fullName) ? userData?.fullName: userData?.username}}">hello {{ (userData?.fullName) ? (userData?.fullName | truncate : 13 : "…"): (userData?.username | truncate : 13 : "…")}}</a>
                         <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" [routerLink]="['/crops/mycrops']">{{language.getLabel('my_dashboard')}}</a>
-                            <a class="dropdown-item">{{language.getLabel('profile')}}</a>
-                            <a class="dropdown-item" (click)="logout()">{{language.getLabel('logout')}}</a>
+                            <a class="dropdown-item" [routerLink]="['/crops/mycrops']">my dashboard</a>
+                            <a class="dropdown-item">profile</a>
+                            <a class="dropdown-item" (click)="logout()">logout</a>
                         </div>
                     </li>
                     <!-- <li *ngIf="isLoggedIn" class="nav-item mt-2 relative">
@@ -44,7 +44,7 @@
     <!-- middle bar -->
 
     <!-- main navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark blue " [ngClass]="theme.mainNavbar">
+    <nav class="navbar navbar-toggleable-md navbar-dark ">
         <div class="container-fluid">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bottomnav" aria-controls="bottomnav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,19 +55,19 @@
             <div class="collapse navbar-collapse" id="bottomnav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/']"> <span><i class="fa fa-home" aria-hidden="true"></i></span> {{language.getLabel('Home')}}</a>
+                        <a class="nav-link" [routerLink]="['/']"> <span><i class="fa fa-home" aria-hidden="true"></i></span> Home</a>
                     </li>
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/aboutus']"> <span><i class="fa fa-info-circle" aria-hidden="true"></i></span> {{language.getLabel('About us')}}</a>
+                        <a class="nav-link" [routerLink]="['/aboutus']"> <span><i class="fa fa-info-circle" aria-hidden="true"></i></span> About us</a>
                     </li>
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/trainors']"> <span><i class="fa fa-user" aria-hidden="true"></i></span> {{language.getLabel('Trainors')}}</a>
+                        <a class="nav-link" [routerLink]="['/trainors']"> <span><i class="fa fa-user" aria-hidden="true"></i></span> Trainors</a>
                     </li>
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/category']"> <span><i class="fa fa-retweet" aria-hidden="true"></i></span> {{language.getLabel('Category')}}</a>
+                        <a class="nav-link" [routerLink]="['/category']"> <span><i class="fa fa-retweet" aria-hidden="true"></i></span> Category</a>
                     </li>
                     <li class="nav-item dropdown btn-group">
-                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> {{language.getLabel('account')}}</a>
+                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> account</a>
                         <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" [routerLink]="['/login']">login</a>
                             <a class="dropdown-item" [routerLink]="['/register']">registeration</a>
@@ -89,20 +89,25 @@
 <router-outlet></router-outlet>
 
 <!--Footer-->
-<footer class="page-footer center-on-small-only" [ngClass]="theme.themeColor">
+<footer class="page-footer center-on-small-only" >
 
     <!--Footer Links-->
     <div class="container-fluid">
         <div class="row">
 
             <!--first column-->
-            <div class="col-md-4">
-                <h5 class="title">{{language.getLabel('help')}}</h5>
+            <div class="col-md-3">
+                <h5 class="title">Help</h5>
                 <ul>
-                    <li><a href="javascript:void(0);">{{language.getLabel('payments')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('saved_cards')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('shipping')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('faq')}}</a></li>
+
+
+
+
+
+                    <li><a href="javascript:void(0);">My Accounts</a></li>
+                    <li><a href="javascript:void(0);">About Us</a></li>
+                    <li><a href="javascript:void(0);">Services</a></li>
+                    <li><a href="javascript:void(0);">Contact Us</a></li>
                 </ul>
             </div>
             <!--/.first column-->
@@ -110,27 +115,49 @@
             <hr class="hidden-md-up">
 
             <!--second column-->
-            <div class="col-md-4">
-                <h5 class="title">{{language.getLabel('Fitness24')}}</h5>
+            <div class="col-md-3">
+                <h5 class="title">Fitness24</h5>
                 <ul>
-                    <li><a href="javascript:void(0);">{{language.getLabel('contact_us')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('about_us')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('career')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('press')}}</a></li>
+                    <li><a href="javascript:void(0);">Terms and Conditions</a></li>
+                    <li><a href="javascript:void(0);">Career</a></li>
+                    <ul class="address">
+                                <li>
+                                    
+                                    <span>Address</span>
+                                </li>
+
+                                <li>
+                                     <i class="fa fa-map-marker"></i>
+                                    <span>Delhi Ncr</span><br/>
+                                    <i class="fa fa-phone"></i>
+                                    <span>+918707025813</span>
+                                </li>
+
+                                
+                            </ul>
                 </ul>
             </div>
             <!--/.second column-->
 
             <!--three column-->
-            <div class="col-md-4">
-                <h5 class="title">{{language.getLabel('policies')}}</h5>
-                <ul>
-                    <li><a href="javascript:void(0);">{{language.getLabel('terms_of_use')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('security')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('privacy')}}</a></li>
-                    <li><a href="javascript:void(0);">{{language.getLabel('infringement')}}</a></li>
-                </ul>
-            </div>
+            <div class="col-md-6">
+                        
+                            <h4 class="title">Subscribe to our Newsletter</h4>
+                            <div class="newsletter-box">
+
+                                <form class="subscribe-form" action="#">
+                                    <i class="fa fa-envelope"></i>
+                                    <input class="email" type="text" name="email" placeholder="Enter Your E-mail Address">
+                                    <input class="custom-btn subscribe" type="submit" value="Subscribe">
+                                </form>
+                                <p class="privecy-policy">
+                                    <i class="fa fa-lock"></i>
+                                    Your e-mail address safe from 100% spam (<a href="#">privecy policy</a>)
+                                </p>
+                            </div><!-- /.newsletter-box --> 
+                       
+                    </div><!-- /.col-md-6 -->
+
             <!--/.three column-->
 
         </div>
@@ -152,7 +179,7 @@
                     </div>
                     <!--/.Social buttons-->
                 </div>
-                <div class="col-md-6 text-right"> {{language.getLabel('all_rights_reserved')}} | © 2017 Fitness24.com
+                <div class="col-md-6 text-right">All Rights Reserved | © 2017 Fitness24.com
                     <a href="javascript:void(0);"> </a>
                 </div>
             </div>

@@ -6931,7 +6931,7 @@ footer.page-footer .footer-copyright ul li a {
 	-moz-border-radius: 34px;
 }
 footer.page-footer a {
-	color: #f1cea9;
+	color: #fff;
 	font-size: 14px;
 	font-weight: 600;
 }
@@ -6941,7 +6941,7 @@ footer.page-footer .call-to-action {
 	padding-bottom: .5rem
 }
 footer.page-footer ul li {
-	border-bottom: 1px solid #be7126;
+	border-bottom: 1px solid #fff;
 	line-height: 37px;
 }
 footer.page-footer ul li:last-child {
@@ -7432,11 +7432,11 @@ body.scrollable {
 }
 /* custom */
 .custombtn {
-	color: #e37408 !important;
+	color: #43aea8 !important;
 	margin: 0;
 	padding: 0.55rem 2.13rem;
 	box-shadow: none;
-	border: 2px solid #e37408;
+	border: 2px solid #43aea8;
 	font-weight: 700;
 	font-size: 17px;
 	text-transform: capitalize;
