@@ -6901,7 +6901,7 @@ header .view {
 }
 footer.page-footer {
 	margin-top: 20px;
-	padding-top: 20px;
+	padding-top: 3px;
 	background-color: #b95f07;
 	color: #fff
 }

@@ -1,6 +1,6 @@
 <!--Main layout-->
 <main>
-    <div class="container-fluid">
+   
         <!--row-->
         <div class="row">
             <div class="col-md-12 pl-0 pr-0">
@@ -80,13 +80,138 @@
         <!--row-->
 
         <!-- row -->
+       
+   <div class="container-fluid">
+    <div class="card">
+        <section id="we-do" class="carousel-inner ">
+    <div class="section-padding" >
+
+     
+        <h3 class="section-title"><span>Our</span><br>Services</h3>
+       <!-- /.head-section -->
+
+       <div [swiper]="config" (indexChange)="onIndexChange($event)" class="swiper-container">
+        <div class="swiper-wrapper"  >
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="imageblock">
+                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                </div>
+                <div class="card-block-h">
+                  <h4 class="card-title"><a href="#">Item Two</a></h4>
+                  <h5>$24.99</h5>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    </div><!-- /.section-padding -->
+  </section>
+
+  <section id="pro-trainer">
+      <h3 class="section-title"><span>Why Choose Our</span><br>Services</h3>
+        <div class="container">
+          
+            <div class=" text-center">
+              <div class="card-header ">
+                <h4 class="card-title">Featured Services</h4>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title">Special title treatment</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+             <div class="card-header">
+                ....
+              </div>
+            </div>
+          
+        </div>
+      
+   
+
+   
+     <h3 class="section-title"><span>Client</span><br>Gallery</h3><br/>
+ 
+  
+   
+      <ul class="slides">
+        <ngx-gallery class="gallery" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+      </ul>
+
+    
+    
+     </section>
+     </div>
+</div>
         <div class="row my-2">
 
+
+
+
             <!-- col-lg-3 -->
-            <div class="col-lg-12">
-                <div class="list-group minh85">
-               
-                    <h3 class="text-center pt-35">Coming Soon</h3>
+           
+
 
                     <!--Sorting: checkbox-->
                     <!--<div class="card sort-panel text-center"> 
@@ -143,8 +268,7 @@
             
           </div>
           <!--/.Sorting: checkbox-->
-                </div>
-            </div>
+               
             <!-- col-lg-3 -->
 
             <!-- col-lg-9-->
@@ -375,6 +499,7 @@
             <!-- col-lg-9-->
         </div>
         <!-- row -->
-    </div>
+        
+   
 </main>
 <!--/Main layout-->

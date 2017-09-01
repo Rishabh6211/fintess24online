@@ -9,15 +9,29 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 import { SlickModule } from 'ngx-slick';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { NgxGalleryModule } from 'ngx-gallery';
+
+const SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  threshold: 50,
+  spaceBetween: 3,
+  slidesPerView: 3,
+  centeredSlides: true,
+  keyboardControl: true
+};
 
 @NgModule({
 	imports: [
 	    CommonModule,
 	    FormsModule,
-		CustomFormsModule,
+		  CustomFormsModule,
 	    HomeRoutingModule,
-        SharedModule,
-        SlickModule.forRoot()   
+      SharedModule,
+      NgxGalleryModule,
+      SlickModule.forRoot(),
+      SwiperModule.forRoot(SWIPER_CONFIG),  
 	],
 	declarations: [HomeComponent]
 })

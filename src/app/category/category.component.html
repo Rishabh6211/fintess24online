@@ -4,20 +4,21 @@
 				Photo Gallery section star 	  =
 		======================================= -->
 		<!-- Portfolio Section -->
+	<div class="card">
 		<section id="feature-product-Gallery" class="features-product-Gallery">
 			<div class="container">
-				<div class="row">
+				
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#yoga" aria-controls="yoga" role="tab" data-toggle="tab">Yoga</a></li>
-						<li role="presentation"><a href="#Accupressure" aria-controls="Accupressure" role="tab" data-toggle="tab">Accupressure</a></li>
-						<li role="presentation"><a href="#Accupenture" aria-controls="Accupenture" role="tab" data-toggle="tab">Accupenture</a></li>
-						<li role="presentation"><a href="#marmtherapy" aria-controls="marmtherapy" role="tab" data-toggle="tab">Marm Therapy</a></li>
-						<li role="presentation"><a href="#ayurvedtherapy" aria-controls="ayurvedtherapy" role="tab" data-toggle="tab">Ayurved Therapy</a></li>
-						<li role="presentation"><a href="#physiotherapy" aria-controls="physiotherapy" role="tab" data-toggle="tab">Physiotherapy</a></li><br/><br/>
-						<li role="presentation"><a href="#massagetherapy" aria-controls="massagetherapy" role="tab" data-toggle="tab">Massage therapy</a></li>
+						<li role="presentation" (click)="setTab('Accupressure')"><a href="#Accupressure" aria-controls="Accupressure" role="tab" data-toggle="tab">Accupressure</a></li>
+						<li role="presentation" (click)="setTab('Accupenture')"><a href="#Accupenture" aria-controls="Accupenture" role="tab" data-toggle="tab">Accupenture</a></li>
+						<li role="presentation" (click)="setTab('marmtherapy')"><a href="#marmtherapy" aria-controls="marmtherapy" role="tab" data-toggle="tab">Marm Therapy</a></li>
+						<li role="presentation" (click)="setTab('ayurvedtherapy')"><a href="#ayurvedtherapy" aria-controls="ayurvedtherapy" role="tab" data-toggle="tab">Ayurved Therapy</a></li>
+						<li role="presentation" (click)="setTab('physiotherapy')"><a href="#physiotherapy" aria-controls="physiotherapy" role="tab" data-toggle="tab">Physiotherapy</a></li><br/><br/>
+						<li role="presentation" (click)="setTab('massagetherapy')"><a href="#massagetherapy" aria-controls="massagetherapy" role="tab" data-toggle="tab">Massage therapy</a></li>
 					</ul>
-				</div>
+				
 
 					<!-- Tab panes -->
 					<div class="tab-content">
@@ -1290,7 +1291,9 @@
 								</div><!-- /.image-box -->
 							</div><!-- /.col-sm-3 col-md-3 -->
 						</div><!-- end tabpanel -->
+					</div>
 						<div role="tabpanel" class="tab-pane" id="physiotherapy">
+						<div class="row">
 							<div class="col-xs-6 col-sm-4 col-md-3">
 								<div class="f-product-box">
 									<div class="box-img">
@@ -1715,4 +1718,4 @@
 				
 			</div><!-- end container -->
 		</section>
-
+		</div>

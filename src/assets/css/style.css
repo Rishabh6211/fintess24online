@@ -614,7 +614,7 @@
 	}
 	.loginbox h2, .registerbox h2 {
 		font-size: 28px;
-		color: #1b750f;
+		color: #43aea8;
 		font-weight: 600;
 	}
 	.loginbox .btn-block + .btn-block {
@@ -3202,6 +3202,12 @@
 		padding: 1.15rem;
 	}
 
+	.card-block-h {
+		-moz-box-flex: 1;
+		flex: 1 1 auto;
+		padding: 1.25rem;
+		background: #f7f7f9
+	}
 	.card-block {
 		-moz-box-flex: 1;
 		flex: 1 1 auto;
@@ -3866,7 +3872,7 @@
 	background-color: #43aea8;
 }
 .section-padding{
-	padding: 90px 0;
+	padding: 40px 0;
 }
 /* trainer */
 .image-des .image-box-title a,
@@ -4532,6 +4538,7 @@ Class grid
 	border-bottom: none;
 	text-align: center;
 	margin-bottom: 60px;
+	
 }
 .features-product-Gallery .nav-tabs>li.active>a,
 .features-product-Gallery .nav-tabs>li.active>a:focus,
@@ -4555,14 +4562,17 @@ Class grid
 	-o-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+
 }
 .features-product-Gallery .nav>li>a {
 	padding: 10px 20px;
+	padding-right: 32px;
 }
 .features-product-Gallery .nav-tabs>li {
 	float: none;
 	margin-bottom: 0;
 	display: inline-block;
+	
 }
 .features-product-Gallery .f-product-box {
 	padding-top: 0px;
@@ -5006,7 +5016,173 @@ bootstrap.min.css:6
 .privecy-policy a{
 	color: #43aea8;
 }
+/*we do*/
 
+#we-do {
+	background-color: #fff;
+	margin-top: 35px;
+}
+#we-do .head-section {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding-bottom: 60px;
+}
+.photo-Gallery {
+	max-width: 1920px;
+	margin: 0 auto;
+	position: relative;
+}
+/*.swiper-container-we-do:before {
+	content:"";
+	position: absolute;
+	width: 6.5%;
+	height: 96%;
+	background-color: rgba(247,247,247,0.9);
+	left: 0;
+	z-index: 99;
+}
+.swiper-container-we-do:after {
+	content:"";
+	position: absolute;
+	width: 6.5%;
+	height: 96%;
+	background-color: rgba(247,247,247,0.9);
+	right: 0;
+	top: 0;
+	z-index: 99;
+}*/
+.swiper-container-we-do {
+	width: 100%;
+	height: auto;
+	margin: 20px auto;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+}
+.swiper-container-we-do .swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	width: 20% !important;
+}
+.swiper-image {
+	display: block;
+}
+
+.swiper-image img{
+	width: 100%;
+}
+.swiper-container-we-do .swiper-slide h3 {
+	display: block;
+	color: #161616;
+	font-size: 20px;
+	padding-top: 25px;
+	padding-bottom: 20px;
+}
+.swiper-container-horizontal>.swiper-scrollbar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	z-index: 50;
+	height: 16px;
+	width: 100%;
+	z-index: 1;
+	background-color: #2098d1;
+	opacity: 1;
+}
+.swiper-scrollbar-drag {
+	background-color: #43aea8;
+	height: 12px;
+	top: 2px;
+}
+.superss-1 {
+	width: 3000px;
+}
+#qoute{
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-top: 16px;
+	margin-bottom: -16px;
+}
+#qoute .sliding-area{
+	max-width: 970px;
+	width: 100%;
+	margin: 140px auto;
+	background-color: rgba(255,255,255,0.8);
+	overflow: hidden;
+}
+#qoute .slides li{
+	text-align: center;
+	list-style: none;
+}
+#qoute .slides li .qoute-icon{
+	width: 90px;
+	height: 90px;
+	background-color: #43aea8;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+	line-height: 90px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 35px;
+}
+#qoute .slides li > p {
+	font-size: 18px;
+	font-style: italic;
+	color: #767676;
+	padding: 30px 100px;
+	line-height: 32px;
+	font-family: 'Open sans', sans-serif;
+	font-weight: 700;
+}
+#qoute .slides li .qouter-name{
+	margin-top: 8px;
+	margin-bottom: 6px;
+}
+#qoute .slides li .qouter-name a{
+	font-size: 24px;
+	color: #43aea8;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+#qoute .slides li .exertness{
+	font-size: 16px;
+	color: #767676;
+	margin-top: 0px;
+}
+#qoute .flex-control-thumbs{
+	width: 35%;
+	margin: 0 auto;
+	padding-top: 45px;
+}
+#qoute .flex-control-thumbs li{
+	width: 33.3334%;
+	float: left;
+	list-style: none;
+	/*position: relative;*/
+}
+.flexslider:hover .flex-direction-nav .flex-next {
+	opacity: 0;
+}
+.flexslider:hover .flex-direction-nav .flex-prev {
+	opacity: 0;
+}
+.flexslider .flex-direction-nav .flex-next {
+	opacity: 0;
+}
+.flexslider .flex-direction-nav .flex-prev {
+	opacity: 0;
+}
+#qoute .flexslider{
+	border: none;
+}
+.gallery
+{
+	display: inherit !important;
+}
 
 /*Form Wizard*/
 .bs-wizard {margin-top:5px;}
