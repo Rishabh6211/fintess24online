@@ -15,18 +15,18 @@ export class LoginService {
 
     	let headers           = new Headers();
         
-        let username:string   = user.username;
+        let email:string   = user.email;
         let password:string   = user.password;
         
         headers.append('Content-Type', 'application/json');
 
         let body = {
-            'username': username,
+            'email': email,
             'password': password,            
-            'client_id': tsConstants.CLIENT_ID
+            
         }
 
-        return this._http.post(this._host +'/users/signin', body, { headers: headers }).map((res:Response) => res.json())
+        return this._http.post(this._host +'/auth/login', body, { headers: headers }).map((res:Response) => res.json())
     }
     forgotPassword(emailID) {
 

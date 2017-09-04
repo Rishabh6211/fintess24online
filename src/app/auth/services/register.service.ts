@@ -48,7 +48,7 @@ export class RegisterService {
 
 
 
-        urlSearchParams.append('client_id', tsConstants.CLIENT_ID);
+       
 
         let body = urlSearchParams.toString()
 		

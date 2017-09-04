@@ -5,8 +5,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from "angular2-social-login";
 
 import { SharedService } from '../shared/services/shared.service';
-import { LanguageService } from '../shared/services/language.service';
-import { LanguageInterface } from '../shared/classes/language-interface';
+
 
 declare var jQuery:any;
 
@@ -25,7 +24,7 @@ import { TruncatePipe } from '../shared/pipes/truncate.pipe';
 export class FullLayoutComponent implements OnInit {
     
     public ticketCount:number = 0;
-    public language: LanguageInterface = new LanguageInterface;
+    
 
     public navigation: boolean = false;
     public isLoggedIn: boolean = false;
@@ -50,12 +49,9 @@ export class FullLayoutComponent implements OnInit {
             private _router: Router,
             private _sharedService: SharedService,
             private _cookieService: CookieService,
-            private _languageService: LanguageService,
+          
             private _cd: ChangeDetectorRef ) { 
 
-        this._languageService.language.subscribe(language => {
-            this.language.setLabels(language);
-        });
         
         this._router.events.subscribe(path => {
             
@@ -84,18 +80,22 @@ export class FullLayoutComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        console.log("this",this.isLoggedIn)
         if(  this._router.url === '/home' ){
             this.navigation = true;
         }
-
-        let keyword = localStorage.getItem("lang");
+        
+        if( this._cookieService.get('token')){
+            this.isLoggedIn = true;
+            this.userData   = this._cookieService.getObject('userData');
+        }
+        
         // this.setLanguage(keyword);
-        this._languageService.getLanguage();
+     
     }
 
     setData(): void {
-        if( this._cookieService.get('accesstoken')){
+        if( this._cookieService.get('token')){
             this.isLoggedIn = true;
             this.userData   = this._cookieService.getObject('userData');
         }
@@ -159,8 +159,12 @@ export class FullLayoutComponent implements OnInit {
             jQuery('.navbar-collapse').collapse('hide');
         });               
     }
- 
-    setLanguage( keyword ){
-        this._languageService.setLanguage(keyword);
+
+    toggleDropdownMenu( dropdownID ) {
+        console.log("dropdownID ", dropdownID);
+        let id = "#"+dropdownID;
+        jQuery(id).toggleClass('show');
     }
+ 
+ 
 }

@@ -38,7 +38,7 @@
                         <div class="md-form has-required">
                             <label for="form2" [ngClass]="{'active': hasUser}">Email</label>
                             <i class="fa fa-envelope prefix"></i>
-                            <input type="email" name="username" #username="ngModel" [(ngModel)]="normalUser.username" id="form2" class="form-control" email required />
+                            <input type="email" name="username" #username="ngModel" [(ngModel)]="normalUser.email" id="form2" class="form-control" email required />
 
                             <div class="error-block">
                                 <small *ngIf="username.errors?.required && username.touched" class="text-danger">

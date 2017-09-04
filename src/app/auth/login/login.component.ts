@@ -13,8 +13,7 @@ import * as Materialize from "angular2-materialize";
 import tsConstants = require('../../shared/config/tsconstant');
 import tsMessages  = require('../../shared/config/tsmessage');
 
-import { LanguageService } from '../../shared/services/language.service';
-import { LanguageInterface } from '../../shared/classes/language-interface';
+
 
 import { SharedService } from '../../shared/services/shared.service';
 
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     public rememberMe = true;
     public hasUser    = false;
-    public language: LanguageInterface = new LanguageInterface;
+
 
     // birthdate: any;
 
@@ -51,12 +50,9 @@ export class LoginComponent implements OnInit, OnDestroy {
                 private _cookieService: CookieService,
                 private _cd: ChangeDetectorRef,
                 private _flashMessagesService: FlashMessagesService,
-                private _sharedService: SharedService,                
-                private _languageService: LanguageService ) {
+                private _sharedService: SharedService ) {
 
-                this._languageService.language.subscribe(language => {
-                    this.language.setLabels(language);
-                });
+               
 
     }
 
@@ -64,8 +60,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         this.checkRememberMe();
         
-        let keyword = localStorage.getItem("lang");
-        this._languageService.getLanguage();
   	} 
 
   	ngOnDestroy(){
@@ -73,7 +67,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   
 
     login(): void {  
-        
+        console.log("here");
+
 
         this.isError   = false;
         this.isSuccess = false;        
@@ -93,33 +88,31 @@ export class LoginComponent implements OnInit, OnDestroy {
             if( res.success ){
                 //redirect to home. 
                  let tempData = {
-                        "id" : res.data.id,
-                        "firstName" :res.data.firstName,
-                        "lastName" :res.data.lastName,
-                        "username" :res.data.username,
-                        "mobile" :res.data.idmobile,
-                        "address" :res.data.address,
-                        "city" :res.data.city,
-                        "pincode" :res.data.pincode,
-                        "state" :res.data.state,
-                        "district" :res.data.district,
-                        "country" :res.data.idcountry,
-                        "fullName" :res.data.fullName,
-                        "email" :res.data.emaild
+                        "id" : res.user[0].id,
+                      
+                        "username" :res.user[0].username,
+                        "phone" :res.user[0].idmobile,
+                        "address" :res.user[0].address,
+                        "city" :res.user[0].city,
+                        "pincode" :res.user[0].pincode,
+                        "state" :res.user[0].state,
+                        "district" :res.user[0].district,
+                      
+                        "email" :res.user[0].emaild
                  };
 
                 
                 this.isloading = false;                
-                this._cookieService.put('accesstoken', res.data.access_token);
+                this._cookieService.put('token', res.user[0].token);
                 
                 this._cookieService.putObject('userData', tempData);
                 this._cd.markForCheck(); 
 
-                this._sharedService.showToast(this.language.getLabel('login_successful'), tsConstants.COLOR_SUCESS);
+                this._sharedService.showToast(('login_successful'), tsConstants.COLOR_SUCESS);
                 
                 this._router.navigate(['/']);                
             }else{
-                this._sharedService.showToast(this.language.getLabel("WRONG_PASSWORD"), tsConstants.COLOR_DANGER);
+                this._sharedService.showToast(("WRONG_PASSWORD"), tsConstants.COLOR_DANGER);
                 
                 //show error messgae.                 
                 this.isloading = false;
@@ -141,8 +134,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
     }
 
-    setLanguage( keyword ){
-        this._languageService.setLanguage(keyword);
-    }  
+  
 
 }/* class ends */

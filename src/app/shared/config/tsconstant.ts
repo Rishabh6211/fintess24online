@@ -3,10 +3,10 @@
 export const SEP='/';
 
 /*API credentials */
-// export const HOST: string       = "http://52.39.212.226:4069";
-export const HOST: string       = "http://52.39.212.226:4071";
-export const CLIENT_ID: string  = '5x7EuN09HAeBn2pYJnvvq7szgJaULh14';
-export const GRANT_TYPE: string = 'password';
+ //export const HOST: string       = "http://fitnessapis.herokuapp.com";
+export const HOST: string       = "http://localhost:1337";
+//export const CLIENT_ID: string  = '5x7EuN09HAeBn2pYJnvvq7szgJaULh14';
+//export const GRANT_TYPE: string = 'password';
 
 
 /* Social login  credentials */
