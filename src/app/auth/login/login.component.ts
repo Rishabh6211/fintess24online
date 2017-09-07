@@ -101,9 +101,11 @@ export class LoginComponent implements OnInit, OnDestroy {
                         "email" :res.user[0].emaild
                  };
 
-                
+                console.log("tempdata", tempData);
                 this.isloading = false;                
-                this._cookieService.put('token', res.user[0].token);
+                this._cookieService.put('token', res.token);
+
+                console.log("Token ", res.token); 
                 
                 this._cookieService.putObject('userData', tempData);
                 this._cd.markForCheck(); 

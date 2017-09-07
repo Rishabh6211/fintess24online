@@ -36,12 +36,12 @@ export class FullLayoutComponent implements OnInit {
     public status:{isopen:boolean} = {isopen: false};
 
 
-    public theme: object = {
+    /*public theme: object = {
         themeColor: '',
         topNavbar: '',
         mainNavbar: 'orange'       
 
-    };   
+    };   */
 
     
     constructor(        
@@ -69,7 +69,7 @@ export class FullLayoutComponent implements OnInit {
             this.setData();
 
             /*set theme */
-            this.setTheme(path.url);
+            //this.setTheme(path.url);
 
             /*close menu.*/
             this.closeMenu();   
@@ -98,6 +98,7 @@ export class FullLayoutComponent implements OnInit {
         if( this._cookieService.get('token')){
             this.isLoggedIn = true;
             this.userData   = this._cookieService.getObject('userData');
+            console.log("cook", this.userData)
         }
     }
 
@@ -122,7 +123,7 @@ export class FullLayoutComponent implements OnInit {
     }
 
     /*set theme function*/
-    setTheme( route ): void {
+   /* setTheme( route ): void {
         
         if( route.includes("crops") ) {
 
@@ -149,7 +150,7 @@ export class FullLayoutComponent implements OnInit {
             this.theme['mainNavbar'] = 'orange';
             
         }
-    }
+    }*/
 
     closeMenu() {
         jQuery('.dropdown-menu a').click(function(){
