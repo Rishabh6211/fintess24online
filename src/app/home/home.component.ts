@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
          pagination: '.swiper-pagination',
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
-    slidesPerView: 3,
+    slidesPerView: 4,
     centeredSlides: false,
     paginationClickable: true,
     spaceBetween: 30,

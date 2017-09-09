@@ -389,6 +389,7 @@
 	}
 	.middlenavbar .flex .form-control {
 		margin-bottom: 0;
+		margin-top: 13px;
 	}
 	.flex .btn:focus {
 		border: 1px solid #1b750f !important;
@@ -471,7 +472,7 @@
 		font-weight: 600;
 		line-height: 20px;
 		padding: 0.55rem 0.8rem;
-		margin-top: 7px;
+		margin-top: 16px;
 		margin-right: 10px;
 		margin-left: 10px;
 	}
@@ -939,7 +940,7 @@
 		color: #fff !important;
 	}
 	.middlenavbar .input-group-btn .btn {
-		margin: 0 -1px 0 0;
+		margin: 13px -1px 0 0;
 	}
 	.button-collapse {
 		color: #787878;

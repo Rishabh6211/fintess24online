@@ -14,8 +14,7 @@ import * as Materialize from "angular2-materialize";
 
 import tsConstants = require('../../shared/config/tsconstant');
 
-import { LanguageService } from '../../shared/services/language.service';
-import { LanguageInterface } from '../../shared/classes/language-interface';
+
 
 
 import { User } from  '../model/user'
@@ -36,10 +35,9 @@ export class RegisterComponent implements OnInit {
     public user1:User;
 
     public user  = {
-                            firstName:"",
-                            lastName:"",
+                            username:"",                        
                             email:"",
-                            mobile:"",
+                            phone:"",
                             password:"",
                             confirmPassword:"",
                             city:"",
@@ -49,7 +47,7 @@ export class RegisterComponent implements OnInit {
                             address:"",
                         };
 
-    public language: LanguageInterface = new LanguageInterface;
+
 
     constructor( 
         private _router: Router, 
@@ -57,13 +55,10 @@ export class RegisterComponent implements OnInit {
         private _sharedService: SharedService,
         private _cd: ChangeDetectorRef,
         private _cookieService: CookieService,
-        private _flashMessagesService: FlashMessagesService,
-        private _languageService: LanguageService  ) {
+        private _flashMessagesService: FlashMessagesService
+         ) {
 
-            this._languageService.language.subscribe(language => {
-                    this.language.setLabels(language);
-                });
-
+            
     }
 
     ngOnInit() {
@@ -71,10 +66,12 @@ export class RegisterComponent implements OnInit {
         // this.states = this.temp.data;
         this._sharedService.getStates().subscribe(res => {
             this.isloading  = false;
-            if( res.success ) {
-                this.states = res.data;                
+            console.log("res",res);
+            if( res ) {
+                this.states = res;   
+
             }else{
-                this._sharedService.showToast(this.language.getLabel(res.error.message), tsConstants.COLOR_DANGER);                
+                this._sharedService.showToast("server error", tsConstants.COLOR_DANGER);                
             }
             this._cd.markForCheck();
         },
@@ -83,20 +80,21 @@ export class RegisterComponent implements OnInit {
             this._sharedService.checkAccessToken(err, false);
         });
 
-        let keyword = localStorage.getItem("lang");
-        this._languageService.getLanguage();  
+        
     }
 
     register(): void {
         this._sharedService.sendToTop();
-
+        this.isloading = true; 
         this._registerService.postUser(this.user).subscribe( res => {
+             
              if( res.success ){
-                //redirect to home.                 
-                this._sharedService.showToast(this.language.getLabel('successfully_registered'), tsConstants.COLOR_SUCESS);
+                //redirect to home.
+
+                this._sharedService.showToast('successfully_registered', tsConstants.COLOR_SUCESS);
                 this._router.navigate(['/login']);                
             }else{                
-                this._sharedService.showToast(this.language.getLabel("email_already_exist"), tsConstants.COLOR_DANGER);    
+                this._sharedService.showToast("email_already_exist", tsConstants.COLOR_DANGER);    
                 
                 this._cd.markForCheck();
                 this._sharedService.sendToTop();
@@ -124,7 +122,5 @@ export class RegisterComponent implements OnInit {
         this._cd.detectChanges();
     }
 
-    setLanguage( keyword ){
-        this._languageService.setLanguage(keyword);
-    }
+   
 }

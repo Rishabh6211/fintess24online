@@ -15,36 +15,29 @@ export class RegisterService {
 
 		let headers   = new Headers();
                 
-		let firstName = user.firstName;
-		let lastName  = user.lastName;
-		let mobile    = user.mobile;
-		let username  = user.email;
+		let username  = user.username;
+		let email     = user.email
+		let phone     = user.phone;
 		let password  = user.password;
 		let city      = user.city;
 		let district  = user.district;
 		let state     = user.state;
 		let pincode   = user.pincode;
 		let address   = user.address;
-		let domain    = 'web';
-		let lat       = '0';
-		let lng       = '0';
+		
         
         let urlSearchParams   = new URLSearchParams();
         
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        urlSearchParams.append('firstName', firstName); 
-		urlSearchParams.append('lastName', lastName); 
-		urlSearchParams.append('mobile', mobile); 
-		urlSearchParams.append('username', username); 
+        urlSearchParams.append('username', username); 
+		urlSearchParams.append('email', email); 
+		urlSearchParams.append('phone', phone); 
 		urlSearchParams.append('password', password); 
 		urlSearchParams.append('city', city); 
 		urlSearchParams.append('district', district ); 
 		urlSearchParams.append('state', state); 
 		urlSearchParams.append('pincode', pincode); 
 		urlSearchParams.append('address', address); 
-		urlSearchParams.append('domain', domain); 
-		urlSearchParams.append('lat', lat); 
-		urlSearchParams.append('lng', lng); 
 
 
 
@@ -52,6 +45,7 @@ export class RegisterService {
 
         let body = urlSearchParams.toString()
 		
-        return this._http.post(this._host +'/users/signup', body, { headers: headers }).map((res:Response) => res.json())
+        return this._http.post(this._host +'/register', body, { headers: headers }).map((res:Response) => res.json())
 	}
+
 }

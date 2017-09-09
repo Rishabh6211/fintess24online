@@ -14,12 +14,12 @@
       <!--Form without header-->
       
       <div class="text-center">
-        <h2>{{language.getLabel('Stay Fit And Healthy')}}</h2>
-        <p>{{language.getLabel('already_have_an_account')}} <a [routerLink]="['/login']"> {{language.getLabel('login_here')}}</a></p>
+        <h2>Stay Fit And Healthy</h2>
+        <p>Already have an account ?<a [routerLink]="['/login']">Login here</a></p>
       </div>
       <div class="card"> 
         
-        <form role="form" #loginForm="ngForm" (ngSubmit)="register()">
+       <form role="form" #loginForm="ngForm" (ngSubmit)="register()">
           <div class="card-block">
             <div class="error-block text-center">
               <div class="alert alert-danger" *ngIf="errorMessage"> {{errorMessage}} </div>
@@ -27,155 +27,121 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="md-form has-required"> 
-                  <label for="firstName">{{language.getLabel('first_name')}}</label>
+                  <label for="username">Username</label>
                   <i class="fa fa-user prefix"></i>
-                  <input type="text" id="firstName" name="firstName" class="form-control" #firstName="ngModel" [(ngModel)]="user.firstName" (keydown.space)="$event.preventDefault()" onPaste="return false" onDrag="return false" onDrop="return false" required>
-                  <div class="error-block"> <small *ngIf="firstName.errors?.required && firstName.touched" class="text-danger"> {{language.getLabel('first_name_is_required')}} </small> </div>
+                  <input type="text" id="username" name="username" class="form-control" #username="ngModel" [(ngModel)]="user.username" onPaste="return false" onDrag="return false" onDrop="return false" required>
+                  <div class="error-block"> <small *ngIf="username.errors?.required && username.touched" class="text-danger"> Username is required </small> </div>
                 </div>
               </div>
-              <div class="col-md-6">
+               <div class="col-md-6">
                 <div class="md-form has-required">
-                  <label for="lastName">{{language.getLabel('last_name')}}</label>
-                  <i class="fa fa-user prefix"></i>
-                  <input type="text" id="lastName" name="lastName" class="form-control" #lastName="ngModel" [(ngModel)]="user.lastName" (keydown.space)="$event.preventDefault()" onPaste="return false" onDrag="return false" onDrop="return false" required>
-                  <div class="error-block"> <small *ngIf="lastName.errors?.required && lastName.touched" class="text-danger"> {{language.getLabel('last_name_is_required')}} </small> </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="md-form has-required">
-                  <label for="email">{{language.getLabel('email')}}</label>
+                  <label for="email">Email</label>
                   <i class="fa fa-envelope prefix"></i>
                   <input type="email" name="uEmail" id="uEmail" #uEmail="ngModel" [(ngModel)]="user.email" class="form-control" (keydown.space)="$event.preventDefault()" onPaste="return false" onDrag="return false" onDrop="return false" email required />
-                  <div class="error-block"> <small *ngIf="uEmail.errors?.required && uEmail.touched" class="text-danger"> {{language.getLabel('email_is_required')}} </small> <small *ngIf="uEmail.errors?.email && uEmail.touched" class="text-danger"> {{language.getLabel('email_is_not_valid')}} </small> </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="md-form has-required"> 
-                  <label for="mobile">{{language.getLabel('mobile')}}</label>
-                  <i class="fa fa-phone prefix"></i>
-                  <input type="text" id="mobile" name="mobile" class="form-control" #mobile="ngModel" [(ngModel)]="user.mobile" required="" minlength="10" maxlength="10" pattern="[0-9 ]*" required (keydown.space)="$event.preventDefault()" onPaste="return false" onDrag="return false"
-                                        onDrop="return false">
-                  <div class="error-block"> <small *ngIf="mobile.errors?.required && mobile.touched" class="text-danger"> {{language.getLabel('mobile_number_is_required')}} </small> <small *ngIf="(mobile.errors?.pattern || mobile.errors?.minlength) && mobile.touched" class="text-danger"> {{language.getLabel('enter_valid_mobile_number')}} </small> </div>
+                  <div class="error-block"> <small *ngIf="uEmail.errors?.required && uEmail.touched" class="text-danger">Email is required </small> <small *ngIf="uEmail.errors?.email && uEmail.touched" class="text-danger"> Email is not valid </small> </div>
                 </div>
               </div>
             </div>
-            <div class="row"> 
-              
-              <!--  <div class="col-md-6">
-                              <div class="md-form has-required">
-                                <i class="fa fa-lock prefix"></i>
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" #password="ngModel" [(ngModel)]="user.password" minlength="8" required validateEqual="confirmPassword" reverse="true">
-                                <div class="error-block">
-                                    <small *ngIf="password.errors?.required && password.touched" class="text-danger">
-                                        password is required.
-                                    </small>
-                                    <small *ngIf="password.errors?.minlength && password.touched" class="text-danger">
-                                        Password should be 8 characters.
-                                    </small>
-                                </div>
-                              </div>
-                            </div>
-                           
-                            <div class="col-md-6">
-                                <div class="md-form has-required">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <label for="confirmPassword">Confirm Password*</label>
-                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword" required validateEqual="password" />
-                                    <div class="error-block">
-                                        <small *ngIf="(confirmPassword.errors?.required  ) && confirmPassword.touched" class="text-danger">
-                                            Confirm Password is required.
-                                        </small>
-                                        <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !loginForm.submitted)" class="text-danger">
-                                            Password mismatch
-                                        </small>
-                                    </div>
-                                </div>
-                            </div> -->
-              
+             <div class="row">              
               <div class="col-md-6">
                 <div class="md-form has-required"> 
-                  <label for="password">{{language.getLabel('password')}}</label>
+                  <label for="password">Password</label>
                   <i class="fa fa-lock prefix"></i>
                   <input type="password" id="password" name="password" class="form-control" #password="ngModel" [(ngModel)]="user.password" minlength="8" required>
-                  <div class="error-block"> <small *ngIf="password.errors?.required && password.touched" class="text-danger"> {{language.getLabel('password_is_required')}} </small> <small *ngIf="password.errors?.minlength && password.touched" class="text-danger"> {{language.getLabel('password_should_be_8_characters')}} </small> </div>
+                  <div class="error-block"> <small *ngIf="password.errors?.required && password.touched" class="text-danger"> Password is required </small> <small *ngIf="password.errors?.minlength && password.touched" class="text-danger">Password should be 8 characters </small> </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="md-form has-required">
-                  <label for="confirmPassword">{{language.getLabel('confirm_password')}}*</label>
+                  <label for="confirmPassword">Confirm password</label>
                   <i class="fa fa-lock prefix"></i>
                   <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword" required [equalTo]="password" />
-                  <div class="error-block"> <small *ngIf="confirmPassword.errors?.required && confirmPassword.touched" class="text-danger"> {{language.getLabel('confirm_password_is_required')}} </small> <small *ngIf="(confirmPassword.errors?.equalTo && confirmPassword.touched)" class="text-danger"> {{language.getLabel('password_mismatch')}} </small> </div>
+                  <div class="error-block"> <small *ngIf="confirmPassword.errors?.required && confirmPassword.touched" class="text-danger"> Confirm password is required </small> <small *ngIf="(confirmPassword.errors?.equalTo && confirmPassword.touched)" class="text-danger">Password mismatch</small> </div>
                 </div>
               </div>
             </div>
             <div class="row">
+               <div class="col-md-6">
+                  <div class="md-form has-required">
+                      <i class="icon-state prefix"></i>
+                      <select [(ngModel)]="user.state" name="state" (change)="setDistrict();user.district='';" #state="ngModel" placeholder="" required>
+                          <option value="" selected>Select state</option>
+                          <option *ngFor="let state of states" [value]="state.stateName">{{state.stateName}}</option>
+                      </select>
+                      <div class="error-block">
+                          <small *ngIf="state.errors?.required && state.touched" class="text-danger">
+                                Please fill state
+                          </small>
+                      </div>
+
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                  <div class="md-form has-required">
+                      <i class="fa fa-map-marker prefix"></i>
+                      <select name="district" [(ngModel)]="user.district" [disabled]="!user.state" #district="ngModel" required>
+                          <option value="" selected>Select district</option>
+                          <option *ngFor="let district of districts" [value]="district.districtName">{{district.districtName}}</option>
+                      </select>
+                      <div class="error-block">
+                          <small *ngIf="district.errors?.required && district.touched" class="text-danger">
+                                  Please fill district
+                          </small>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="md-form has-required"> 
+                  <label for="phone">Mobile</label>
+                  <i class="fa fa-phone prefix"></i>
+                  <input type="text" id="phone" name="phone" class="form-control" #phone="ngModel" [(ngModel)]="user.phone" required="" minlength="10" maxlength="10" pattern="[0-9 ]*" required (keydown.space)="$event.preventDefault()" onPaste="return false" onDrag="return false" onDrop="return false">
+                  <div class="error-block"> <small *ngIf="phone.errors?.required && phone.touched" class="text-danger">Mobile number is required</small> <small *ngIf="(phone.errors?.pattern || phone.errors?.minlength) && phone.touched" class="text-danger">Enter valid mobile number</small> </div>
+                </div>
+              </div>
               <div class="col-md-6">
                 <div class="md-form"> 
-                  <label for="offer">{{language.getLabel('address')}}</label>
+                  <label for="offer">Address</label>
                   <i class="icon-address prefix"></i>
                   <input name="address" [(ngModel)]="user.address" #address="ngModel" type="text" id="offer" class="form-control">
-                  <div class="error-block"> <small *ngIf="address.errors?.required && address.touched" class="text-danger"> {{language.getLabel('please_fill_address')}} </small> </div>
+                  <div class="error-block"> <small *ngIf="address.errors?.required && address.touched" class="text-danger">Please fill address </small> </div>
                 </div>
               </div>
+            </div>
+           
+            <div class="row">
+              
               <div class="col-md-6">
                 <div class="md-form">
-                  <label for="city">{{language.getLabel('city_village')}}</label>
+                  <label for="city">City</label>
                   <i class="icon-city prefix"></i>
                   <input type="text" id="city" name="city" class="form-control" #city="ngModel" [(ngModel)]="user.city">
-                  <div class="error-block"> <small *ngIf="city.errors?.required && city.touched" class="text-danger"> {{language.getLabel('city_is_required')}} </small> </div>
+                  <div class="error-block"> <small *ngIf="city.errors?.required && city.touched" class="text-danger"> City is required </small> </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="md-form"> <i class="icon-state prefix"></i>
-                  <select name="state" (change)="setDistrict()" id="state" [(ngModel)]="user.state">
-                    <option value="">{{language.getLabel('state')}}</option>
-                    <option *ngFor="let state of states" [value]="state.stateName">{{state.stateName}}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="md-form"> <i class="fa fa-map-marker prefix"></i>
-                  <select name="district" id="district" [(ngModel)]="user.district">
-                    <option value="">{{language.getLabel('district')}}</option>
-                    <option *ngFor="let district of districts" [value]="district.districtName">{{district.districtName}}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-md-6">
                 <div class="md-form">
-                  <label for="pincode">{{language.getLabel('pin_code')}}</label>
+                  <label for="pincode">Pincode</label>
                   <i class="icon-pincode prefix"></i>
-                  <input type="number" id="pincode" name="pincode" class="form-control" #pincode="ngModel" [(ngModel)]="user.pincode" max="999999" min="1">
-                  <div class="error-block"> <small *ngIf="pincode.errors?.min && pincode.touched" class="text-danger"> {{language.getLabel('minimum_value_should_be_1')}} </small> <small *ngIf="pincode.errors?.max && pincode.touched" class="text-danger"> {{language.getLabel('maximum_6_digit_allow')}} </small> </div>
+                  <input type="number" id="pincode" name="pincode" class="form-control" #pincode="ngModel" [(ngModel)]="user.pincode" max="666666" min="1">
+                  <div class="error-block">
+
+                  <small *ngIf="pincode.errors?.max && pincode.touched" class="text-danger"> Maximum 6 digit allow</small> </div>
                 </div>
               </div>
-              
-              <!--   <div class="col-md-12">
-                                <div class="md-form">
-                                    <input type="text" name id="type" class="form-control" required>
-                                    <label for="type">Type the letter from below image</label>
-                                </div>
-                            </div>--> 
             </div>
+            
+           
             
             <!--   <div class="text-center">
                             <img class="capactha" src="assets/img/captcha.jpg" alt="capatcha">
                         </div>
  -->
-            <fieldset class="form-group my-2">
-              <input materialize type="checkbox" class="filled-in" id="filled-in-box" id="agree" name="agree" [(ngModel)]="user.agree" checked required />
-              <label for="agree"> <a href="javascript:void(0);" (click)="largeModal.show()">{{language.getLabel('register_tc') == 'Register tc' ? 'Yes, I understand and agree the  Terms and Service .' : language.getLabel('register_tc') }}</a> </label>
-            </fieldset>
+            
             <div class="text-center">
-              <button class="btn btn-success signin col-md-5" [disabled]="!loginForm.valid">{{language.getLabel('register')}}</button>
+              <button class="btn btn-success signin col-md-5" [disabled]="!loginForm.valid">Register</button>
             </div>
           </div>
         </form>
@@ -185,25 +151,25 @@
     </div>
     <!-- loginbox--> 
   </div>
-  <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-12" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">{{language.getLabel('terms_and_conditions')}}</h4>
+          <h4 class="modal-title">terms_and_conditions</h4>
           <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
         </div>
         <div class="modal-body">
-          <p>{{language.getLabel('i_accept_terms')}}</p>
+          <p>i_accept_terms</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success orange" (click)="largeModal.hide()">{{language.getLabel('close')}}</button>
+          <button type="button" class="btn btn-success orange" (click)="largeModal.hide()">close</button>
         </div>
       </div>
-      <!-- /.modal-content --> 
+      
     </div>
-    <!-- /.modal-dialog --> 
-  </div>
-  <!-- /.modal --> 
+    
+  </div> -->
+ 
   
 </main>
 <!--/Main layout-->
