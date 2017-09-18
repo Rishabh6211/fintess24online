@@ -107,7 +107,7 @@
 
        <div [swiper]="config" (indexChange)="onIndexChange($event)" class="swiper-container">
         <div class="swiper-wrapper"  >
-            <div class="swiper-slide" *ngFor="let rish of data">
+            <div class="swiper-slide" style="width: 296px; margin-right: 30px;" *ngFor="let rish of data">
               <div class="card" >
                 <div class="imageblock">
                   <img *ngIf="rish.image" class="card-img-top img-fluid" src="{{_host}}/images/offers/{{rish?.image}}" alt="">
