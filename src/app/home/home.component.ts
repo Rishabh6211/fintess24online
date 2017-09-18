@@ -16,16 +16,22 @@ import { SharedService } from '../shared/services/shared.service';
 import { LanguageService } from '../shared/services/language.service';
 
 import { LanguageInterface } from '../shared/classes/language-interface';
+import {HomeService } from './home.service';
+import tsConstants = require('../shared/config/tsconstant');
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    // providers: [LanguageService]
+    providers: [HomeService]
   
 })
 
 export class HomeComponent implements OnInit {
+    private _host = tsConstants.HOST;
+    public offers = 'offers'; 
+    public isloading: boolean   = false;
+    public data:any;
      galleryOptions: NgxGalleryOptions[];
      galleryImages: NgxGalleryImage[];
     public config: SwiperConfigInterface = {
@@ -54,9 +60,13 @@ export class HomeComponent implements OnInit {
 	constructor(  
         private _sharedService: SharedService,
 		private _languageService: LanguageService,
+        private _homeService: HomeService
 	) {}
 
 	ngOnInit() {
+
+        this.findOffers();
+
         this._languageService.language.subscribe( language => {
             this.language.setLabels(language);
         });
@@ -181,6 +191,27 @@ export class HomeComponent implements OnInit {
     }
     onIndexChange(index: number) {
     console.log('Swiper index: ' + index);
+  }
+  findOffers(){
+      console.log("in offers");
+      this.isloading = false;
+      this._homeService.getOffers(this.offers).subscribe(res=>{
+          if(res){
+              console.log("res",res);
+              this.isloading = true;
+              this.data = res.data;
+              console.log("data",this.data);
+          }
+          else{
+               this.isloading = false;
+              console.log("err");
+          }
+
+      },
+          err => {
+               this.isloading = false;
+               console.log("err");
+          })
   }
 
 }

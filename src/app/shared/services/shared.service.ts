@@ -82,7 +82,7 @@ export class SharedService {
         let headers = new Headers();
         
         if( access ) {
-            let token   = this._cookieService.get('accesstoken');
+            let token   = this._cookieService.get('token');
             headers.append('Authorization', 'Bearer '+token);
         }
         
