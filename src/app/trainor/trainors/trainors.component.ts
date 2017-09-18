@@ -19,10 +19,11 @@ export class TrainorsComponent implements OnInit {
   }
 
   findTrainor(){
-  	this.isloading = false;
+  	this.isloading = true;
   	this._trainorService.getTrainor(this.trainor).subscribe(res => {
+      this.isloading = false;
   		if(res){
-  			this.isloading = true;
+  		//this.isloading = false;	
   			this.data = res.data;
   			console.log("data",this.data);
   		}

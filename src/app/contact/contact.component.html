@@ -1,3 +1,4 @@
+<app-loader [isloading]="isloading"></app-loader>
 <breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Contact'"></breadcrumb>
 
 		<!--
@@ -13,12 +14,17 @@
 							<div class="leave-comment comment-area">
 								<h3 class="comment-title">Leave A Comment</h3>
 
-								<form action="#">
-									<input type="text" class="pull-left" placeholder="E-mail *">
-									<input type="text" class="pull-right" placeholder="Name *">
-									<input type="text" class="subjcet" placeholder="subject *">
-									<textarea name="massage" placeholder="Massage"></textarea>
-									<a href="#" class="custom-btn">Submit</a>
+								<form action="#" (ngSubmit)="contact()">
+									<input type="text" #email="ngModel" [(ngModel)]="data.email" name="email" class="pull-left" placeholder="E-mail *">
+
+									<input type="text" #name="ngModel" [(ngModel)]="data.name" name="name" class="pull-right" placeholder="Name *">
+
+									<input type="text" #problem="ngModel" [(ngModel)]="data.problem" name="problem" class="subjcet" placeholder="problem *">
+
+									<input type="text" #phone="ngModel" [(ngModel)]="data.phone" name="phone" class="subjcet" placeholder="mobile no *">
+									
+									<textarea name="massage" #massage="ngModel" [(ngModel)]="data.message" name="massage" placeholder="Massage"></textarea>
+									<button class="btn custom-btn">Submit</button>
 								</form>
 							</div> <!-- leave comment -->
 						</div><!-- /.col-md-6 -->
