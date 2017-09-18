@@ -56,19 +56,19 @@ export class SharedService {
         if ( apiResponse ) {
             if( (code == 401 && message == "authorization")) {
                 
-                this.showToast(this.language.getLabel('session_expire_message'), tsConstants.COLOR_WARNING);
+                this.showToast('session_expire_message', tsConstants.COLOR_WARNING);
                 this._cookieService.removeAll();
                 this._router.navigate(['/login']);   
                 this._ref.tick();
                 this._ref.components[0].instance as LoginComponent;
             }else{
-                this.showToast(this.language.getLabel(message), tsConstants.COLOR_DANGER);                
+                this.showToast(message, tsConstants.COLOR_DANGER);                
             }
         } else {
             if( err.statusText !== '' ){
-                this.showToast(this.language.getLabel(err.statusText), tsConstants.COLOR_DANGER);                
+                this.showToast(err.statusText, tsConstants.COLOR_DANGER);                
             }else{
-               this.showToast(this.language.getLabel(tsMessage.API_ERROR_OCCURED), tsConstants.COLOR_DANGER);
+               this.showToast(tsMessage.API_ERROR_OCCURED, tsConstants.COLOR_DANGER);
             }
             
         }   
@@ -82,7 +82,7 @@ export class SharedService {
         let headers = new Headers();
         
         if( access ) {
-            let token   = this._cookieService.get('accesstoken');
+            let token   = this._cookieService.get('token');
             headers.append('Authorization', 'Bearer '+token);
         }
         

@@ -125,10 +125,10 @@
                 <div class="md-form">
                   <label for="pincode">Pincode</label>
                   <i class="icon-pincode prefix"></i>
-                  <input type="number" id="pincode" name="pincode" class="form-control" #pincode="ngModel" [(ngModel)]="user.pincode" max="666666" min="1">
+                  <input type="number" id="pincode" name="pincode" class="form-control" #pincode="ngModel" [(ngModel)]="user.pincode" maxlength="6" min="1">
                   <div class="error-block">
 
-                  <small *ngIf="pincode.errors?.max && pincode.touched" class="text-danger"> Maximum 6 digit allow</small> </div>
+                  <small *ngIf="pincode.errors?.maxlength && pincode.touched" class="text-danger"> Maximum 6 digit allow</small> </div>
                 </div>
               </div>
             </div>

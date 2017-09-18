@@ -16,18 +16,23 @@ import { SharedService } from '../shared/services/shared.service';
 import { LanguageService } from '../shared/services/language.service';
 
 import { LanguageInterface } from '../shared/classes/language-interface';
+import { HomeService } from './home.service'
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    // providers: [LanguageService]
+     providers: [HomeService]
   
 })
 
 export class HomeComponent implements OnInit {
-     galleryOptions: NgxGalleryOptions[];
-     galleryImages: NgxGalleryImage[];
+    //public offers = '';
+    public isloading: boolean   = false;
+    public data:any;
+    public offers ='offers';
+    galleryOptions: NgxGalleryOptions[];
+    galleryImages: NgxGalleryImage[];
     public config: SwiperConfigInterface = {
         scrollbar: null,
          pagination: '.swiper-pagination',
@@ -40,8 +45,7 @@ export class HomeComponent implements OnInit {
 
 
   };
-	public slides : SlickModule[]; 
-    public slick:any; 
+	
 
 	public language: LanguageInterface = new LanguageInterface;
 
@@ -54,12 +58,15 @@ export class HomeComponent implements OnInit {
 	constructor(  
         private _sharedService: SharedService,
 		private _languageService: LanguageService,
+        private _homeService: HomeService
 	) {}
 
 	ngOnInit() {
         this._languageService.language.subscribe( language => {
             this.language.setLabels(language);
         });
+
+        this.findoffers();
          this.galleryOptions = [
    
             {   
@@ -151,34 +158,26 @@ export class HomeComponent implements OnInit {
        // this.afterChange;
 	
 
-    
-    getData( ) {
-        console.log("This is a test!");
+    findoffers(){
+        console.log("in offers");
+        this.isloading  = false;
+        this._homeService.getOffers(this.offers).subscribe(res =>{
+            if(res){
+                this.isloading = true;
+                console.log(res);
+                console.log("res",res.data);
 
-        console.log("origin ", this.origin);
-        console.log("destination ", this.destination);
-        
-        this._sharedService.getDistance(this.origin,this.destination).subscribe( res => {
-            let response = res.json();
-
-            // console.log( "response ", response );
-            /*if( response == 'undefined' ) {
-                this.distance = "Input address not valid";
-            } else {
-                this.distance = response.data.distances.rows.elements.distance.text;
-            }*/
-
-            if( response.success == "false" ) {
-                console.log( "response1 ", response.message );
-            } else {
-                // console.log( "response3 ", response.data );
-                console.log( "response4 ", response.data.distance.text );
-                console.log( "response4 ", response.data.distance.value );
+                this.data = res.data;
+               // console.log("data",this.data[0].name);
+                console.log("data",this.data)
             }
-
-
-        }); 
+            else
+            {
+                console.log("err");
+            }
+        })
     }
+
     onIndexChange(index: number) {
     console.log('Swiper index: ' + index);
   }

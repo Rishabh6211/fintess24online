@@ -96,8 +96,10 @@ export class RegisterComponent implements OnInit {
             }else{                
                 this._sharedService.showToast("email_already_exist", tsConstants.COLOR_DANGER);    
                 
-                this._cd.markForCheck();
+                
                 this._sharedService.sendToTop();
+                this._cd.markForCheck();
+
             }
         },
         err => {      
