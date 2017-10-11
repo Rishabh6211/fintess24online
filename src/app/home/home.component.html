@@ -104,8 +104,34 @@
      
         <h3 class="section-title"><span>Our</span><br>Services</h3>
        <!-- /.head-section -->
-
-       <div [swiper]="config" (indexChange)="onIndexChange($event)" class="swiper-container">
+       <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-md-6 col-6">
+                 
+                </div>
+                <div class="col-md-6 col-6 text-right"> <button class="btn btn-border-warning custombtn">View all</button> </div>
+              </div>
+            </div>
+           
+           
+           
+             <div class="col-lg-4 col-md-6 mb-2" *ngFor="let rish of data">
+              <div class="card"> 
+                  <div class="imageblock">
+                  <img *ngIf="rish.image" class="card-img-top img-fluid" src="{{_host}}/images/offers/{{rish?.image}}" alt="">
+                  <img *ngIf="!rish.image" style="height: 230px; width:300px !important" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> 
+                </div>
+                 <div class="card-block">
+                  <h4 class="card-title"><a href="#">{{rish.name}}</a></h4>
+                  <h5>{{rish.price}}</h5>
+                </div>
+              </div>
+            </div>
+           
+           
+          </div>
+      <!--  <div [swiper]="config" (indexChange)="onIndexChange($event)" class="swiper-container">
         <div class="swiper-wrapper"  >
             <div class="swiper-slide" style="width: 296px; margin-right: 30px;" *ngFor="let rish of data">
               <div class="card" >
@@ -122,12 +148,10 @@
 
            
         </div>
-        <!-- Add Pagination -->
-        
-        <!-- Add Arrows -->
+      
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-    </div>
+    </div> -->
     </div><!-- /.section-padding -->
   </section>
 
