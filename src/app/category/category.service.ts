@@ -15,4 +15,6 @@ private _host = tsConstants.HOST;
 		let url = this._host+'/get?model='+yoga;
 		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
 	}
+
 }
+
