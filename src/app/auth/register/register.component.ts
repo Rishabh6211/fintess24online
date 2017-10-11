@@ -87,13 +87,14 @@ export class RegisterComponent implements OnInit {
         this._sharedService.sendToTop();
         this.isloading = true; 
         this._registerService.postUser(this.user).subscribe( res => {
-             
+              this.isloading = false; 
              if( res.success ){
                 //redirect to home.
 
                 this._sharedService.showToast('successfully_registered', tsConstants.COLOR_SUCESS);
                 this._router.navigate(['/login']);                
-            }else{                
+            }else{     
+
                 this._sharedService.showToast("email_already_exist", tsConstants.COLOR_DANGER);    
                 
                 

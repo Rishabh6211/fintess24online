@@ -96,7 +96,7 @@
 
         <!-- row -->
        
-   <div class="container-fluid">
+   <div class="">
     <div class="card">
         <section id="we-do" class="carousel-inner ">
     <div class="section-padding" >
@@ -107,72 +107,20 @@
 
        <div [swiper]="config" (indexChange)="onIndexChange($event)" class="swiper-container">
         <div class="swiper-wrapper"  >
-            <div class="swiper-slide">
-              <div class="card">
+            <div class="swiper-slide" style="width: 296px; margin-right: 30px;" *ngFor="let rish of data">
+              <div class="card" >
                 <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
+                  <img *ngIf="rish.image" class="card-img-top img-fluid" src="{{_host}}/images/offers/{{rish?.image}}" alt="">
+                  <img *ngIf="!rish.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> 
                 </div>
                 <div class="card-block-h">
-                  <h4 class="card-title"><a href="#" >{{data.name}}</a></h4>
-                  <h5>$</h5>
+                  <h4 class="card-title"><a href="#">{{rish.name}}</a></h4>
+                  <h5>{{rish.price}}</h5>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="card">
-                <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
-                </div>
-                <div class="card-block-h">
-                  <h4 class="card-title"><a href="#">Item Two</a></h4>
-                  <h5>$24.99</h5>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="card">
-                <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
-                </div>
-                <div class="card-block-h">
-                  <h4 class="card-title"><a href="#">Item Two</a></h4>
-                  <h5>$24.99</h5>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="card">
-                <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
-                </div>
-                <div class="card-block-h">
-                  <h4 class="card-title"><a href="#">Item Two</a></h4>
-                  <h5>$24.99</h5>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="card">
-                <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
-                </div>
-                <div class="card-block-h">
-                  <h4 class="card-title"><a href="#">Item Two</a></h4>
-                  <h5>$24.99</h5>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="card">
-                <div class="imageblock">
-                  <img src="http://placehold.it/700x400" class="card-img-top img-fluid img-responsive" alt="slide image">
-                </div>
-                <div class="card-block-h">
-                  <h4 class="card-title"><a href="#">Item Two</a></h4>
-                  <h5>$24.99</h5>
-                </div>
-              </div>
-            </div>
+
+           
         </div>
         <!-- Add Pagination -->
         

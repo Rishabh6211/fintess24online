@@ -6382,6 +6382,8 @@ i.btn-danger {
 }
 .card {
 	border: 0
+	padding-right: 20px;
+	padding-left:20px;
 }
 .card .card-title a {
 	color: #424242;

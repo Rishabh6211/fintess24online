@@ -124,7 +124,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         err => {
             this.isloading = false;
-            this._sharedService.checkAccessToken(err, false);
+            this._sharedService.showToast(("WRONG_PASSWORD"), tsConstants.COLOR_DANGER);
+            // this._sharedService.checkAccessToken(err, false);
         });
     }
   

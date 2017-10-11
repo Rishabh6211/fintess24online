@@ -1,3 +1,4 @@
+<app-loader [isloading]="isloading"></app-loader>
 <breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Contact'"></breadcrumb>
 
 		<!--
@@ -6,24 +7,47 @@
 		<div class="container-fluid">
 	<div class="card">
 		<section id="contact-page">
-			<div class="section-padding">
-				<div class="container">
+			<div class="section-padding ">
+				<div class="container ">
 					<div class="row">
-						<div class="col-md-8 left-col">
-							<div class="leave-comment comment-area">
+						<div class="col-md-7 left-col ">
+							
 								<h3 class="comment-title">Leave A Comment</h3>
 
-								<form action="#">
-									<input type="text" class="pull-left" placeholder="E-mail *">
-									<input type="text" class="pull-right" placeholder="Name *">
-									<input type="text" class="subjcet" placeholder="subject *">
-									<textarea name="massage" placeholder="Massage"></textarea>
-									<a href="#" class="custom-btn">Submit</a>
+								<!-- <form action="#" (ngSubmit)="contact()">
+									<input type="text" #email="ngModel" [(ngModel)]="data.email" name="email" class="pull-left" placeholder="E-mail *">
+
+									<input type="text" #name="ngModel" [(ngModel)]="data.name" name="name" class="pull-right" placeholder="Name *">
+
+									<input type="text" #problem="ngModel" [(ngModel)]="data.problem" name="problem" class="subjcet" placeholder="problem *">
+
+									<input type="text" #phone="ngModel" [(ngModel)]="data.phone" name="phone" class="subjcet" placeholder="mobile no *">
+									
+									<textarea name="massage" #massage="ngModel" [(ngModel)]="data.message" name="massage" placeholder="Massage"></textarea>
+									<button class="btn custom-btn">Submit</button>
+								</form> -->
+								<form class="border border-primary" (ngSubmit)="contact()">
+ 						
+								    <input type="email" #email="ngModel" [(ngModel)]="data.email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email*">
+								    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+								 
+								  	<input type="text" #name="ngModel" [(ngModel)]="data.name" name="name" class="form-control" placeholder="Name *">
+								  
+								  	<input type="text" #problem="ngModel" [(ngModel)]="data.problem" name="problem"  class="form-control" placeholder="problem *">
+
+									<input type="number" #phone="ngModel" [(ngModel)]="data.phone" name="phone"  class="form-control" placeholder="mobile no *">
+
+								    <textarea class="form-control" #massage="ngModel" [(ngModel)]="data.message" name="massage" id="exampleTextarea" rows="3" placeholder="Enter a massage*"></textarea>
+								 
+								  
+								  
+								  
+								  <button type="submit" class="btn btn-primary">Submit</button>
 								</form>
-							</div> <!-- leave comment -->
+							
 						</div><!-- /.col-md-6 -->
 
-						<div class="col-md-4 right-col">
+						<div class="col-md-5 right-col">
 							<div class="sidebar">
 								<div class="widget">								
 									<h4 class="widget-title">Orgainizer Details</h4>

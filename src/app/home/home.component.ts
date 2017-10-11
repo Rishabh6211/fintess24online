@@ -16,23 +16,24 @@ import { SharedService } from '../shared/services/shared.service';
 import { LanguageService } from '../shared/services/language.service';
 
 import { LanguageInterface } from '../shared/classes/language-interface';
-import { HomeService } from './home.service'
+import {HomeService } from './home.service';
+import tsConstants = require('../shared/config/tsconstant');
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-     providers: [HomeService]
+    providers: [HomeService]
   
 })
 
 export class HomeComponent implements OnInit {
-    //public offers = '';
+    private _host = tsConstants.HOST;
+    public offers = 'offers'; 
     public isloading: boolean   = false;
     public data:any;
-    public offers ='offers';
-    galleryOptions: NgxGalleryOptions[];
-    galleryImages: NgxGalleryImage[];
+     galleryOptions: NgxGalleryOptions[];
+     galleryImages: NgxGalleryImage[];
     public config: SwiperConfigInterface = {
         scrollbar: null,
          pagination: '.swiper-pagination',
@@ -45,9 +46,10 @@ export class HomeComponent implements OnInit {
 
 
   };
-	
+  public slides : SlickModule[]; 
+    public slick:any; 
 
-	public language: LanguageInterface = new LanguageInterface;
+  public language: LanguageInterface = new LanguageInterface;
 
     public origin; 
     public destination;
@@ -55,18 +57,19 @@ export class HomeComponent implements OnInit {
     public slideConfig;
     public slickModal = '';
      @ViewChild(SwiperComponent) swiperView: SwiperComponent;
-	constructor(  
+  constructor(  
         private _sharedService: SharedService,
-		private _languageService: LanguageService,
+    private _languageService: LanguageService,
         private _homeService: HomeService
-	) {}
+  ) {}
 
-	ngOnInit() {
+  ngOnInit() {
+
+        this.findOffers();
+
         this._languageService.language.subscribe( language => {
             this.language.setLabels(language);
         });
-
-        this.findoffers();
          this.galleryOptions = [
    
             {   
@@ -156,30 +159,59 @@ export class HomeComponent implements OnInit {
         ];
         this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};*/
        // this.afterChange;
-	
+  
 
-    findoffers(){
-        console.log("in offers");
-        this.isloading  = false;
-        this._homeService.getOffers(this.offers).subscribe(res =>{
-            if(res){
-                this.isloading = true;
-                console.log(res);
-                console.log("res",res.data);
+    
+    getData( ) {
+        console.log("This is a test!");
 
-                this.data = res.data;
-               // console.log("data",this.data[0].name);
-                console.log("data",this.data)
+        console.log("origin ", this.origin);
+        console.log("destination ", this.destination);
+        
+        this._sharedService.getDistance(this.origin,this.destination).subscribe( res => {
+            let response = res.json();
+
+            // console.log( "response ", response );
+            /*if( response == 'undefined' ) {
+                this.distance = "Input address not valid";
+            } else {
+                this.distance = response.data.distances.rows.elements.distance.text;
+            }*/
+
+            if( response.success == "false" ) {
+                console.log( "response1 ", response.message );
+            } else {
+                // console.log( "response3 ", response.data );
+                console.log( "response4 ", response.data.distance.text );
+                console.log( "response4 ", response.data.distance.value );
             }
-            else
-            {
-                console.log("err");
-            }
-        })
+
+
+        }); 
     }
-
     onIndexChange(index: number) {
     console.log('Swiper index: ' + index);
+  }
+  findOffers(){
+      console.log("in offers");
+      this.isloading = false;
+      this._homeService.getOffers(this.offers).subscribe(res=>{
+          if(res){
+              console.log("res",res);
+              this.isloading = true;
+              this.data = res.data;
+              console.log("data",this.data);
+          }
+          else{
+               this.isloading = false;
+              console.log("err");
+          }
+
+      },
+          err => {
+               this.isloading = false;
+               console.log("err");
+          })
   }
 
 }
