@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
+import {StringFilterPipe} from './filter';
 import * as jQuery from 'jquery';
 import  { CategoryService } from './category.service'
 import tsConstants = require('../shared/config/tsconstant');
@@ -8,17 +8,28 @@ import tsConstants = require('../shared/config/tsconstant');
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default,
   providers:[CategoryService]
 })
 export class CategoryComponent implements OnInit {
+  @Input('data')
+
 	private _host = tsConstants.HOST;
 	public yoga = 'yoga';
 	public isloading = false;
-	public data:any;
+ // public term;
+	public data:string[];
+  public data1:any;
+  public Gym = 'gym';
+  public data2:any;
+  public physiotherapy = 'physiotherapy';
 	constructor(private _categoryService:CategoryService) { }
 
 	ngOnInit() {
+    console.log("filter",StringFilterPipe)
 		this.findYoga();
+    this.Physio();
+    this.gym();
 	}
 
 	setTab( item ) {
@@ -46,5 +57,45 @@ export class CategoryComponent implements OnInit {
   			console.log("server error");
   	});
   }
+  Physio(){
+    console.log("hee")
+    this.isloading = true;
+    this._categoryService.getPhysiotherapy(this.physiotherapy).subscribe(res => {
+      this.isloading = false;
+      if(res){
+      //this.isloading = false; 
+        this.data1 = res.data;
+       
+      }
+      else{
+        console.log("err");
+      }
+    },
+    err=>{
+        console.log("server error");
+    });
+  }
+
+  gym(){
+    console.log("hee")
+    this.isloading = true;
+    this._categoryService.getGym(this.Gym).subscribe(res => {
+      this.isloading = false;
+      if(res){
+      //this.isloading = false; 
+        this.data2 = res.data;
+
+        console.log("data2",this.data2);
+      
+      }
+      else{
+        console.log("err");
+      }
+    },
+    err=>{
+        console.log("server error");
+    });
+  }
+
 
 }

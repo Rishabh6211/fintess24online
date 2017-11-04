@@ -1,3 +1,4 @@
+
 	/* YOUR CUSTOM STYLES */
 	@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 	html {
@@ -3923,6 +3924,21 @@
 	-mx-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+.social{
+	position: absolute;
+	/*width: 50px;*/
+	height: auto;
+	left: 0;
+	top: -200px;
+	z-index: 99;
+	background-color: #43aea8;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-mx-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
 .social-media .social-icon{
 	display: block;
 	padding: 14px 19px;
@@ -4604,7 +4620,7 @@ Class grid
 }
 .fp-info {
 	text-align: center;
-	padding-top: 28px;
+	padding-top: 20px;
 }
 .fp-info h4 {
 	font-size: 18px;
@@ -4624,8 +4640,6 @@ Class grid
 	font-size: 15px;
 	color: #767676;
 	font-weight: 700;
-	float: left;
-	padding-right: 20px;
 	position: relative;
 }
 .product-price:after {
@@ -5021,7 +5035,8 @@ bootstrap.min.css:6
 
 #we-do {
 	background-color: #fff;
-	margin-top: 35px;
+	margin-top: -25px;
+	padding-left: 22px;
 }
 #we-do .head-section {
 	max-width: 1170px;
@@ -5096,6 +5111,9 @@ bootstrap.min.css:6
 	background-color: #43aea8;
 	height: 12px;
 	top: 2px;
+}
+.row1{
+	padding-left: 10px;
 }
 .superss-1 {
 	width: 3000px;
@@ -5184,7 +5202,12 @@ bootstrap.min.css:6
 {
 	display: inherit !important;
 }
-
+ #dashboard{
+	background: url("../img/cover.jpg") no-repeat;
+		background-size: cover;
+		width: auto;
+		height: 200px;
+}
 /*Form Wizard*/
 .bs-wizard {margin-top:5px;}
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 0 0;}

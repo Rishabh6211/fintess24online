@@ -36,6 +36,10 @@ export const routes: Routes = [
                 loadChildren: './aboutus/aboutus.module#AboutusModule'
             },
             {
+                path: 'profile',
+                loadChildren: './centerdetail/centerdetail.module#CenterdetailModule'
+            },
+            {
                 path: 'trainors',
                 loadChildren: './trainor/trainor.module#TrainorModule'
             },

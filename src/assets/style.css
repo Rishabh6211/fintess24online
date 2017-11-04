@@ -777,6 +777,14 @@ marquee{
 	
 }
 
+@media (min-width:1200px) {
+	
+.row1 {
+	padding-left: 10px;
+}
+	
+}
+
 @media (min-width:992px) and (max-width:1299px) {
 	marquee {
        width: 60%;

@@ -39,8 +39,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
 
 import { LanguageService } from './shared/services/language.service';
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import 'rxjs/Rx';
+//import { CenterdetailComponent } from './centerdetail/centerdetail.component';
 
 let providers = {
     "google": {
@@ -68,12 +69,14 @@ let providers = {
         MaterializeModule.forRoot(),
         CustomFormsModule,
         FlashMessagesModule,
-        NgxGalleryModule
+        NgxGalleryModule,
+        Ng2SearchPipeModule
 
     ],
     declarations: [
         AppComponent,
-        FullLayoutComponent,
+        FullLayoutComponent
+        //CenterdetailComponent,
     ],
     providers: [
         AuthService,

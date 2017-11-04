@@ -16,5 +16,17 @@ private _host = tsConstants.HOST;
 		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
 	}
 
+	getPhysiotherapy(obj){
+		let headers  = this._sharedService.getAuthorizationHeader();
+		let url = this._host+'/get?model='+obj;
+		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
+	}
+
+	getGym(obj){
+		let headers  = this._sharedService.getAuthorizationHeader();
+		let url = this._host+'/get?model='+obj;
+		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
+	}
+
 }
 

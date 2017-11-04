@@ -1,44 +1,38 @@
 <breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Category'"></breadcrumb>
 
-				<!--
-				Photo Gallery section star 	  =
-		======================================= -->
-		<!-- Portfolio Section -->
 		
-			<div class="row">
-				
-				<div class="form-group col-sm-3 col-md-4">
-					<form>
-		  			<label for="sel1">Select list:</label>
-				  		<select class="form-control" id="sel1" style="padding-top: 5px;">
+			<div class="card">
+			 <div class="row row1">
+			  	<div class="col-xs-4 col-md-4 col-sm-4">
+			  		<label for="sel1">Select Your Center:</label>
+				  		<select class="form-control" id="sel1" style="padding-top: 5px;" >
 				    		<option class="active" (click)="setTab('Yoga')">Yoga</option>
-				    		<option (click)="setTab('Accupressure')" >Accupressure</option>
-				    		<option (click)="setTab('Accupenture')" >Accupenture</option>
+				    		<option (click)="setTab('Physiotherapy')" >Physiotherapy</option>
+				    		<option (click)="setTab('Gym')" >Gym</option>
 				    		<option (click)="setTab('marmtherapy')" >marmtherapy</option>
 				    		<option (click)="setTab('ayurvedtherapy')" >ayurvedtherapy</option>
 				    		<option (click)="setTab('physiotherapy')" >physiotherapy</option>
 				    		<option (click)="setTab('massagetherapy')" >Massagetherapy</option>
 				  		</select>
-
-				  	</form>
 				</div>
-				
-				
+			  <div class="col-xs-4 col-md-6 col-sm-5">
+			  	<div class="flex">
+   						 	
+                        <input class="form-control" name="search"  placeholder="Search by location" type="text" [(ngModel)]="term">
+                </div>
+			  </div>
+			</div> 
+		</div>
+		
+			<!-- <div class="row1" style="width: 432px;">
 				<div class="col-sm-9 col-md-6">
 					<form>
-   						 <div class="flex">
-   						 	
-                                    <input class="form-control" name="search"  placeholder="Search" type="text">
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-flat" id="search-btn"  name="search by location" type="submit"><i class="fa fa-search"></i> </button>
-                                    </span>
-
-                                </div>
+   						
   					</form>
 				</div>
 				
 				
-			</div>
+			</div> -->
 			
 			<div class="card">
 		<section id="feature-product-Gallery" class="features-product-Gallery">
@@ -63,60 +57,49 @@
 					<div class="tab-content">
 					
 						<div role="tabpanel" class="tab-pane active" id="Yoga">
+
 						<div class="row">
-							<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let obj of data">
+
+							<div class="col-xs-6 col-sm-4 col-md-4" *ngFor="let obj of data | filter:term">
+							
 								<div class="f-product-box">
+										<!-- /.overlay -->
 									<div class="box-img">
-										<a href="shop-product.html">
+										<div class="carousel-caption" style="margin-left: -29px;  margin-right: 48px;    margin-top: inherit; display: -webkit-box;
+">
+                                		<div class="animated fadeIn">
+                                    		<a class="btn" style="background-color: #43aea8;">50% Off</a> </div>
+                            			</div>
+										<a [routerLink]="['/profile/+obj.id']" >
 										<img *ngIf="obj.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}" alt="">
 										<img *ngIf="!obj.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> </a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
-									</div><!-- /.box-img -->
 									
-									<div class="fp-info">
+										<!-- <div class="social-media">
+											<a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
+
+										</div> --><!-- /.social-media -->
+										
+									</div><!-- /.box-img -->
+								
+									<div class="fp-info card">
 										<h4><a href="#">{{obj.name}}</a></h4>
 
-										<div class="price-rating">
+										<div class="price-rating" >
 											<div class="product-price">
-												<span>$ {{obj.price}}</span>
-												<span>$ {{obj.offerPrice}}</span>
+												<span><a href="#" class="social-icon last-border"><i class="icon-address prefix"></i></a></span>
+												<span style="font-size: 30px;">{{obj.location}}</span>
+												<span style="font-size: 20px;"><a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a></span>
+
 												<!-- <span>$60.00</span> -->
 											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
+											<span><i class="fa fa-home"></i>Sector71</span>
 										</div><!-- /.price-rating -->
+
 									</div><!-- /.image-des -->
+
 								</div><!-- /.image-box -->
+							
 							</div><!-- /.col-sm-3 col-md-3 -->
 
 							
@@ -124,122 +107,58 @@
                      </div>
 
 
-						<div role="tabpanel" class="tab-pane" id="Accupressure">
+						<div role="tabpanel" class="tab-pane" id="Physiotherapy">
 							<div class="row">
-							<div class="col-xs-6 col-sm-4 col-md-3">
+							<div class="col-xs-6 col-sm-4 col-md-4" *ngFor = "let data of data1 | filter:term">
 								<div class="f-product-box">
 									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery5.jpg" alt="Trainers Image"></a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
+										<a href="#">
+											<div class="carousel-caption" style="margin-left: -29px;  margin-right: 48px;    margin-top: inherit; display: -webkit-box;">
+                                		<div class="animated fadeIn">
+                                    		<a class="btn" style="background-color: #43aea8;">{{data.discount}}% Off</a> </div>
+                            			</div>
+										<img *ngIf="data.image" class="card-img-top img-fluid" src="{{_host}}/images/physiotherapy/{{data?.image}}" alt="">
+										<img *ngIf="!data.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
+										</a>
+									<div class="overlay"></div><!-- /.overlay -->
+										<!-- <div class="social-media">
 											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
 											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
 											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
+										</div> --><!-- /.social-media -->
 									</div><!-- /.box-img -->
 									
-									<div class="fp-info">
-										<h4><a href="#">unctionalized internal </a></h4>
+									<div class="fp-info card">
+										<h4><a href="#">{{data.name}}</a></h4>
 
-										<div class="price-rating">
+										<div class="price-rating" >
 											<div class="product-price">
-												<span>$ 55.00</span>
-												<span>$60.00</span>
+												<span><a href="#" class="social-icon last-border"><i class="icon-address prefix"></i></a></span>
+												<span style="font-size: 30px;">{{data.location}}</span>
+												<span style="font-size: 20px;"><a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a></span>
+
+												<!-- <span>$60.00</span> -->
 											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
-										</div><!-- /.price-rating -->
+											<span><i class="fa fa-home"></i>Sector71</span>
+										</div><!-- /.price-rating --><!-- /.price-rating -->
 									</div><!-- /.image-des -->
 								</div><!-- /.image-box -->
 							</div><!-- /.col-sm-3 col-md-3 -->
 
-							<div class="col-xs-6 col-sm-4 col-md-3" >
-								<div class="f-product-box">
-									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery6.jpg" alt="Trainers Image"></a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
-									</div><!-- /.box-img -->
-									
-									<div class="fp-info">
-										<h4><a href="#"></a></h4>
-
-										<div class="price-rating">
-											<div class="product-price">
-												<span>$</span>
-												<span>$</span>
-											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
-										</div><!-- /.price-rating -->
-									</div><!-- /.image-des -->
-								</div><!-- /.image-box -->
-							</div><!-- /.col-sm-3 col-md-3 -->
 
 						</div><!-- end tabpanel -->
 						</div>
 
 
-						<div role="tabpanel" class="tab-pane" id="Accupenture">
+						<div role="tabpanel" class="tab-pane" id="Gym">
 						<div class="row">
-						<div class="col-xs-6 col-sm-4 col-md-3">
+						<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let gym of data2">
 								<div class="f-product-box">
 									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery1.jpg" alt="Trainers Image"></a>
+										<a [routerLink]="['/profile']">
+											<img *ngIf="gym.image" class="card-img-top img-fluid" src="{{_host}}/images/gym/{{gym?.image}}" alt="">
+											<img *ngIf="!gym.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
+										</a>
 										<div class="overlay"></div><!-- /.overlay -->
 										<div class="social-media">
 											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
@@ -249,12 +168,12 @@
 									</div><!-- /.box-img -->
 									
 									<div class="fp-info">
-										<h4><a href="#">Puser friendly interfaces</a></h4>
+										<h4><a href="#">{{gym.name}}</a></h4>
 
 										<div class="price-rating">
 											<div class="product-price">
-												<span>$ 55.00</span>
-												<span>$60.00</span>
+												<span>$ {{gym.discount}}</span>
+												<span></span>
 											</div><!-- /.product-price -->
 											<div class="rating">
 												<div class="rating-box">
@@ -288,161 +207,10 @@
 								</div><!-- /.image-box -->
 							</div><!-- /.col-sm-3 col-md-3 -->
 
-							<div class="col-xs-6 col-sm-4 col-md-3">
-								<div class="f-product-box">
-									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery2.jpg" alt="Trainers Image"></a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
-									</div><!-- /.box-img -->
-									
-									<div class="fp-info">
-										<h4><a href="#">Produser friendly irfacesre</a></h4>
+						
 
-										<div class="price-rating">
-											<div class="product-price">
-												<span>$ 55.00</span>
-												<span>$60.00</span>
-											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
+						
 
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
-										</div><!-- /.price-rating -->
-									</div><!-- /.image-des -->
-								</div><!-- /.image-box -->
-							</div><!-- /.col-sm-3 col-md-3 -->
-
-							<div class="col-xs-6 col-sm-4 col-md-3">
-								<div class="f-product-box">
-									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery3.jpg" alt="Trainers Image"></a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
-									</div><!-- /.box-img -->
-									
-									<div class="fp-info">
-										<h4><a href="#">Pendly interfaceses Here</a></h4>
-
-										<div class="price-rating">
-											<div class="product-price">
-												<span>$ 55.00</span>
-												<span>$60.00</span>
-											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
-										</div><!-- /.price-rating -->
-									</div><!-- /.image-des -->
-								</div><!-- /.image-box -->
-							</div><!-- /.col-sm-3 col-md-3 -->
-
-							<div class="col-xs-6 col-sm-4 col-md-3">
-								<div class="f-product-box">
-									<div class="box-img">
-										<a href="shop-product.html"><img src="assets/images/f-product-gallery4.jpg" alt="Trainers Image"></a>
-										<div class="overlay"></div><!-- /.overlay -->
-										<div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div><!-- /.social-media -->
-									</div><!-- /.box-img -->
-									
-									<div class="fp-info">
-										<h4><a href="#">Pro friener facest Nere</a></h4>
-
-										<div class="price-rating">
-											<div class="product-price">
-												<span>$ 55.00</span>
-												<span>$60.00</span>
-											</div><!-- /.product-price -->
-											<div class="rating">
-												<div class="rating-box">
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-half-o"></i>
-														<i class="fa fa-star-o"></i>
-													</span>
-
-													<span class="fa fa-stack">
-														<i class="fa fa-star-o"></i>
-													</span>
-												</div><!-- /.rating-box -->
-											</div><!-- /.rating -->
-										</div><!-- /.price-rating -->
-									</div><!-- /.image-des -->
-								</div><!-- /.image-box -->
-							</div><!-- /.col-sm-3 col-md-3 -->
 						</div><!-- end tabpanel -->
 						</div>
 
@@ -869,6 +637,7 @@
 							</div><!-- /.col-sm-3 col-md-3 -->
 						</div><!-- end tabpanel -->
 					</div>
+
 						<div role="tabpanel" class="tab-pane" id="physiotherapy">
 						<div class="row">
 							<div class="col-xs-6 col-sm-4 col-md-3">
@@ -1080,6 +849,7 @@
 							</div><!-- /.col-sm-3 col-md-3 -->
 						</div><!-- end tabpanel -->
 						</div>
+
 						<div role="tabpanel" class="tab-pane" id="massagetherapy">
 						<div class="row">
 							<div class="col-xs-6 col-sm-4 col-md-3">

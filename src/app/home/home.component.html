@@ -98,11 +98,12 @@
        
    <div class="">
     <div class="card">
+      <h3 class="section-title"><span>Best</span><br>Offers</h3>
         <section id="we-do" class="carousel-inner ">
     <div class="section-padding" >
 
      
-        <h3 class="section-title"><span>Our</span><br>Services</h3>
+        
        <!-- /.head-section -->
        <div class="row">
             <div class="col-lg-12">
@@ -116,13 +117,13 @@
            
            
            
-             <div class="col-lg-4 col-md-6 mb-2" *ngFor="let rish of data">
-              <div class="card"> 
+             <div class="col-lg-4 col-md-6 mb-2" *ngFor="let rish of data" style="width: 368px;">
+              <div class="card" style="width: 368px;height: 326px;margin-left: -20px;"> 
                   <div class="imageblock">
-                  <img *ngIf="rish.image" class="card-img-top img-fluid" src="{{_host}}/images/offers/{{rish?.image}}" alt="">
-                  <img *ngIf="!rish.image" style="height: 230px; width:300px !important" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> 
+                  <img *ngIf="rish.image" class="card-img-top img-fluid" src="{{_host}}/images/offers/{{rish?.image}}" alt="" style="margin-left: 0px;width: 100%;">
+                  <img *ngIf="!rish.image" style="height: 230px; width:350px !important" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> 
                 </div>
-                 <div class="card-block">
+                 <div class="card-block" style="width: 368px;height: 18px;background-color: #d2d2d2;padding-left: 13px;margin-left: 0px;">
                   <h4 class="card-title"><a href="#">{{rish.name}}</a></h4>
                   <h5>{{rish.price}}</h5>
                 </div>
@@ -161,12 +162,12 @@
           
             <div class=" text-center">
               <div class="card-header ">
-                <h4 class="card-title">Featured Services</h4>
+                <h4 class="card-title"><STRONG>"We are helping to build your self"</STRONG></h4>
               </div>
               <div class="card-block">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h4 class="card-title"> We are here with "Online Centers in many field like Yoga, Gym, Physiotherapy center and many more..... Here you are request for your center to add list to easily find yours centers by anyone and may be its helpful to increase your business. We are also provide Consultant to ask your personel problems and diet and many more issues."</h4>
+                <p class="card-text">Please Support us.</p>
+                <a [routerLink]="['/contact']" class="btn btn-primary">Request</a>
               </div>
              <div class="card-header">
                 ....
