@@ -70,7 +70,7 @@
                                 		<div class="animated fadeIn">
                                     		<a class="btn" style="background-color: #43aea8;">50% Off</a> </div>
                             			</div>
-										<a [routerLink]="['/profile/+obj.id']" >
+										<a (click)="viewProfile(obj.id)" >
 										<img *ngIf="obj.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}" alt="">
 										<img *ngIf="!obj.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> </a>
 									
@@ -83,7 +83,7 @@
 									</div><!-- /.box-img -->
 								
 									<div class="fp-info card">
-										<h4><a href="#">{{obj.name}}</a></h4>
+										<h4><a href="#">{{obj.name}} {{obj.id}}</a></h4>
 
 										<div class="price-rating" >
 											<div class="product-price">

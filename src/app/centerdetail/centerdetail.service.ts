@@ -10,7 +10,7 @@ private _host = tsConstants.HOST;
 
   	yogaDetail(yogaId){
 		let headers  = this._sharedService.getAuthorizationHeader();
-		let url = this._host+'/yogaProfile'+yogaId;
+		let url = this._host+'/yogaProfile/'+yogaId;
 		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
 	}
 

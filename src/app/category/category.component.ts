@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 import {StringFilterPipe} from './filter';
+import { Router,ActivatedRoute } from '@angular/router';
 import * as jQuery from 'jquery';
 import  { CategoryService } from './category.service'
 import tsConstants = require('../shared/config/tsconstant');
@@ -23,7 +24,7 @@ export class CategoryComponent implements OnInit {
   public Gym = 'gym';
   public data2:any;
   public physiotherapy = 'physiotherapy';
-	constructor(private _categoryService:CategoryService) { }
+	constructor(private _categoryService:CategoryService,private _router:Router) { }
 
 	ngOnInit() {
     console.log("filter",StringFilterPipe)
@@ -95,6 +96,11 @@ export class CategoryComponent implements OnInit {
     err=>{
         console.log("server error");
     });
+  }
+
+  viewProfile(yogaId){
+      let route = '/profile/'+yogaId;
+      this._router.navigate([route]);
   }
 
 
