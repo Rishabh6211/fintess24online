@@ -13,9 +13,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { SharedService } from '../shared/services/shared.service';
-import { LanguageService } from '../shared/services/language.service';
 
-import { LanguageInterface } from '../shared/classes/language-interface';
 import {HomeService } from './home.service';
 import tsConstants = require('../shared/config/tsconstant');
 
@@ -49,7 +47,7 @@ export class HomeComponent implements OnInit {
   public slides : SlickModule[]; 
     public slick:any; 
 
-  public language: LanguageInterface = new LanguageInterface;
+
 
     public origin; 
     public destination;
@@ -59,7 +57,7 @@ export class HomeComponent implements OnInit {
      @ViewChild(SwiperComponent) swiperView: SwiperComponent;
   constructor(  
         private _sharedService: SharedService,
-    private _languageService: LanguageService,
+
         private _homeService: HomeService
   ) {}
 
@@ -67,9 +65,7 @@ export class HomeComponent implements OnInit {
 
         this.findOffers();
 
-        this._languageService.language.subscribe( language => {
-            this.language.setLabels(language);
-        });
+      
          this.galleryOptions = [
    
             {   

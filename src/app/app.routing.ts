@@ -64,16 +64,11 @@ export const routes: Routes = [
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             
-            {
+           /* {
                 path: 'cart',
                 loadChildren: './cart/cart.module#CartModule',
-            },
+            },*/
            
-            {
-
-                path: 'external',
-                loadChildren: './external/external.module#ExternalModule',
-            },
             {
                 path: 'forgotpassword',
                 loadChildren: './auth/forgot-password/forgot-password.module#ForgotPasswordModule',

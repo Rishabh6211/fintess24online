@@ -13,8 +13,7 @@ import * as Materialize from "angular2-materialize";
 import tsConstants = require('../../shared/config/tsconstant');
 import tsMessages  = require('../../shared/config/tsmessage');
 
-import { LanguageService } from '../../shared/services/language.service';
-import { LanguageInterface } from '../../shared/classes/language-interface';
+
 
 import { SharedService } from '../../shared/services/shared.service';
 
@@ -33,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
     public errMessage: string          = '';
     public successMessage: string      = '';
     public isSubmitted: boolean        = false;
-    public language: LanguageInterface = new LanguageInterface;
+  
 
     constructor(private _auth: AuthService, 
                 private _loginService: LoginService,
@@ -41,18 +40,13 @@ export class ForgotPasswordComponent implements OnInit {
                 private _cookieService: CookieService,
                 private _cd: ChangeDetectorRef,
                 private _flashMessagesService: FlashMessagesService,
-                private _sharedService: SharedService,                
-                private _languageService: LanguageService) {
+                private _sharedService: SharedService) {
 
-				this._languageService.language.subscribe(language => {
-	                this.language.setLabels(language);
-	            });
-    }
-
+				
+}
     ngOnInit() {
 
-        let keyword = localStorage.getItem("lang");
-        this._languageService.getLanguage();
+       
     } 
 
     submit() {
@@ -63,9 +57,9 @@ export class ForgotPasswordComponent implements OnInit {
             this.isloading = false;
             if(res.success) {
                 this.isSubmitted = true;
-                this._sharedService.showToast(this.language.getLabel("check_your_email"), tsConstants.COLOR_SUCESS);
+                this._sharedService.showToast("check_your_email", tsConstants.COLOR_SUCESS);
             } else {
-                this._sharedService.showToast(this.language.getLabel("no_such_user_exist"), tsConstants.COLOR_DANGER);
+                this._sharedService.showToast("no_such_user_exist", tsConstants.COLOR_DANGER);
             }
         },
         err => {      
@@ -74,8 +68,6 @@ export class ForgotPasswordComponent implements OnInit {
         });
     }
     
-    setLanguage( keyword ){
-        this._languageService.setLanguage(keyword);
-    }  
+     
 
 }

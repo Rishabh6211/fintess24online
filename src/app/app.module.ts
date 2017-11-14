@@ -37,7 +37,7 @@ import tsConstants = require('./shared/config/tsconstant');
 
 import { NgxGalleryModule } from 'ngx-gallery';
 
-import { LanguageService } from './shared/services/language.service';
+
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import 'rxjs/Rx';
@@ -80,7 +80,6 @@ let providers = {
     ],
     providers: [
         AuthService,
-        LanguageService,
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy

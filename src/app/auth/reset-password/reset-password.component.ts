@@ -13,8 +13,6 @@ import * as Materialize from "angular2-materialize";
 import tsConstants = require('../../shared/config/tsconstant');
 import tsMessages  = require('../../shared/config/tsmessage');
 
-import { LanguageService } from '../../shared/services/language.service';
-import { LanguageInterface } from '../../shared/classes/language-interface';
 
 import { SharedService } from '../../shared/services/shared.service';
 
@@ -34,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
   public isloading: boolean   = false;
   public errMessage: string = '';
   public successMessage: string = '';
-  public language: LanguageInterface = new LanguageInterface;
+ 
 
   constructor(private _auth: AuthService, 
                 private _loginService: LoginService,
@@ -42,13 +40,10 @@ export class ResetPasswordComponent implements OnInit {
                 private _cookieService: CookieService,
                 private _cd: ChangeDetectorRef,
                 private _flashMessagesService: FlashMessagesService,
-                private _sharedService: SharedService,                
-                private _languageService: LanguageService,
+                private _sharedService: SharedService,
                 private _activateRouter:ActivatedRoute) {
 
-				this._languageService.language.subscribe(language => {
-	                this.language.setLabels(language);
-	            });
+				
   }
 
   ngOnInit() {
@@ -56,8 +51,7 @@ export class ResetPasswordComponent implements OnInit {
         this.userID = this._activateRouter.snapshot.params['id'];
         console.log(this.userID)
 
-        let keyword = localStorage.getItem("lang");
-        this._languageService.getLanguage();
+       
   	} 
 
   submit() {
@@ -66,11 +60,11 @@ export class ResetPasswordComponent implements OnInit {
         this._loginService.resetPassword(this.user,this.userID).subscribe(res => {
            this.isloading = false;
            if(res.success) {
-             this._sharedService.showToast(this.language.getLabel("your_password_has_been_change"), tsConstants.COLOR_SUCESS);
+             this._sharedService.showToast("your_password_has_been_change", tsConstants.COLOR_SUCESS);
                this._router.navigate(['/login']); 
                //this.successMessage = res.;
            } else {
-              this._sharedService.showToast(this.language.getLabel("an_error_occured_please_try_again"), tsConstants.COLOR_DANGER);
+              this._sharedService.showToast("an_error_occured_please_try_again", tsConstants.COLOR_DANGER);
 
                //this.errMessage     = "invalid";
            }
@@ -79,8 +73,6 @@ export class ResetPasswordComponent implements OnInit {
            //this.errMessage    = "NO SUCH USER EXIST";    
        });
     }
-   setLanguage( keyword ){
-        this._languageService.setLanguage(keyword);
-    }  
+    
 
 }

@@ -11,8 +11,7 @@ import * as Materialize from "angular2-materialize";
 import tsConstants = require('../config/tsconstant');
 import tsMessage   = require('../config/tsmessage');
 
-import { LanguageService } from '../../shared/services/language.service';
-import { LanguageInterface } from '../../shared/classes/language-interface';
+
 import { LoginComponent } from '../../auth/login/login.component';
 //import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 declare var jQuery:any;
@@ -21,7 +20,7 @@ declare var jQuery:any;
 export class SharedService {
     
     private _host = tsConstants.HOST;
-    public language: LanguageInterface = new LanguageInterface;
+
 
         
     constructor(
@@ -29,12 +28,9 @@ export class SharedService {
         private _cookieService: CookieService,
     	private _router: Router,
         private _ref: ApplicationRef,
-        private _languageService: LanguageService ) { 
+      ) { 
 
-            this._languageService.language.subscribe(language => {
-				this.language.setLabels(language);
-
-			});
+            
 
          }
     
