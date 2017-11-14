@@ -33,9 +33,9 @@ export class CategoryComponent implements OnInit {
     this.gym();
 	}
 
-	setTab( item ) {
-		console.log( "item ", item );
-		let ID = "#"+item;
+	setTab( $event ) {
+		console.log( "item ", $event );
+		let ID = "#"+$event.target.value;
 		jQuery('.tab-pane').removeClass('active');
 		jQuery(ID).addClass('active');
 		// jQuery()
@@ -59,7 +59,7 @@ export class CategoryComponent implements OnInit {
   	});
   }
   Physio(){
-    console.log("hee")
+
     this.isloading = true;
     this._categoryService.getPhysiotherapy(this.physiotherapy).subscribe(res => {
       this.isloading = false;
@@ -78,7 +78,7 @@ export class CategoryComponent implements OnInit {
   }
 
   gym(){
-    console.log("hee")
+  
     this.isloading = true;
     this._categoryService.getGym(this.Gym).subscribe(res => {
       this.isloading = false;

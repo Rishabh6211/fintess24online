@@ -11,19 +11,20 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="portfolio-image">
-								<img src="assets/images/trainer-portfolio-img.jpg" alt="Portfolio">
+								<img *ngIf="profileData?.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{profileData?.image}}" alt="">
+								<img *ngIf="!profileData?.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
 							</div><!-- /.portfolio-image -->
 						</div><!-- /.col-md-4 -->
 
 						<div class="col-md-8">
 							<div class="portfolio-content">
 								<div class="portfolio-title">
-									<h3 class="pull-left">Rafino Yogo <br> <span>Yoga Teacher</span></h3>
+									<h3 class="pull-left">{{profileData?.name}} <br> <span>{{profileData?.title}}</span></h3>
 									<a href="#" class="custom-btn pull-right">Contact Trainer</a>
 								</div><!-- /.portfolio-title -->
 
-								<p>Authoritatively coordinate functional users whereas client-focused alignments. Phosfluorescently simplify global e-tailers whereas seamless infomediaries. Phosfluorescently monetize team driven human capital without intuitive innovation. Compellingly innovate B2B markets via cross-platform total linkage. Objectively e-enable vertical content vis-a-vis inexpensive experiences.</p>
-								<p>Appropriately repurpose bleeding-edge architectures through real-time models. Intrinsicly pursue resource-leveling ideas via competitive growth strategies.</p>
+								<p>{{profileData?.detail}}</p>
+								
 
 								<ul>
 									<li>
@@ -31,7 +32,7 @@
 											Phone:
 										</div>
 										<div class="addr-right">
-											<span>011987263546</span>
+											<span>{{profileData?.phone}}</span>
 										</div>
 									</li>
 
@@ -40,16 +41,7 @@
 											E-mail:
 										</div>
 										<div class="addr-right">
-											<span>contact@yourmail.com</span>
-										</div>
-									</li>
-
-									<li>
-										<div class="addr-left">
-											Web:
-										</div>
-										<div class="addr-right">
-											<a href="#">www.yourdomain.com</a>
+											<span>{{profileData?.email}}</span>
 										</div>
 									</li>
 
@@ -93,90 +85,24 @@
 							<h3>Related Post</h3>
 
 							<div class="row">
-								<div class="col-sm-4 col-md-4">
-									<!-- class image box 1 -->
+								<div class="col-sm-4 col-md-4" *ngFor="let obj of array">
+									
 									<div class="image-box">
 										<div class="b-img">
 											<a href="class-detail.html"><img src="assets/images/class-grid1.jpg" alt="Image"></a>
-										</div><!-- /.class-img -->
+										</div>
 
 										<div class="class-info">
-											<h4 class="class-title">Fitness Body</h4>
-											<p>With <a href="#">Russel Due</a></p>
+											<h4 class="class-title">{{obj.name}}</h4>
+											
 
-											<div class="post-info">
-												<span class="date">
-													<i class="fa fa-calendar-o"></i>
-													22 July 2015
-												</span>
-
-												<span class="time">
-													<i class="fa fa-user"></i>
-													6:00 am - 8:00 am
-												</span>
-											</div><!-- /.post-info -->
+				
 
 											<a href="#" class="custom-btn learn-more">Learn More</a>
-										</div><!-- /.class-info -->
-									</div><!-- /.class-image-box -->
+										</div>
+									</div>
 								</div>
-
-								<div class="col-sm-4 col-md-4">
-									<!-- class image box 1 -->
-									<div class="image-box">
-										<div class="b-img">
-											<a href="class-detail.html"><img src="assets/images/class-grid2.jpg" alt="Image"></a>
-										</div><!-- /.class-img -->
-
-										<div class="class-info">
-											<h4 class="class-title">Fitness Body</h4>
-											<p>With <a href="#">Russel Due</a></p>
-
-											<div class="post-info">
-												<span class="date">
-													<i class="fa fa-calendar-o"></i>
-													22 July 2015
-												</span>
-
-												<span class="time">
-													<i class="fa fa-user"></i>
-													6:00 am - 8:00 am
-												</span>
-											</div><!-- /.post-info -->
-
-											<a href="#" class="custom-btn learn-more">Learn More</a>
-										</div><!-- /.class-info -->
-									</div><!-- /.class-image-box -->
-								</div>
-
-								<div class="col-sm-4 col-md-4">
-									<!-- class image box 1 -->
-									<div class="image-box">
-										<div class="b-img">
-											<a href="class-detail.html"><img src="assets/images/class-grid3.jpg" alt="Image"></a>
-										</div><!-- /.class-img -->
-
-										<div class="class-info">
-											<h4 class="class-title">Fitness Body</h4>
-											<p>With <a href="#">Russel Due</a></p>
-
-											<div class="post-info">
-												<span class="date">
-													<i class="fa fa-calendar-o"></i>
-													22 July 2015
-												</span>
-
-												<span class="time">
-													<i class="fa fa-user"></i>
-													6:00 am - 8:00 am
-												</span>
-											</div><!-- /.post-info -->
-
-											<a href="#" class="custom-btn learn-more">Learn More</a>
-										</div><!-- /.class-info -->
-									</div><!-- /.class-image-box -->
-								</div>
-							</div><!-- /.row -->
+							</div>
 						</div>
 					
 				</div><!-- /.container -->
