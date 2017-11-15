@@ -11,7 +11,7 @@ import {MaterializeDirective, MaterializeAction} from "angular2-materialize";
 import * as Materialize from "angular2-materialize";
 
 import tsConstants = require('../../shared/config/tsconstant');
-import tsMessages  = require('../../shared/config/tsmessage');
+
 
 
 

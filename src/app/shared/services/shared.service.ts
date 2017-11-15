@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie';
 import * as Materialize from "angular2-materialize";
 
 import tsConstants = require('../config/tsconstant');
-import tsMessage   = require('../config/tsmessage');
+
 
 
 import { LoginComponent } from '../../auth/login/login.component';
@@ -64,7 +64,7 @@ export class SharedService {
             if( err.statusText !== '' ){
                 this.showToast(err.statusText, tsConstants.COLOR_DANGER);                
             }else{
-               this.showToast(tsMessage.API_ERROR_OCCURED, tsConstants.COLOR_DANGER);
+               this.showToast("error", tsConstants.COLOR_DANGER);
             }
             
         }   
