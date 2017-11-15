@@ -14,8 +14,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(13);
-var trainors_component_1 = __webpack_require__(1485);
-var trainor_portfolio_component_1 = __webpack_require__(1483);
+var trainors_component_1 = __webpack_require__(1484);
+var trainor_portfolio_component_1 = __webpack_require__(1482);
 var router_1 = __webpack_require__(91);
 var shared_module_1 = __webpack_require__(736);
 var routes = [
@@ -63,7 +63,7 @@ exports.TrainorModule = TrainorModule;
 
 /***/ }),
 
-/***/ 1483:
+/***/ 1482:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89,8 +89,8 @@ var TrainorPortfolioComponent = (function () {
 TrainorPortfolioComponent = __decorate([
     core_1.Component({
         selector: 'app-trainor-portfolio',
-        template: __webpack_require__(1518),
-        styles: [__webpack_require__(1495)]
+        template: __webpack_require__(1517),
+        styles: [__webpack_require__(1494)]
     }),
     __metadata("design:paramtypes", [])
 ], TrainorPortfolioComponent);
@@ -99,7 +99,7 @@ exports.TrainorPortfolioComponent = TrainorPortfolioComponent;
 
 /***/ }),
 
-/***/ 1484:
+/***/ 1483:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -142,7 +142,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 1485:
+/***/ 1484:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -158,7 +158,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var trainor_service_1 = __webpack_require__(1484);
+var trainor_service_1 = __webpack_require__(1483);
 var tsConstants = __webpack_require__(345);
 var TrainorsComponent = (function () {
     function TrainorsComponent(_trainorService) {
@@ -192,8 +192,8 @@ var TrainorsComponent = (function () {
 TrainorsComponent = __decorate([
     core_1.Component({
         selector: 'app-trainors',
-        template: __webpack_require__(1519),
-        styles: [__webpack_require__(1496)],
+        template: __webpack_require__(1518),
+        styles: [__webpack_require__(1495)],
         providers: [trainor_service_1.TrainorService]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof trainor_service_1.TrainorService !== "undefined" && trainor_service_1.TrainorService) === "function" && _a || Object])
@@ -201,6 +201,24 @@ TrainorsComponent = __decorate([
 exports.TrainorsComponent = TrainorsComponent;
 var _a;
 //# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/trainors.component.js.map
+
+/***/ }),
+
+/***/ 1494:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(76)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -222,32 +240,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1496:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(76)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 1518:
+/***/ 1517:
 /***/ (function(module, exports) {
 
 module.exports = "<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'Trainers portfolio'\"></breadcrumb>\n\n\n\t\t<!--\n\t\t\t    trainer-portfolio start              =\n\t\t======================================= -->\n\t<div class=\"card\">\n\t\t<section class=\"trainer-portfolio\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t<div class=\"portfolio-image\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/trainer-portfolio-img.jpg\" alt=\"Portfolio\">\n\t\t\t\t\t\t\t</div><!-- /.portfolio-image -->\n\t\t\t\t\t\t</div><!-- /.col-md-4 -->\n\n\t\t\t\t\t\t<div class=\"col-md-8\">\n\t\t\t\t\t\t\t<div class=\"portfolio-content\">\n\t\t\t\t\t\t\t\t<div class=\"portfolio-title\">\n\t\t\t\t\t\t\t\t\t<h3 class=\"pull-left\">Rafino Yogo <br> <span>Yoga Teacher</span></h3>\n\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn pull-right\">Contact Trainer</a>\n\t\t\t\t\t\t\t\t</div><!-- /.portfolio-title -->\n\n\t\t\t\t\t\t\t\t<p>Authoritatively coordinate functional users whereas client-focused alignments. Phosfluorescently simplify global e-tailers whereas seamless infomediaries. Phosfluorescently monetize team driven human capital without intuitive innovation. Compellingly innovate B2B markets via cross-platform total linkage. Objectively e-enable vertical content vis-a-vis inexpensive experiences.</p>\n\t\t\t\t\t\t\t\t<p>Appropriately repurpose bleeding-edge architectures through real-time models. Intrinsicly pursue resource-leveling ideas via competitive growth strategies.</p>\n\n\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tPhone:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<span>011987263546</span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tE-mail:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<span>contact@yourmail.com</span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tWeb:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">www.yourdomain.com</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tFollow me on:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"m-share\">\n\t\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-pinterest\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-vimeo-square\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.m-share -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div><!-- /.portfolio-content -->\n\t\t\t\t\t\t</div><!-- /.col-md-8 -->\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\n\n\n\t\t<!--\n\t\t\t    trainer-portfolio start              =\n\t\t======================================= -->\n\t\t<section id=\"classby\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- related post  -->\n\t\t\t\t\t\t<div class=\"related-post comment-area class-grid\">\n\t\t\t\t\t\t\t<h3>Related Post</h3>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\">\n\t\t\t\t\t\t\t\t\t<!-- class image box 1 -->\n\t\t\t\t\t\t\t\t\t<div class=\"image-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"b-img\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"class-detail.html\"><img src=\"assets/images/class-grid1.jpg\" alt=\"Image\"></a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-img -->\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"class-info\">\n\t\t\t\t\t\t\t\t\t\t\t<h4 class=\"class-title\">Fitness Body</h4>\n\t\t\t\t\t\t\t\t\t\t\t<p>With <a href=\"#\">Russel Due</a></p>\n\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"post-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"date\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-calendar-o\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t22 July 2015\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"time\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t6:00 am - 8:00 am\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.post-info -->\n\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn learn-more\">Learn More</a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-info -->\n\t\t\t\t\t\t\t\t\t</div><!-- /.class-image-box -->\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\">\n\t\t\t\t\t\t\t\t\t<!-- class image box 1 -->\n\t\t\t\t\t\t\t\t\t<div class=\"image-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"b-img\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"class-detail.html\"><img src=\"assets/images/class-grid2.jpg\" alt=\"Image\"></a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-img -->\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"class-info\">\n\t\t\t\t\t\t\t\t\t\t\t<h4 class=\"class-title\">Fitness Body</h4>\n\t\t\t\t\t\t\t\t\t\t\t<p>With <a href=\"#\">Russel Due</a></p>\n\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"post-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"date\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-calendar-o\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t22 July 2015\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"time\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t6:00 am - 8:00 am\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.post-info -->\n\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn learn-more\">Learn More</a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-info -->\n\t\t\t\t\t\t\t\t\t</div><!-- /.class-image-box -->\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\">\n\t\t\t\t\t\t\t\t\t<!-- class image box 1 -->\n\t\t\t\t\t\t\t\t\t<div class=\"image-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"b-img\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"class-detail.html\"><img src=\"assets/images/class-grid3.jpg\" alt=\"Image\"></a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-img -->\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"class-info\">\n\t\t\t\t\t\t\t\t\t\t\t<h4 class=\"class-title\">Fitness Body</h4>\n\t\t\t\t\t\t\t\t\t\t\t<p>With <a href=\"#\">Russel Due</a></p>\n\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"post-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"date\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-calendar-o\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t22 July 2015\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"time\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t\t6:00 am - 8:00 am\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.post-info -->\n\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn learn-more\">Learn More</a>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.class-info -->\n\t\t\t\t\t\t\t\t\t</div><!-- /.class-image-box -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</div><!-- /.container -->\n\t\t\t\t\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\t</div>\n\n"
 
 /***/ }),
 
-/***/ 1519:
+/***/ 1518:
 /***/ (function(module, exports) {
 
 module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'Trainers'\"></breadcrumb>\n\n\n\t\t<!--\n\t\t\t    main body start              =\n\t\t======================================= -->\n\t<div class=\"card\">\n\t\t<section id=\"main-body\">\n\t\t\t<div class=\"container\">\n\t\t\t<div class=\"class-trainer\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\n\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\" *ngFor=\"let obj of data\">\n\t\t\t\t\t\t\t<div class=\"image-box\">\n\t\t\t\t\t\t\t\t<div class=\"b-img\">\n\t\t\t\t\t\t\t\t\t<a href=\"#\">\n\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/trainor/{{obj?.image}}\" alt=\"\">\n\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\"> \n            \t\t\t\t\t\t<!-- <img *ngIf=\"(!obj?.image || obj?.images?.length == '0')\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\"> -->\n\t\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t<div class=\"overlay\"></div><!-- /.overlay -->\n\t\t\t\t\t\t\t\t\t<div class=\"social-media\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"social-icon\"><i class=\"fa fa-facebook\"></i></a>\n\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"social-icon\"><i class=\"fa fa-twitter\"></i></a>\n\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"social-icon\"><i class=\"fa fa-youtube\"></i></a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div><!-- /.social-media -->\n\t\t\t\t\t\t\t\t</div><!-- /.b-img -->\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"image-des\">\n\t\t\t\t\t\t\t\t\t<h4><a href=\"\">{{obj.name}}</a></h4>\n\t\t\t\t\t\t\t\t\t<p>{{obj.specialist}}</p>\n\t\t\t\t\t\t\t\t</div><!-- /.image-des -->\n\t\t\t\t\t\t\t</div><!-- /.image-box -->\n\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.class-trainer -->\n\t\t\t\t\n\t\t\t</div><!-- /.container -->\n\t\t</section>\n\t</div>"

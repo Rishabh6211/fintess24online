@@ -739,11 +739,11 @@ var map = {
 	],
 	"./auth/reset-password/reset-password.module": [
 		1439,
-		4
+		3
 	],
 	"./category/category.module": [
 		1440,
-		3
+		4
 	],
 	"./centerdetail/centerdetail.module": [
 		1441,

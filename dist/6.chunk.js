@@ -178,8 +178,8 @@ var ForgotPasswordComponent = (function () {
 ForgotPasswordComponent = __decorate([
     core_1.Component({
         selector: 'app-forgot-password',
-        template: __webpack_require__(1509),
-        styles: [__webpack_require__(1490)],
+        template: __webpack_require__(1508),
+        styles: [__webpack_require__(1489)],
         providers: [login_service_1.LoginService]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof angular2_social_login_1.AuthService !== "undefined" && angular2_social_login_1.AuthService) === "function" && _a || Object, typeof (_b = typeof login_service_1.LoginService !== "undefined" && login_service_1.LoginService) === "function" && _b || Object, typeof (_c = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _c || Object, typeof (_d = typeof ngx_cookie_1.CookieService !== "undefined" && ngx_cookie_1.CookieService) === "function" && _d || Object, typeof (_e = typeof core_2.ChangeDetectorRef !== "undefined" && core_2.ChangeDetectorRef) === "function" && _e || Object, typeof (_f = typeof ngx_flash_messages_1.FlashMessagesService !== "undefined" && ngx_flash_messages_1.FlashMessagesService) === "function" && _f || Object, typeof (_g = typeof shared_service_1.SharedService !== "undefined" && shared_service_1.SharedService) === "function" && _g || Object])
@@ -230,7 +230,7 @@ exports.forgotPasswordRoutingModule = forgotPasswordRoutingModule;
 
 /***/ }),
 
-/***/ 1490:
+/***/ 1489:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(76)();
@@ -248,7 +248,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1509:
+/***/ 1508:
 /***/ (function(module, exports) {
 
 module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n<!-- <app-header [isloading]=\"isloading\"></app-header> -->\n<!-- small banner-->\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'login'\"></breadcrumb>\n<!-- small banner-->\n\n<!--Main layout-->\n<main>\n    <div class=\"container-fluid\">\n\n        <!-- loginbox-->\n        <div class=\"loginbox my-2\">\n\n            <!--Form without header-->\n\n            <div class=\"text-center\">\n                <h2>reset_your_password</h2>\n            </div>\n\n            <div class=\"card\">\n\n                <!--Header-->\n\n                <div class=\"card-block\" [hidden]=\"isSubmitted\">\n                    \n                    <form  role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                        <!--Body-->\n                          <label [ngClass]=\"{'active': hasUser}\">{{language.getLabel('enter_your_email')}}</label>\n                        <div class=\"md-form\">\n                            <i class=\"fa fa-envelope prefix\"></i>\n                            <label for=\"form2\" [ngClass]=\"{'active': hasUser}\">{{language.getLabel('Email')}}</label>\n                            <input type=\"email\" name=\"emailID\" #emailIDX=\"ngModel\" [(ngModel)]=\"emailID\" id=\"form2\" class=\"form-control\" email required />\n\n                            <div class=\"error-block\">\n                                <small *ngIf=\"emailIDX.errors?.required && emailIDX.dirty\" class=\"text-danger\">\n                                    email_is_required\n                                </small>\n                                <small *ngIf=\"emailIDX.errors?.email && emailIDX.dirty\" class=\"text-danger\">\n                                    email_is_not_valid\n                                </small>\n                            </div>\n\n                        </div>\n\n                        <div class=\"row\">\n                            <div class=\"col-md-6\">\n                                <button class=\"btn btn-success signin\" [disabled]=\"!loginForm.valid\">send</button>\n                            </div>\n                        </div>\n\n                    </form>\n                </div>\n                 <div class=\"card-block\" *ngIf=\"isSubmitted\">\n                 <p>check_your_email_to_reset_your_password}</p>\n                 </div>\n\n\n            </div>\n\n        </div>\n        <!-- loginbox-->\n\n    </div>\n</main>\n<!--/Main layout-->\n\n<!-- <app-footer></app-footer> -->"

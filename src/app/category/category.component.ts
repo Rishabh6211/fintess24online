@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
-import {StringFilterPipe} from './filter';
+//import {StringFilterPipe} from './filter';
 import { Router,ActivatedRoute } from '@angular/router';
 import * as jQuery from 'jquery';
 import  { CategoryService } from './category.service'
@@ -27,7 +27,7 @@ export class CategoryComponent implements OnInit {
 	constructor(private _categoryService:CategoryService,private _router:Router) { }
 
 	ngOnInit() {
-    console.log("filter",StringFilterPipe)
+    //console.log("filter",StringFilterPipe)
 		this.findYoga();
     this.Physio();
     this.gym();

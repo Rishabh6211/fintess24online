@@ -24,7 +24,7 @@ var ng2_validation_1 = __webpack_require__(737);
 var shared_module_1 = __webpack_require__(736);
 var ngx_flash_messages_1 = __webpack_require__(738);
 // Modal Component
-var modal_1 = __webpack_require__(1499);
+var modal_1 = __webpack_require__(1498);
 var RegisterModule = (function () {
     function RegisterModule() {
     }
@@ -291,8 +291,8 @@ var RegisterComponent = (function () {
 RegisterComponent = __decorate([
     core_1.Component({
         selector: 'app-register',
-        template: __webpack_require__(1511),
-        styles: [__webpack_require__(1487)]
+        template: __webpack_require__(1510),
+        styles: [__webpack_require__(1486)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _a || Object, typeof (_b = typeof register_service_1.RegisterService !== "undefined" && register_service_1.RegisterService) === "function" && _b || Object, typeof (_c = typeof shared_service_1.SharedService !== "undefined" && shared_service_1.SharedService) === "function" && _c || Object, typeof (_d = typeof core_1.ChangeDetectorRef !== "undefined" && core_1.ChangeDetectorRef) === "function" && _d || Object, typeof (_e = typeof ngx_cookie_1.CookieService !== "undefined" && ngx_cookie_1.CookieService) === "function" && _e || Object, typeof (_f = typeof ngx_flash_messages_1.FlashMessagesService !== "undefined" && ngx_flash_messages_1.FlashMessagesService) === "function" && _f || Object])
 ], RegisterComponent);
@@ -369,7 +369,7 @@ var _a;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_ref_class__ = __webpack_require__(1459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_triggers__ = __webpack_require__(1503);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_triggers__ = __webpack_require__(1502);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentLoader; });
 
 
@@ -641,7 +641,7 @@ var Selector = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_facade_browser__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_ng2_bootstrap_config__ = __webpack_require__(740);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_utils_class__ = __webpack_require__(1504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_utils_class__ = __webpack_require__(1503);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal_backdrop_component__ = __webpack_require__(1448);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modal_options_class__ = __webpack_require__(1460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_loader_component_loader_factory__ = __webpack_require__(1458);
@@ -971,7 +971,7 @@ var ModalDirective = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ng_positioning__ = __webpack_require__(1463);
 /* unused harmony reexport positionElements */
 /* unused harmony reexport Positioning */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__positioning_service__ = __webpack_require__(1501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__positioning_service__ = __webpack_require__(1500);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__positioning_service__["a"]; });
 
 
@@ -1244,7 +1244,7 @@ exports.RegisterRoutingModule = RegisterRoutingModule;
 
 /***/ }),
 
-/***/ 1487:
+/***/ 1486:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(76)();
@@ -1262,7 +1262,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1498:
+/***/ 1497:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1279,7 +1279,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1499:
+/***/ 1498:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1289,7 +1289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ModalBackdropOptions", function() { return __WEBPACK_IMPORTED_MODULE_0__modal_backdrop_component__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_component__ = __webpack_require__(1461);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ModalDirective", function() { return __WEBPACK_IMPORTED_MODULE_1__modal_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_module__ = __webpack_require__(1500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_module__ = __webpack_require__(1499);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ModalModule", function() { return __WEBPACK_IMPORTED_MODULE_2__modal_module__["a"]; });
 
 
@@ -1298,7 +1298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1500:
+/***/ 1499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1306,7 +1306,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_backdrop_component__ = __webpack_require__(1448);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_component__ = __webpack_require__(1461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__positioning__ = __webpack_require__(1462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_loader__ = __webpack_require__(1498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_loader__ = __webpack_require__(1497);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalModule; });
 
 
@@ -1334,7 +1334,7 @@ var ModalModule = (function () {
 
 /***/ }),
 
-/***/ 1501:
+/***/ 1500:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1371,7 +1371,7 @@ var PositioningService = (function () {
 
 /***/ }),
 
-/***/ 1502:
+/***/ 1501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1392,11 +1392,11 @@ var Trigger = (function () {
 
 /***/ }),
 
-/***/ 1503:
+/***/ 1502:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__trigger_class__ = __webpack_require__(1502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__trigger_class__ = __webpack_require__(1501);
 /* unused harmony export parseTriggers */
 /* harmony export (immutable) */ __webpack_exports__["a"] = listenToTriggers;
 
@@ -1445,7 +1445,7 @@ function listenToTriggers(renderer, target, triggers, showFn, hideFn, toggleFn) 
 
 /***/ }),
 
-/***/ 1504:
+/***/ 1503:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1475,7 +1475,7 @@ var Utils = (function () {
 
 /***/ }),
 
-/***/ 1511:
+/***/ 1510:
 /***/ (function(module, exports) {
 
 module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n\n<!-- small banner-->\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'register'\"></breadcrumb>\n<!-- small banner-->\n\n<!--Main layout-->\n\n<main class=\"login\">\n  <div class=\"container-fluid\"> \n    \n    <!-- loginbox-->\n    <div class=\"registerbox my-2\"> \n      <!--Form without header-->\n      \n      <div class=\"text-center\">\n        <h2>Stay Fit And Healthy</h2>\n        <p>Already have an account ?<a [routerLink]=\"['/login']\">Login here</a></p>\n      </div>\n      <div class=\"card\"> \n        \n       <form role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"register()\">\n          <div class=\"card-block\">\n            <div class=\"error-block text-center\">\n              <div class=\"alert alert-danger\" *ngIf=\"errorMessage\"> {{errorMessage}} </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <div class=\"md-form has-required\"> \n                  <label for=\"username\">Username</label>\n                  <i class=\"fa fa-user prefix\"></i>\n                  <input type=\"text\" id=\"username\" name=\"username\" class=\"form-control\" #username=\"ngModel\" [(ngModel)]=\"user.username\" onPaste=\"return false\" onDrag=\"return false\" onDrop=\"return false\" required>\n                  <div class=\"error-block\"> <small *ngIf=\"username.errors?.required && username.touched\" class=\"text-danger\"> Username is required </small> </div>\n                </div>\n              </div>\n               <div class=\"col-md-6\">\n                <div class=\"md-form has-required\">\n                  <label for=\"email\">Email</label>\n                  <i class=\"fa fa-envelope prefix\"></i>\n                  <input type=\"email\" name=\"uEmail\" id=\"uEmail\" #uEmail=\"ngModel\" [(ngModel)]=\"user.email\" class=\"form-control\" (keydown.space)=\"$event.preventDefault()\" onPaste=\"return false\" onDrag=\"return false\" onDrop=\"return false\" email required />\n                  <div class=\"error-block\"> <small *ngIf=\"uEmail.errors?.required && uEmail.touched\" class=\"text-danger\">Email is required </small> <small *ngIf=\"uEmail.errors?.email && uEmail.touched\" class=\"text-danger\"> Email is not valid </small> </div>\n                </div>\n              </div>\n            </div>\n             <div class=\"row\">              \n              <div class=\"col-md-6\">\n                <div class=\"md-form has-required\"> \n                  <label for=\"password\">Password</label>\n                  <i class=\"fa fa-lock prefix\"></i>\n                  <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" #password=\"ngModel\" [(ngModel)]=\"user.password\" minlength=\"8\" required>\n                  <div class=\"error-block\"> <small *ngIf=\"password.errors?.required && password.touched\" class=\"text-danger\"> Password is required </small> <small *ngIf=\"password.errors?.minlength && password.touched\" class=\"text-danger\">Password should be 8 characters </small> </div>\n                </div>\n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"md-form has-required\">\n                  <label for=\"confirmPassword\">Confirm password</label>\n                  <i class=\"fa fa-lock prefix\"></i>\n                  <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\" class=\"form-control\" #confirmPassword=\"ngModel\" [(ngModel)]=\"user.confirmPassword\" required [equalTo]=\"password\" />\n                  <div class=\"error-block\"> <small *ngIf=\"confirmPassword.errors?.required && confirmPassword.touched\" class=\"text-danger\"> Confirm password is required </small> <small *ngIf=\"(confirmPassword.errors?.equalTo && confirmPassword.touched)\" class=\"text-danger\">Password mismatch</small> </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"row\">\n               <div class=\"col-md-6\">\n                  <div class=\"md-form has-required\">\n                      <i class=\"icon-state prefix\"></i>\n                      <select [(ngModel)]=\"user.state\" name=\"state\" (change)=\"setDistrict();user.district='';\" #state=\"ngModel\" placeholder=\"\" required>\n                          <option value=\"\" selected>Select state</option>\n                          <option *ngFor=\"let state of states\" [value]=\"state.stateName\">{{state.stateName}}</option>\n                      </select>\n                      <div class=\"error-block\">\n                          <small *ngIf=\"state.errors?.required && state.touched\" class=\"text-danger\">\n                                Please fill state\n                          </small>\n                      </div>\n\n                  </div>\n              </div>\n\n              <div class=\"col-md-6\">\n                  <div class=\"md-form has-required\">\n                      <i class=\"fa fa-map-marker prefix\"></i>\n                      <select name=\"district\" [(ngModel)]=\"user.district\" [disabled]=\"!user.state\" #district=\"ngModel\" required>\n                          <option value=\"\" selected>Select district</option>\n                          <option *ngFor=\"let district of districts\" [value]=\"district.districtName\">{{district.districtName}}</option>\n                      </select>\n                      <div class=\"error-block\">\n                          <small *ngIf=\"district.errors?.required && district.touched\" class=\"text-danger\">\n                                  Please fill district\n                          </small>\n                      </div>\n                  </div>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <div class=\"md-form has-required\"> \n                  <label for=\"phone\">Mobile</label>\n                  <i class=\"fa fa-phone prefix\"></i>\n                  <input type=\"text\" id=\"phone\" name=\"phone\" class=\"form-control\" #phone=\"ngModel\" [(ngModel)]=\"user.phone\" required=\"\" minlength=\"10\" maxlength=\"10\" pattern=\"[0-9 ]*\" required (keydown.space)=\"$event.preventDefault()\" onPaste=\"return false\" onDrag=\"return false\" onDrop=\"return false\">\n                  <div class=\"error-block\"> <small *ngIf=\"phone.errors?.required && phone.touched\" class=\"text-danger\">Mobile number is required</small> <small *ngIf=\"(phone.errors?.pattern || phone.errors?.minlength) && phone.touched\" class=\"text-danger\">Enter valid mobile number</small> </div>\n                </div>\n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"md-form\"> \n                  <label for=\"offer\">Address</label>\n                  <i class=\"icon-address prefix\"></i>\n                  <input name=\"address\" [(ngModel)]=\"user.address\" #address=\"ngModel\" type=\"text\" id=\"offer\" class=\"form-control\">\n                  <div class=\"error-block\"> <small *ngIf=\"address.errors?.required && address.touched\" class=\"text-danger\">Please fill address </small> </div>\n                </div>\n              </div>\n            </div>\n           \n            <div class=\"row\">\n              \n              <div class=\"col-md-6\">\n                <div class=\"md-form\">\n                  <label for=\"city\">City</label>\n                  <i class=\"icon-city prefix\"></i>\n                  <input type=\"text\" id=\"city\" name=\"city\" class=\"form-control\" #city=\"ngModel\" [(ngModel)]=\"user.city\">\n                  <div class=\"error-block\"> <small *ngIf=\"city.errors?.required && city.touched\" class=\"text-danger\"> City is required </small> </div>\n                </div>\n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"md-form\">\n                  <label for=\"pincode\">Pincode</label>\n                  <i class=\"icon-pincode prefix\"></i>\n                  <input type=\"number\" id=\"pincode\" name=\"pincode\" class=\"form-control\" #pincode=\"ngModel\" [(ngModel)]=\"user.pincode\" maxlength=\"6\" min=\"1\">\n                  <div class=\"error-block\">\n\n                  <small *ngIf=\"pincode.errors?.maxlength && pincode.touched\" class=\"text-danger\"> Maximum 6 digit allow</small> </div>\n                </div>\n              </div>\n            </div>\n            \n           \n            \n            <!--   <div class=\"text-center\">\n                            <img class=\"capactha\" src=\"assets/img/captcha.jpg\" alt=\"capatcha\">\n                        </div>\n -->\n            \n            <div class=\"text-center\">\n              <button class=\"btn btn-success signin col-md-5\" [disabled]=\"!loginForm.valid\">Register</button>\n            </div>\n          </div>\n        </form>\n      </div>\n      <!--/Form without header--> \n      \n    </div>\n    <!-- loginbox--> \n  </div>\n  <!-- <div bsModal #largeModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog mt-12\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">terms_and_conditions</h4>\n          <button type=\"button\" class=\"close\" (click)=\"largeModal.hide()\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button>\n        </div>\n        <div class=\"modal-body\">\n          <p>i_accept_terms</p>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-success orange\" (click)=\"largeModal.hide()\">close</button>\n        </div>\n      </div>\n      \n    </div>\n    \n  </div> -->\n \n  \n</main>\n<!--/Main layout-->"

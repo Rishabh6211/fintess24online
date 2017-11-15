@@ -16,7 +16,7 @@ var core_1 = __webpack_require__(0);
 var ng2_charts_1 = __webpack_require__(741);
 var shared_module_1 = __webpack_require__(736);
 var dashboard_component_1 = __webpack_require__(1455);
-var dashboard_routing_module_1 = __webpack_require__(1480);
+var dashboard_routing_module_1 = __webpack_require__(1479);
 var DashboardModule = (function () {
     function DashboardModule() {
     }
@@ -493,7 +493,7 @@ var DashboardComponent = (function () {
 }());
 DashboardComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(1516)
+        template: __webpack_require__(1515)
     }),
     __metadata("design:paramtypes", [])
 ], DashboardComponent);
@@ -502,7 +502,7 @@ exports.DashboardComponent = DashboardComponent;
 
 /***/ }),
 
-/***/ 1480:
+/***/ 1479:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -542,7 +542,7 @@ exports.DashboardRoutingModule = DashboardRoutingModule;
 
 /***/ }),
 
-/***/ 1516:
+/***/ 1515:
 /***/ (function(module, exports) {
 
 module.exports = "\n<section id=\"about-we-do\" style=\"margin-top: 108px;\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12\" >\n\t\t\t\t\t\t\t<div class=\"about-img\">\n\t\t\t\t\t\t\t\t<img src=\"assets/img/cover.jpg\" alt=\"aboutus\"  style=\"width: 100%;\">\n\t\t\t\t\t\t\t</div><!-- /.about-img -->\n\t\t\t\t\t\t\t<div class=\"about-img\">\n\t\t\t\t\t\t\t\t<img src=\"assets/img/logo.jpg\" alt=\"aboutus\" class=\"img-thumbnail\" style=\"height: 207px;margin-top: -136px;\" >\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12\">\n\t\t\t\t\t\t\t<div class=\"about-content\">\n\t\t\t\t\t\t\t\t<h1>What We Do</h1>\n\t\t\t\t\t\t\t\t<p><strong>Aim of FITNESSS 24</strong>, is to encourage a positive and healthy lifestyle for Physical, Mental and Emotional health of peoples.If you’re seeking motivation to keep up your daily yoga practice, FITNESSS 24 gives you several of reasons to get you back on your yoga mat every day.\n\t\t\t\t\t\t\t\tPick a suitable class and center for your level and approach it with an open mind-you’ll feel different, more open present and happier.\n\t\t\t\t\t\t\t\tThese techniques are the demand of today’s life. We have to know about it and it’s our responsibility to spread knowledge of it. If we follow our ancient technology we can fight with these new diseases and create a healthy, fit world.</p>\n\t\t\t\t\t\t\t\t<p>Further we are going to setup a venture which will work in different places to reach more peoples easily, so that each and every person can take advantage of this concept.</p>\n\t\t\t\t\t\t\t</div><!-- /.about-content -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\n\n\n\n"

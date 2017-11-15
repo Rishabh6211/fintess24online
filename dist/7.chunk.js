@@ -14,7 +14,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(13);
-var contact_component_1 = __webpack_require__(1478);
+var contact_component_1 = __webpack_require__(1477);
 var router_1 = __webpack_require__(91);
 var shared_module_1 = __webpack_require__(736);
 var forms_1 = __webpack_require__(4);
@@ -51,7 +51,7 @@ exports.ContactModule = ContactModule;
 
 /***/ }),
 
-/***/ 1478:
+/***/ 1477:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67,7 +67,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var contact_service_1 = __webpack_require__(1479);
+var contact_service_1 = __webpack_require__(1478);
 var ContactComponent = (function () {
     function ContactComponent(_contactService) {
         this._contactService = _contactService;
@@ -102,8 +102,8 @@ var ContactComponent = (function () {
 ContactComponent = __decorate([
     core_1.Component({
         selector: 'app-contact',
-        template: __webpack_require__(1515),
-        styles: [__webpack_require__(1494)],
+        template: __webpack_require__(1514),
+        styles: [__webpack_require__(1493)],
         providers: [contact_service_1.ContactService]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof contact_service_1.ContactService !== "undefined" && contact_service_1.ContactService) === "function" && _a || Object])
@@ -114,7 +114,7 @@ var _a;
 
 /***/ }),
 
-/***/ 1479:
+/***/ 1478:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -156,7 +156,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 1494:
+/***/ 1493:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(76)();
@@ -174,7 +174,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 1515:
+/***/ 1514:
 /***/ (function(module, exports) {
 
 module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'Contact'\"></breadcrumb>\n\n\t\t<!--\n\t\t\t\tregistration form start \t  =\n\t\t======================================= -->\n\t\t<div class=\"container-fluid\">\n\t<div class=\"card\">\n\t\t<section id=\"contact-page\">\n\t\t\t<div class=\"section-padding \">\n\t\t\t\t<div class=\"container \">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-7 left-col \">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<h3 class=\"comment-title\">Leave A Request</h3>\n\n\t\t\t\t\t\t\t\t<!-- <form action=\"#\" (ngSubmit)=\"contact()\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" #email=\"ngModel\" [(ngModel)]=\"data.email\" name=\"email\" class=\"pull-left\" placeholder=\"E-mail *\">\n\n\t\t\t\t\t\t\t\t\t<input type=\"text\" #name=\"ngModel\" [(ngModel)]=\"data.name\" name=\"name\" class=\"pull-right\" placeholder=\"Name *\">\n\n\t\t\t\t\t\t\t\t\t<input type=\"text\" #problem=\"ngModel\" [(ngModel)]=\"data.problem\" name=\"problem\" class=\"subjcet\" placeholder=\"problem *\">\n\n\t\t\t\t\t\t\t\t\t<input type=\"text\" #phone=\"ngModel\" [(ngModel)]=\"data.phone\" name=\"phone\" class=\"subjcet\" placeholder=\"mobile no *\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<textarea name=\"massage\" #massage=\"ngModel\" [(ngModel)]=\"data.message\" name=\"massage\" placeholder=\"Massage\"></textarea>\n\t\t\t\t\t\t\t\t\t<button class=\"btn custom-btn\">Submit</button>\n\t\t\t\t\t\t\t\t</form> -->\n\t\t\t\t\t\t\t\t<form class=\"border border-primary\" (ngSubmit)=\"contact()\">\n \t\t\t\t\t\t\n\t\t\t\t\t\t\t\t    <input type=\"email\" #email=\"ngModel\" [(ngModel)]=\"data.email\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email*\">\n\t\t\t\t\t\t\t\t    <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t  \t<input type=\"text\" #name=\"ngModel\" [(ngModel)]=\"data.name\" name=\"name\" class=\"form-control\" placeholder=\"Name *\">\n\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t  \t<input type=\"text\" #problem=\"ngModel\" [(ngModel)]=\"data.problem\" name=\"problem\"  class=\"form-control\" placeholder=\"problem *\">\n\n\t\t\t\t\t\t\t\t\t<input type=\"number\" #phone=\"ngModel\" [(ngModel)]=\"data.phone\" name=\"phone\"  class=\"form-control\" placeholder=\"mobile no *\">\n\n\t\t\t\t\t\t\t\t    <textarea class=\"form-control\" #massage=\"ngModel\" [(ngModel)]=\"data.message\" name=\"massage\" id=\"exampleTextarea\" rows=\"3\" placeholder=\"Enter a massage*\"></textarea>\n\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div><!-- /.col-md-6 -->\n\n\t\t\t\t\t\t<div class=\"col-md-5 right-col\">\n\t\t\t\t\t\t\t<div class=\"sidebar\">\n\t\t\t\t\t\t\t\t<div class=\"widget\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h4 class=\"widget-title\">Orgainizer Details</h4>\n\n\t\t\t\t\t\t\t\t\t<p class=\"widget-des\">Uniquely repurpose leveraged technologies with quality intellectual capital. Interactively synthesize excellent benefits. </p>\n\n\t\t\t\t\t\t\t\t\t<ul class=\"address\">\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-map-marker\"></i>\n\t\t\t\t\t\t\t\t\t\t\t<span>New Delhi Ncr</span>\n\t\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-phone\"></i>\n\t\t\t\t\t\t\t\t\t\t\t<span>+918707025813</span>\n\t\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-envelope\"></i>\n\t\t\t\t\t\t\t\t\t\t\t<span><a href=\"#\">contact@yourmail.com</a></span>\n\t\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-globe\"></i>\n\t\t\t\t\t\t\t\t\t\t\t<span><a href=\"#\">our website</a></span>\n\t\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"m-share\">\n\t\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-pinterest\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-vimeo-square\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.m-share -->\n\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t</div><!-- end widge-box-->\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div><!-- /.col-md-6 -->\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\t</div>\n\t</div>\n"
