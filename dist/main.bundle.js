@@ -313,7 +313,7 @@ module.exports = __webpack_require__(724);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SEP = '/';
 /*API credentials */
-exports.HOST = "http://fitnessapis.herokuapp.com";
+exports.HOST = "https://fitnessapis.herokuapp.com";
 //export const HOST: string       = "http://localhost:1337";
 //export const CLIENT_ID: string  = '5x7EuN09HAeBn2pYJnvvq7szgJaULh14';
 //export const GRANT_TYPE: string = 'password';
