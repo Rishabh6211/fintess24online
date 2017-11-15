@@ -1,6 +1,9 @@
 {
   "name": "CoreUI",
   "version": "1.0.0-alpha.4",
+  "engines": {
+    "node": "6.10.0"
+  },
   "description": "",
   "author": "",
   "url": "",
