@@ -87,6 +87,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             console.log(res);
             if( res.success ){
                 //redirect to home. 
+                this._router.navigate(['']);                
                  let tempData = {
                         "id" : res.user[0].id,
                       
@@ -112,7 +113,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
                 this._sharedService.showToast(('login_successful'), tsConstants.COLOR_SUCESS);
                 
-                this._router.navigate(['/']);                
             }else{
                 this._sharedService.showToast(("WRONG_PASSWORD"), tsConstants.COLOR_DANGER);
                 
