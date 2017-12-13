@@ -1,6 +1,6 @@
-<app-loader [isloading]="isloading"></app-loader>
-<breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Center Profile'"></breadcrumb>
 
+<breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Profile'"></breadcrumb>
+<app-loader [isloading]="isloading"></app-loader>
 
 		<!--
 			    trainer-portfolio start              =
@@ -15,13 +15,21 @@
 								<img *ngIf="profileData?.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{profileData?.image}}" alt="">
 								<img *ngIf="!profileData?.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
 							</div><!-- /.portfolio-image -->
+							<!-- <give-rating [ratingUserID]="profileData?.id"></give-rating> -->
 						</div><!-- /.col-md-4 -->
 
 						<div class="col-md-8">
 							<div class="portfolio-content">
 								<div class="portfolio-title">
 									<h3 class="pull-left">{{profileData?.name}} <br> <span>{{profileData?.title}}</span></h3>
-									<a href="#" class="custom-btn pull-right">Contact Trainer</a>
+
+									            
+            						
+									<a><i class="fa fa-heart-o pull-right" title="like" (click)="likeProfile()" style="font-size:20px;color:red" [ngClass]="{'fa-heart-o': heartO, 'fa-heart': heart}" >{{count}}</i></a>
+									<a   class="pull-right"><i class="fa fa-eye" title="view" style="font-size:20px;"  aria-hidden="true" >{{view}}</i></a>
+									
+									
+														
 								</div><!-- /.portfolio-title -->
 
 								<p>{{profileData?.detail}}</p>
@@ -53,14 +61,23 @@
 										<div class="addr-right">
 											<div class="m-share">
 												<ul>
-													<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+													<li><a href="#" ><i class="fa fa-facebook"></i></a></li>
 													<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-													<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-													<li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+													<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+													<li><a href="#"><i class="fa fa-youtube"></i></a></li>
 												</ul>
 										</div><!-- /.m-share -->
+										  
+										
 										</div>
+
 									</li>
+									<div class="addr-left">
+											Share me on:
+									</div>
+									<div class="addr-right">
+									<button  style="color: #f1f1fb;background-color: #32327b;border: none;border-radius: 11px;" ceiboShare  [facebook]="{u: repoUrl}"><i class="fa fa-facebook"></i></button>
+									</div>
 								</ul>
 
 								
@@ -83,19 +100,50 @@
 					
 						<!-- related post  -->
 						<div class="related-post comment-area class-grid">
-							<h3>Related Post</h3>
-
+							<h3>Services</h3>
 							<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let obj of array">
+								<div class="f-product-box">
+									<div class="box-img">
+										<img *ngIf="obj?.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}" alt="">
+										<img *ngIf="!obj?.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
+										<div class="overlay"></div><!-- /.overlay -->
+										
+									</div><!-- /.box-img -->
+									
+									<div class="fp-info">
+										<h4><a href="#">{{obj.name}}</a></h4>
+
+										<div class="price-rating">
+											<div class="product-price">
+												<span></span>
+												<span>{{obj.price}}</span>
+											</div><!-- /.product-price -->
+											
+										</div><!-- /.price-rating -->
+									</div><!-- /.image-des -->
+								</div><!-- /.image-box -->
+							</div><!-- /.col-sm-3 col-md-3 -->
+
+							
+
+					
+
+							
+						</div><!-- end tabpanel -->
+
+							<!-- <div class="row">
 								<div class="col-sm-4 col-md-4" *ngFor="let obj of array">
 									
 									<div class="image-box">
 										<div class="b-img">
-											<a href="class-detail.html"><img src="assets/images/class-grid1.jpg" alt="Image"></a>
+											<img *ngIf="obj?.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}" alt="">
+											<img *ngIf="!obj?.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
 										</div>
 
 										<div class="class-info">
-											<h4 class="class-title">{{obj.name}}</h4>
-											
+											<span>Name:</span><h4 >{{obj.name}}</h4><br/>
+											<span>Price:</span><h4 >{{obj.price}}</h4><br/>
 
 				
 
@@ -103,7 +151,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					
 				</div><!-- /.container -->
@@ -112,3 +160,4 @@
 		</section>
 	</div>
 
+<star-rating-comp [labelPosition]="'top'"></star-rating-comp>

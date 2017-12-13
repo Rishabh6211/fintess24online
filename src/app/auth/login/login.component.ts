@@ -11,7 +11,7 @@ import {MaterializeDirective, MaterializeAction} from "angular2-materialize";
 import * as Materialize from "angular2-materialize";
 
 import tsConstants = require('../../shared/config/tsconstant');
-import tsMessages  = require('../../shared/config/tsmessage');
+
 
 
 
@@ -84,6 +84,8 @@ export class LoginComponent implements OnInit, OnDestroy {
                 
         this._loginService.login(this.normalUser).subscribe(res => { 
             this.isloading = false;
+            console.log("res",res);
+            console.log("resid",res.id);
             console.log(res);
             if( res.success ){
                 //redirect to home. 
@@ -109,6 +111,8 @@ export class LoginComponent implements OnInit, OnDestroy {
                 console.log("Token ", res.token); 
                 
                 this._cookieService.putObject('userData', tempData);
+                this._cookieService.put('userId', tempData.id);
+                console.log("userID",this._cookieService.put('userId', tempData.id))
                 this._cd.markForCheck(); 
 
                 this._sharedService.showToast(('login_successful'), tsConstants.COLOR_SUCESS);

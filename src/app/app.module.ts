@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LocationStrategy, HashLocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -37,6 +37,7 @@ import tsConstants = require('./shared/config/tsconstant');
 
 import { NgxGalleryModule } from 'ngx-gallery';
 
+import { ModalModule } from 'ngx-bootstrap';
 
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -70,20 +71,18 @@ let providers = {
         CustomFormsModule,
         FlashMessagesModule,
         NgxGalleryModule,
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
+        ModalModule.forRoot()
 
     ],
     declarations: [
         AppComponent,
-        FullLayoutComponent
+        FullLayoutComponent,
+
         //CenterdetailComponent,
     ],
     providers: [
         AuthService,
-        {
-            provide: LocationStrategy,
-            useClass: HashLocationStrategy
-        },
         ActiveRouteGuard,
         DeactiveRouteGuard
     ],

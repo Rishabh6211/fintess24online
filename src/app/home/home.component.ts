@@ -46,15 +46,12 @@ export class HomeComponent implements OnInit {
   };
   public slides : SlickModule[]; 
     public slick:any; 
-
-
-
     public origin; 
     public destination;
     public distance;
     public slideConfig;
     public slickModal = '';
-     @ViewChild(SwiperComponent) swiperView: SwiperComponent;
+    @ViewChild(SwiperComponent) swiperView: SwiperComponent;
   constructor(  
         private _sharedService: SharedService,
 

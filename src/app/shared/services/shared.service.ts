@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie';
 import * as Materialize from "angular2-materialize";
 
 import tsConstants = require('../config/tsconstant');
-import tsMessage   = require('../config/tsmessage');
+
 
 
 import { LoginComponent } from '../../auth/login/login.component';
@@ -64,7 +64,7 @@ export class SharedService {
             if( err.statusText !== '' ){
                 this.showToast(err.statusText, tsConstants.COLOR_DANGER);                
             }else{
-               this.showToast(tsMessage.API_ERROR_OCCURED, tsConstants.COLOR_DANGER);
+               this.showToast("error", tsConstants.COLOR_DANGER);
             }
             
         }   
@@ -208,6 +208,26 @@ export class SharedService {
         return this._http.get(url, {headers:headers}).map((res: Response) => res.json())
 
     }
+     addRating( data ) {
+        let headers = this.getAuthorizationHeader(true);
+
+        let currentUserID = this.getCurrentUserID();
+        let body = {
+            centerId: data.centerId,
+            reviewer: currentUserID,
+            star: data.rating
+        }
+
+        return this._http.post(this._host +'/rating', body, { headers: headers }).map((res:Response) => res.json())
+    }
+
+    getRating( userID ) {
+        // let headers = this.getAuthorizationHeader(true);
+
+        let url     = this._host+"/averating/"+userID;
+        return this._http.get( url ).map((res:Response) => res.json());
+    }
+
 
 
 }

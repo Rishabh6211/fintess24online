@@ -1,0 +1,35 @@
+<div class="card" *ngIf="type == 'detail'">
+
+	<h2 class="p-0 text-capitalize">Profile Rating</h2> 
+	  
+	<div class="cropcoloumn">
+	  
+	    <div class="col-md-12 col-12 col-lg-12 col-xl-12">
+	        
+	       <div class="row">
+	            <div class="col-md-12 col-12 pl-0">
+					<i class="orangetext" [ngClass]="ratingClass.one"></i>
+	                <i class="orangetext" [ngClass]="ratingClass.two"></i>
+	                <i class="orangetext" [ngClass]="ratingClass.three"></i>
+	                <i class="orangetext" [ngClass]="ratingClass.four"></i>
+	                <i class="orangetext" [ngClass]="ratingClass.five"></i>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+<!-- card-->
+
+<ul class="d-inline pl-2" *ngIf="type == 'list'">
+	<li class="d-inline orangetext">
+	    ( 
+		    <i class="orangetext" [ngClass]="ratingClass.one" ></i>
+		    <i class="orangetext" [ngClass]="ratingClass.two" ></i>
+		    <i class="orangetext" [ngClass]="ratingClass.three" ></i>
+		    <i class="orangetext" [ngClass]="ratingClass.four" ></i>
+		    <i class="orangetext" [ngClass]="ratingClass.five" ></i> 
+	    )
+	</li>
+</ul>
+
+

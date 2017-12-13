@@ -7,6 +7,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import {  HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 
+import { ModalModule } from 'ngx-bootstrap';
 import { SharedModule } from '../shared/shared.module';
 import { SlickModule } from 'ngx-slick';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -30,6 +31,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 	    HomeRoutingModule,
       SharedModule,
       NgxGalleryModule,
+      ModalModule.forRoot(),
       SlickModule.forRoot(),
       SwiperModule.forRoot(SWIPER_CONFIG),  
 	],

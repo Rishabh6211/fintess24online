@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,TemplateRef  } from '@angular/core';
 import { Router, ActivatedRoute, RouterLink, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';

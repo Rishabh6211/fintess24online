@@ -1,0 +1,12 @@
+<!-- <button >Give Rating</button> -->
+
+<!--modal -->
+
+                    <div class="text-center" *ngIf="!isRatingProcessed " [hidden]="isPostingRating" (click)="submitRating()">
+                        <a href="javascript:void(0)"><i (click)="clickStar(1)" class="fa fa-2x orangetext" [ngClass]="{'fa-star-o': rating < 1, 'fa-star': rating >= 1}" title="Poor"></i></a>
+                        <a href="javascript:void(0)"><i (click)="clickStar(2)" class="fa fa-2x orangetext" [ngClass]="{'fa-star-o': rating < 2, 'fa-star': rating >= 2}"  title="Not bad"></i></a>
+                        <a href="javascript:void(0)"><i (click)="clickStar(3)" class="fa fa-2x orangetext" [ngClass]="{'fa-star-o': rating < 3, 'fa-star': rating >= 3}"  title="Average"></i></a>
+                        <a href="javascript:void(0)"><i (click)="clickStar(4)" class="fa fa-2x orangetext" [ngClass]="{'fa-star-o': rating < 4, 'fa-star': rating >= 4}"  title="Good"></i></a>
+                        <a href="javascript:void(0)"><i (click)="clickStar(5)" class="fa fa-2x orangetext" [ngClass]="{'fa-star-o': rating < 5, 'fa-star': rating >= 5}"  title="Excellent"></i></a>
+                    </div>
+                   

@@ -718,7 +718,7 @@
 		color: #fff;
 	}
 	.breadcrumb-item.active {
-		color: #1fff00;
+		color: #43aea8;
 	}
 	#banner-input.skycolor .breadcrumb-item.active {
 		color: #23b0cb;
@@ -5036,7 +5036,7 @@ bootstrap.min.css:6
 #we-do {
 	background-color: #fff;
 	margin-top: -25px;
-	padding-left: 22px;
+	padding-left: 50px;
 }
 #we-do .head-section {
 	max-width: 1170px;

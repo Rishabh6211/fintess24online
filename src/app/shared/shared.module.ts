@@ -13,6 +13,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ProfileRatingComponent } from './profile-rating/profile-rating.component';
+import { GiveRatingComponent } from './give-rating/give-rating.component';
 
 @NgModule({
     imports: [
@@ -22,7 +24,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
         RouterModule
     ],
     providers: [SharedService],
-    declarations: [LoaderComponent,  TruncatePipe, BreadcrumbComponent,  CapitalizePipe],
-    exports: [ LoaderComponent, TruncatePipe, BreadcrumbComponent]
+    declarations: [LoaderComponent,  TruncatePipe, BreadcrumbComponent,  CapitalizePipe, ProfileRatingComponent, GiveRatingComponent],
+    exports: [ LoaderComponent, TruncatePipe, BreadcrumbComponent,GiveRatingComponent,ProfileRatingComponent]
 })
 export class SharedModule { }

@@ -13,14 +13,14 @@
             <div class="col-md-7 col-xl-9 pr-0 pl40">
                 <form action="#" class="ng-untouched ng-pristine ng-valid" method="get">
                                 <div class="flex">
-                                   <img src="assets/img/banner.jpg" alt="banner" style="padding-top: 13px; position: static;">
+                                   <img src="assets/img/banner.jpg" alt="banner" style="padding-top: 13px; position: static; max-width: 100%">
                                 </div>
                             </form>
             </div>
             <div class="col-md-3 col-xl-2 last">
                 <ul class="row float-right">
                     <li *ngIf="!isLoggedIn" class="nav-item">
-                        <a class="btn btn-border-warning custombtn"><i class="fa fa-mobile"></i> | Download App</a>
+                        <a class="btn btn-border-warning custombtn" (click)="staticModal.show()"><i class="fa fa-mobile"></i> | Download App</a>
                     </li>
                     <li *ngIf="isLoggedIn" class="nav-item dropdown btn-group"> <a class="nav-link dropdown-toggle pr20" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ (userData?.username) ? userData?.username: userData?.username}}">hello {{ (userData?.username) ? (userData?.username | truncate : 13 : "…"): (userData?.username | truncate : 13 : "…")}}</a>
                         <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
@@ -58,10 +58,10 @@
                         <a class="nav-link" [routerLink]="['/aboutus']"> <span><i class="fa fa-info-circle" aria-hidden="true"></i></span> About us</a>
                     </li>
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/trainors']"> <span><i class="fa fa-user" aria-hidden="true"></i></span> Trainors</a>
+                        <a class="nav-link" [routerLink]="['/trainors']"> <span><i class="fa fa-user" aria-hidden="true"></i></span>Consult</a>
                     </li>
                     <li class="nav-item single-item">
-                        <a class="nav-link" [routerLink]="['/category']"> <span><i class="fa fa-retweet" aria-hidden="true"></i></span> Category</a>
+                        <a class="nav-link" [routerLink]="['/category']"> <span><i class="fa fa-retweet" aria-hidden="true"></i></span>Centers</a>
                     </li>
                     <li id="accountDropDown" class="nav-item dropdown btn-group ">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> account</a>
@@ -72,7 +72,7 @@
                     </li>
                     <li class="nav-item">
                     
-                        <a class="nav-item single-item"  [routerLink]="['/contact']"> <span><i class="fa fa-phone"></i></span>Consult</a>
+                        <a class="nav-item single-item"  [routerLink]="['/contact']"> <span><i class="fa fa-phone"></i></span>Request</a>
                     </li>
                 </ul>
             </div>
@@ -190,3 +190,23 @@
 
 </footer>
 <!--/.Footer-->
+
+
+     
+    <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+         tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Fitness24</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Coming Soon...
+          </div>
+        </div>
+      </div>
+    </div>
+

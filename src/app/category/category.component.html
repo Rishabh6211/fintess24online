@@ -1,5 +1,5 @@
 <breadcrumb [id]="'banner-crop'" [class]="''" [page]="'Category'"></breadcrumb>
-
+<app-loader [isloading]="isloading"></app-loader>
 		
 			<div class="card">
 			 <div class="row row1">
@@ -59,30 +59,47 @@
 						<div role="tabpanel" class="tab-pane active" id="Yoga">
 
 						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let obj of data | filter:term">
+								<div class="f-product-box">
+									<div class="box-img">
+										<a (click)="viewProfile(obj.id)" >
+										<img *ngIf="obj.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}"  alt="">
+										<img *ngIf="!obj.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> </a>
+										<div class="overlay"></div><!-- /.overlay -->
+										<div class="social-media btn">
+											<a class="">50% off</a>
+										</div><!-- /.social-media -->
+									</div><!-- /.box-img -->
+									
+									<div class="fp-info">
+										<h4><a href="#">{{obj.name}}</a></h4>
 
-							<div class="col-xs-6 col-sm-4 col-md-4" *ngFor="let obj of data | filter:term">
+										<div class="price-rating">
+											<div class="product-price">
+												<span>{{obj.location}}</span>
+												<span><i class="icon-address prefix">sector71</i></span>
+											</div><!-- /.product-price -->
+										</div><!-- /.price-rating -->
+									</div><!-- /.image-des -->
+								</div><!-- /.image-box -->
+							</div><!-- /.col-sm-3 col-md-3 -->
+
+							<!-- <div class="col-xs-6 col-sm-4 col-md-4" *ngFor="let obj of data | filter:term">
 							
 								<div class="f-product-box">
-										<!-- /.overlay -->
-									<div class="box-img">
+									<div class="box-img" >
 										<div class="carousel-caption" style="margin-left: -29px;  margin-right: 48px;    margin-top: inherit; display: -webkit-box;
 ">
                                 		<div class="animated fadeIn">
                                     		<a class="btn" style="background-color: #43aea8;">50% Off</a> </div>
                             			</div>
 										<a (click)="viewProfile(obj.id)" >
-										<img *ngIf="obj.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}" alt="">
+										<img *ngIf="obj.image" class="card-img-top img-fluid" src="{{_host}}/images/yoga/{{obj?.image}}"  alt="">
 										<img *ngIf="!obj.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt=""> </a>
-									
-										<!-- <div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-
-										</div> --><!-- /.social-media -->
 										
-									</div><!-- /.box-img -->
+									</div>
 								
-									<div class="fp-info card">
+									<div class="fp-info card" >
 										<h4><a href="#">{{obj.name}}</a></h4>
 
 										<div class="price-rating" >
@@ -91,16 +108,16 @@
 												<span style="font-size: 30px;">{{obj.location}}</span>
 												<span style="font-size: 20px;"><a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a></span>
 
-												<!-- <span>$60.00</span> -->
-											</div><!-- /.product-price -->
+												
+											</div>
 											<span><i class="fa fa-home"></i>Sector71</span>
-										</div><!-- /.price-rating -->
+										</div>
 
-									</div><!-- /.image-des -->
+									</div>
 
-								</div><!-- /.image-box -->
+								</div>
 							
-							</div><!-- /.col-sm-3 col-md-3 -->
+							</div> -->
 
 							
 						</div><!-- end tabpanel -->
@@ -120,13 +137,8 @@
 										<img *ngIf="data.image" class="card-img-top img-fluid" src="{{_host}}/images/physiotherapy/{{data?.image}}" alt="">
 										<img *ngIf="!data.image" class="card-img-top img-fluid" src="http://www.vacationrentalestates.com/images/no-image-available2.jpg" alt="">
 										</a>
-									<div class="overlay"></div><!-- /.overlay -->
-										<!-- <div class="social-media">
-											<a href="#" class="social-icon"><i class="fa fa-shopping-cart"></i></a>
-											<a href="#" class="social-icon"><i class="fa fa-search"></i></a>
-											<a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a>
-										</div> --><!-- /.social-media -->
-									</div><!-- /.box-img -->
+									<div class="overlay"></div>
+									</div>
 									
 									<div class="fp-info card">
 										<h4><a href="#">{{data.name}}</a></h4>
@@ -135,14 +147,14 @@
 											<div class="product-price">
 												<span><a href="#" class="social-icon last-border"><i class="icon-address prefix"></i></a></span>
 												<span style="font-size: 30px;">{{data.location}}</span>
-												<span style="font-size: 20px;"><a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a></span>
+												<!-- <span style="font-size: 20px;"><a href="#" class="social-icon last-border"><i class="fa fa-heart-o"></i></a></span> -->
 
-												<!-- <span>$60.00</span> -->
-											</div><!-- /.product-price -->
+												
+											</div>
 											<span><i class="fa fa-home"></i>Sector71</span>
-										</div><!-- /.price-rating --><!-- /.price-rating -->
-									</div><!-- /.image-des -->
-								</div><!-- /.image-box -->
+										</div>
+									</div>
+								</div>
 							</div><!-- /.col-sm-3 col-md-3 -->
 
 
