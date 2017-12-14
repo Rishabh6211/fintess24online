@@ -555,8 +555,8 @@ var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SEP = '/';
 /*API credentials */
-//export const HOST: string       = "https://fitnessapis.herokuapp.com";
-exports.HOST = "http://localhost:1337";
+exports.HOST = "https://fitnessapis.herokuapp.com";
+//export const HOST: string       = "http://localhost:1337";
 //export const CLIENT_ID: string  = '5x7EuN09HAeBn2pYJnvvq7szgJaULh14';
 //export const GRANT_TYPE: string = 'password';
 /* Social login  credentials */
