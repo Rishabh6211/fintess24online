@@ -48,7 +48,7 @@ CenterdetailModule = __decorate([
     })
 ], CenterdetailModule);
 exports.CenterdetailModule = CenterdetailModule;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/centerdetail.module.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/centerdetail.module.js.map
 
 /***/ }),
 
@@ -161,21 +161,26 @@ var CenterdetailComponent = (function () {
     };
     CenterdetailComponent.prototype.likeDetail = function () {
         var _this = this;
-        console.log("like detail", this.record.userId);
-        this._centerDetail.likeDetail(this.record.userId).subscribe(function (res) {
-            console.log("res", res);
-            if (res.code === 200) {
-                _this.heart = true;
-                _this.heartO = false;
-            }
-            else if (res.code == 400) {
-                _this.heart = false;
-                _this.heartO = true;
-            }
-            else {
-                console.log("error");
-            }
-        });
+        if (!this.record.userId) {
+            this.heart = false;
+            this.heartO = true;
+        }
+        else {
+            this._centerDetail.likeDetail(this.record.centerId).subscribe(function (res) {
+                console.log("res", res);
+                if (res.code === 200) {
+                    _this.heart = true;
+                    _this.heartO = false;
+                }
+                else if (res.code == 400) {
+                    _this.heart = false;
+                    _this.heartO = true;
+                }
+                else {
+                    console.log("error");
+                }
+            });
+        }
     };
     CenterdetailComponent.prototype.likeCount = function () {
         var _this = this;
@@ -227,7 +232,7 @@ CenterdetailComponent = __decorate([
 ], CenterdetailComponent);
 exports.CenterdetailComponent = CenterdetailComponent;
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/centerdetail.component.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/centerdetail.component.js.map
 
 /***/ }),
 
@@ -271,9 +276,9 @@ var CenterdetailService = (function () {
         var url = this._host + '/like';
         return this._http.post(url, json).map(function (res) { return res.json(); });
     };
-    CenterdetailService.prototype.likeDetail = function (userId) {
+    CenterdetailService.prototype.likeDetail = function (centerId) {
         var headers = this._sharedService.getAuthorizationHeader();
-        var url = this._host + '/profileLike/' + userId;
+        var url = this._host + '/profileLike/' + centerId;
         return this._http.get(url, { headers: headers }).map(function (res) { return res.json(); });
     };
     CenterdetailService.prototype.countLike = function (centerId) {
@@ -299,7 +304,7 @@ CenterdetailService = __decorate([
 ], CenterdetailService);
 exports.CenterdetailService = CenterdetailService;
 var _a, _b;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/centerdetail.service.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/centerdetail.service.js.map
 
 /***/ }),
 
@@ -315,7 +320,7 @@ var FacebookParams = (function () {
     return FacebookParams;
 }());
 exports.FacebookParams = FacebookParams;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/facebookParams.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/facebookParams.js.map
 
 /***/ }),
 
@@ -331,7 +336,7 @@ var GooglePlusParams = (function () {
     return GooglePlusParams;
 }());
 exports.GooglePlusParams = GooglePlusParams;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/googlePlusParams.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/googlePlusParams.js.map
 
 /***/ }),
 
@@ -347,7 +352,7 @@ var LinkedinParams = (function () {
     return LinkedinParams;
 }());
 exports.LinkedinParams = LinkedinParams;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/linkedinParams.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/linkedinParams.js.map
 
 /***/ }),
 
@@ -585,7 +590,7 @@ CeiboShare = __decorate([
 ], CeiboShare);
 exports.CeiboShare = CeiboShare;
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/ng2-social-share.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/ng2-social-share.js.map
 
 /***/ }),
 
@@ -601,7 +606,7 @@ var PinterestParams = (function () {
     return PinterestParams;
 }());
 exports.PinterestParams = PinterestParams;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/pinterestParams.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/pinterestParams.js.map
 
 /***/ }),
 
@@ -617,7 +622,7 @@ var TwitterParams = (function () {
     return TwitterParams;
 }());
 exports.TwitterParams = TwitterParams;
-//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/twitterParams.js.map
+//# sourceMappingURL=G:/comproject/website-frontend/src/twitterParams.js.map
 
 /***/ }),
 
@@ -1538,7 +1543,7 @@ exports = module.exports = __webpack_require__(55)();
 
 
 // module
-exports.push([module.i, "body {\n  background: #333;\n  color: #fff;\n  font-family: 'Archivo Black', sans-serif;\n  font-size: 2em;\n  margin-top: 1em;\n  text-align: center;\n  text-transform: uppercase;\n}\n\n.heart {\n  fill: red;\n  position: relative;\n  top: 5px;\n  width: 20px;\n  -webkit-animation: pulse 1s ease infinite,;\n          animation: pulse 1s ease infinite, \n}\n\n@-webkit-keyframes pulse {\n  0% { -webkit-transform: scale(1); transform: scale(1); }\n  50% { -webkit-transform: scale(1.3); transform: scale(1.3); }\n  100% { -webkit-transform: scale(1); transform: scale(1); }\n}\n\n@keyframes pulse {\n  0% { -webkit-transform: scale(1); transform: scale(1); }\n  50% { -webkit-transform: scale(1.3); transform: scale(1.3); }\n  100% { -webkit-transform: scale(1); transform: scale(1); }\n}", ""]);
+exports.push([module.i, "body {\r\n  background: #333;\r\n  color: #fff;\r\n  font-family: 'Archivo Black', sans-serif;\r\n  font-size: 2em;\r\n  margin-top: 1em;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n}\r\n\r\n.heart {\r\n  fill: red;\r\n  position: relative;\r\n  top: 5px;\r\n  width: 20px;\r\n  -webkit-animation: pulse 1s ease infinite,;\r\n          animation: pulse 1s ease infinite, \r\n}\r\n\r\n@-webkit-keyframes pulse {\r\n  0% { -webkit-transform: scale(1); transform: scale(1); }\r\n  50% { -webkit-transform: scale(1.3); transform: scale(1.3); }\r\n  100% { -webkit-transform: scale(1); transform: scale(1); }\r\n}\r\n\r\n@keyframes pulse {\r\n  0% { -webkit-transform: scale(1); transform: scale(1); }\r\n  50% { -webkit-transform: scale(1.3); transform: scale(1.3); }\r\n  100% { -webkit-transform: scale(1); transform: scale(1); }\r\n}", ""]);
 
 // exports
 
@@ -1794,7 +1799,7 @@ BarRatingModule.ctorParameters = function () { return []; };
 /***/ 1531:
 /***/ (function(module, exports) {
 
-module.exports = "\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'Profile'\"></breadcrumb>\n<app-loader [isloading]=\"isloading\"></app-loader>\n\n\t\t<!--\n\t\t\t    trainer-portfolio start              =\n\t\t======================================= -->\n\t<div class=\"card\">\n\t\t<section class=\"trainer-portfolio\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t<div class=\"portfolio-image\">\n\t\t\t\t\t\t\t\t<img *ngIf=\"profileData?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{profileData?.image}}\" alt=\"\">\n\t\t\t\t\t\t\t\t<img *ngIf=\"!profileData?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</div><!-- /.portfolio-image -->\n\t\t\t\t\t\t\t<!-- <give-rating [ratingUserID]=\"profileData?.id\"></give-rating> -->\n\t\t\t\t\t\t</div><!-- /.col-md-4 -->\n\n\t\t\t\t\t\t<div class=\"col-md-8\">\n\t\t\t\t\t\t\t<div class=\"portfolio-content\">\n\t\t\t\t\t\t\t\t<div class=\"portfolio-title\">\n\t\t\t\t\t\t\t\t\t<h3 class=\"pull-left\">{{profileData?.name}} <br> <span>{{profileData?.title}}</span></h3>\n\n\t\t\t\t\t\t\t\t\t            \n            \t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a><i class=\"fa fa-heart-o pull-right\" title=\"like\" (click)=\"likeProfile()\" style=\"font-size:20px;color:red\" [ngClass]=\"{'fa-heart-o': heartO, 'fa-heart': heart}\" >{{count}}</i></a>\n\t\t\t\t\t\t\t\t\t<a   class=\"pull-right\"><i class=\"fa fa-eye\" title=\"view\" style=\"font-size:20px;\"  aria-hidden=\"true\" >{{view}}</i></a>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div><!-- /.portfolio-title -->\n\n\t\t\t\t\t\t\t\t<p>{{profileData?.detail}}</p>\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tPhone:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<span>{{profileData?.phone}}</span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tE-mail:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<span>{{profileData?.email}}</span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</li>\n\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tFollow me on:\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"m-share\">\n\t\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\" ><i class=\"fa fa-facebook\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-instagram\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-youtube\"></i></a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.m-share -->\n\t\t\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\n\t\t\t\t\t\t\t\t\t\t\tShare me on:\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\n\t\t\t\t\t\t\t\t\t<button  style=\"color: #f1f1fb;background-color: #32327b;border: none;border-radius: 11px;\" ceiboShare  [facebook]=\"{u: repoUrl}\"><i class=\"fa fa-facebook\"></i></button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div><!-- /.portfolio-content -->\n\t\t\t\t\t\t</div><!-- /.col-md-8 -->\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\n\n\n\t\t<!--\n\t\t\t    trainer-portfolio start              =\n\t\t======================================= -->\n\t\t<section id=\"classby\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- related post  -->\n\t\t\t\t\t\t<div class=\"related-post comment-area class-grid\">\n\t\t\t\t\t\t\t<h3>Services</h3>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-6 col-sm-4 col-md-3\" *ngFor=\"let obj of array\">\n\t\t\t\t\t\t\t\t<div class=\"f-product-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"box-img\">\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.image}}\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"overlay\"></div><!-- /.overlay -->\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div><!-- /.box-img -->\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"fp-info\">\n\t\t\t\t\t\t\t\t\t\t<h4><a href=\"#\">{{obj.name}}</a></h4>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"price-rating\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"product-price\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.price}}</span>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.product-price -->\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.price-rating -->\n\t\t\t\t\t\t\t\t\t</div><!-- /.image-des -->\n\t\t\t\t\t\t\t\t</div><!-- /.image-box -->\n\t\t\t\t\t\t\t</div><!-- /.col-sm-3 col-md-3 -->\n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div><!-- end tabpanel -->\n\n\t\t\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\" *ngFor=\"let obj of array\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"image-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"b-img\">\n\t\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.image}}\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"class-info\">\n\t\t\t\t\t\t\t\t\t\t\t<span>Name:</span><h4 >{{obj.name}}</h4><br/>\n\t\t\t\t\t\t\t\t\t\t\t<span>Price:</span><h4 >{{obj.price}}</h4><br/>\n\n\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn learn-more\">Learn More</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</div><!-- /.container -->\n\t\t\t\t\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\t</div>\n\n<star-rating-comp [labelPosition]=\"'top'\"></star-rating-comp>"
+module.exports = "\r\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'Profile'\"></breadcrumb>\r\n<app-loader [isloading]=\"isloading\"></app-loader>\r\n\r\n\t\t<!--\r\n\t\t\t    trainer-portfolio start              =\r\n\t\t======================================= -->\r\n\t<div class=\"card\">\r\n\t\t<section class=\"trainer-portfolio\">\r\n\t\t\t<div class=\"section-padding\">\r\n\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t\t\t\t<div class=\"portfolio-image\">\r\n\t\t\t\t\t\t\t\t<img *ngIf=\"profileData?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{profileData?.image}}\" alt=\"\">\r\n\t\t\t\t\t\t\t\t<img *ngIf=\"!profileData?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\r\n\t\t\t\t\t\t\t</div><!-- /.portfolio-image -->\r\n\t\t\t\t\t\t\t<!-- <give-rating [ratingUserID]=\"profileData?.id\"></give-rating> -->\r\n\t\t\t\t\t\t</div><!-- /.col-md-4 -->\r\n\r\n\t\t\t\t\t\t<div class=\"col-md-8\">\r\n\t\t\t\t\t\t\t<div class=\"portfolio-content\">\r\n\t\t\t\t\t\t\t\t<div class=\"portfolio-title\">\r\n\t\t\t\t\t\t\t\t\t<h3 class=\"pull-left\">{{profileData?.name}} <br> <span>{{profileData?.title}}</span></h3>\r\n\r\n\t\t\t\t\t\t\t\t\t            \r\n            \t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t<a><i class=\"fa fa-heart-o pull-right\" title=\"like\" (click)=\"likeProfile()\" style=\"font-size:20px;color:red\" [ngClass]=\"{'fa-heart-o': heartO, 'fa-heart': heart}\" >{{count}}</i></a>\r\n\t\t\t\t\t\t\t\t\t<a   class=\"pull-right\"><i class=\"fa fa-eye\" title=\"view\" style=\"font-size:20px;\"  aria-hidden=\"true\" >{{view}}</i></a>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t</div><!-- /.portfolio-title -->\r\n\r\n\t\t\t\t\t\t\t\t<p>{{profileData?.detail}}</p>\r\n\t\t\t\t\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\r\n\t\t\t\t\t\t\t\t\t\t\tPhone:\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\r\n\t\t\t\t\t\t\t\t\t\t\t<span>{{profileData?.phone}}</span>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\r\n\t\t\t\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\r\n\t\t\t\t\t\t\t\t\t\t\tE-mail:\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\r\n\t\t\t\t\t\t\t\t\t\t\t<span>{{profileData?.email}}</span>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\r\n\t\t\t\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\r\n\t\t\t\t\t\t\t\t\t\t\tFollow me on:\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"m-share\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\" ><i class=\"fa fa-facebook\"></i></a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-instagram\"></i></a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><i class=\"fa fa-youtube\"></i></a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.m-share -->\r\n\t\t\t\t\t\t\t\t\t\t  \r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<div class=\"addr-left\">\r\n\t\t\t\t\t\t\t\t\t\t\tShare me on:\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"addr-right\">\r\n\t\t\t\t\t\t\t\t\t<button  style=\"color: #f1f1fb;background-color: #32327b;border: none;border-radius: 11px;\" ceiboShare  [facebook]=\"{u: repoUrl}\"><i class=\"fa fa-facebook\"></i></button>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t</div><!-- /.portfolio-content -->\r\n\t\t\t\t\t\t</div><!-- /.col-md-8 -->\r\n\t\t\t\t\t</div><!-- /.row -->\r\n\t\t\t\t</div><!-- /.container -->\r\n\t\t\t</div><!-- /.section-padding -->\r\n\t\t</section>\r\n\r\n\r\n\r\n\t\t<!--\r\n\t\t\t    trainer-portfolio start              =\r\n\t\t======================================= -->\r\n\t\t<section id=\"classby\">\r\n\t\t\t<div class=\"section-padding\">\r\n\t\t\t\r\n\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- related post  -->\r\n\t\t\t\t\t\t<div class=\"related-post comment-area class-grid\">\r\n\t\t\t\t\t\t\t<h3>Services</h3>\r\n\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-xs-6 col-sm-4 col-md-3\" *ngFor=\"let obj of array\">\r\n\t\t\t\t\t\t\t\t<div class=\"f-product-box\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"box-img\">\r\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.image}}\" alt=\"\">\r\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"overlay\"></div><!-- /.overlay -->\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t</div><!-- /.box-img -->\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t<div class=\"fp-info\">\r\n\t\t\t\t\t\t\t\t\t\t<h4><a href=\"#\">{{obj.name}}</a></h4>\r\n\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"price-rating\">\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"product-price\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span></span>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.price}}</span>\r\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.product-price -->\r\n\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.price-rating -->\r\n\t\t\t\t\t\t\t\t\t</div><!-- /.image-des -->\r\n\t\t\t\t\t\t\t\t</div><!-- /.image-box -->\r\n\t\t\t\t\t\t\t</div><!-- /.col-sm-3 col-md-3 -->\r\n\r\n\t\t\t\t\t\t\t\r\n\r\n\t\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div><!-- end tabpanel -->\r\n\r\n\t\t\t\t\t\t\t<!-- <div class=\"row\">\r\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-4\" *ngFor=\"let obj of array\">\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t<div class=\"image-box\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"b-img\">\r\n\t\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj?.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.image}}\" alt=\"\">\r\n\t\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj?.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\">\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"class-info\">\r\n\t\t\t\t\t\t\t\t\t\t\t<span>Name:</span><h4 >{{obj.name}}</h4><br/>\r\n\t\t\t\t\t\t\t\t\t\t\t<span>Price:</span><h4 >{{obj.price}}</h4><br/>\r\n\r\n\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"custom-btn learn-more\">Learn More</a>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t</div><!-- /.container -->\r\n\t\t\t\t\r\n\t\t\t</div><!-- /.section-padding -->\r\n\t\t</section>\r\n\t</div>\r\n\r\n<star-rating-comp [labelPosition]=\"'top'\"></star-rating-comp>"
 
 /***/ })
 

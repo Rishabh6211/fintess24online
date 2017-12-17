@@ -128,22 +128,27 @@ export class CenterdetailComponent implements OnInit {
   }
 
   likeDetail(){
-    console.log("like detail",this.record.userId)
-    this._centerDetail.likeDetail(this.record.userId).subscribe(res=>{
-      console.log("res",res);
-      if(res.code===200){        
-       this.heart = true;
-       this.heartO = false; 
-      }
-      else if(res.code==400){
-        this.heart = false;
-        this.heartO = true;
-      }
-      else{
-        
-        console.log("error");
-      }
-    })
+    if(!this.record.userId){
+      this.heart = false;
+      this.heartO = true;
+    }
+    else {
+      this._centerDetail.likeDetail(this.record.centerId).subscribe(res=>{
+        console.log("res",res);
+        if(res.code===200){        
+         this.heart = true;
+         this.heartO = false; 
+        }
+        else if(res.code==400){
+          this.heart = false;
+          this.heartO = true;
+        }
+        else{
+          
+          console.log("error");
+        }
+      })
+    }
   }
   likeCount(){
     console.log("like detail",this.record.centerId)

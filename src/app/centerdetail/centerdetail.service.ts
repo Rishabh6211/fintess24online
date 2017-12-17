@@ -26,9 +26,9 @@ private _host = tsConstants.HOST;
 
 	}
 
-	likeDetail(userId){
+	likeDetail(centerId){
 		let headers  = this._sharedService.getAuthorizationHeader();
-		let url = this._host+'/profileLike/'+userId;
+		let url = this._host+'/profileLike/'+centerId;
 		return this._http.get(url,{headers:headers}).map((res:Response)=>res.json());
 	}
 
