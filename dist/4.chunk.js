@@ -40,7 +40,7 @@ ResetPasswordModule = __decorate([
     })
 ], ResetPasswordModule);
 exports.ResetPasswordModule = ResetPasswordModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/reset-password.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/reset-password.module.js.map
 
 /***/ }),
 
@@ -109,7 +109,7 @@ LoginService = __decorate([
 ], LoginService);
 exports.LoginService = LoginService;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/login.service.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/login.service.js.map
 
 /***/ }),
 
@@ -194,7 +194,7 @@ ResetPasswordComponent = __decorate([
 ], ResetPasswordComponent);
 exports.ResetPasswordComponent = ResetPasswordComponent;
 var _a, _b, _c, _d, _e, _f, _g, _h;
-//# sourceMappingURL=G:/comproject/website-frontend/src/reset-password.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/reset-password.component.js.map
 
 /***/ }),
 
@@ -272,7 +272,7 @@ EqualValidator = EqualValidator_1 = __decorate([
 ], EqualValidator);
 exports.EqualValidator = EqualValidator;
 var EqualValidator_1;
-//# sourceMappingURL=G:/comproject/website-frontend/src/equal-validator.directive.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/equal-validator.directive.js.map
 
 /***/ }),
 
@@ -312,7 +312,7 @@ resetPasswordRoutingModule = __decorate([
     })
 ], resetPasswordRoutingModule);
 exports.resetPasswordRoutingModule = resetPasswordRoutingModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/resetpassword-routing.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/resetpassword-routing.module.js.map
 
 /***/ }),
 
@@ -337,7 +337,7 @@ module.exports = module.exports.toString();
 /***/ 1529:
 /***/ (function(module, exports) {
 
-module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\r\n<!-- <app-header [isloading]=\"isloading\"></app-header> -->\r\n<!-- small banner-->\r\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'login'\"></breadcrumb>\r\n<!-- small banner-->\r\n\r\n<!--Main layout-->\r\n<main>\r\n    <div class=\"container-fluid\">\r\n\r\n        <!-- loginbox-->\r\n        <div class=\"loginbox my-2\">\r\n\r\n            <!--Form without header-->\r\n\r\n            <div class=\"text-center\">\r\n                <h2>reset_password</h2>\r\n            </div>\r\n\r\n            <div class=\"card\">\r\n\r\n                <!--Header-->\r\n\r\n                <div class=\"card-block\">\r\n                    <!-- <div class=\"error-block\" *ngIf=\"isError\">\r\n                        <p class=\"text-danger text-center\">\r\n                            {{errMessage}}\r\n                        </p>\r\n                    </div>\r\n                    <div class=\"error-block\" *ngIf=\"isSuccess\">\r\n                        <p class=\"text-success text-center\">\r\n                            {{errMessage}}\r\n                        </p>\r\n                    </div> -->\r\n                    <form role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"submit()\">\r\n                        <!--Body-->\r\n                    <div class=\"row\">\r\n                        <div class=\"col-md-12\">\r\n                                <div class=\"md-form has-required\">\r\n                                    <i class=\"fa fa-lock prefix\"></i>\r\n                                    <label for=\"password\">password</label>\r\n                                    <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" #password=\"ngModel\" [(ngModel)]=\"user.newPassword\" minlength=\"8\" required>\r\n                                    <div class=\"error-block\">\r\n                                        <small *ngIf=\"password.errors?.required && password.touched\" class=\"text-danger\">\r\n                                            password_is_required\r\n                                        </small>\r\n                                        <small *ngIf=\"password.errors?.minlength && password.touched\" class=\"text-danger\">\r\n                                           password_should_be_8_characters\r\n                                        </small>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                    </div>\r\n                     <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"md-form has-required\">\r\n                                    <i class=\"fa fa-lock prefix\"></i>\r\n                                    <label for=\"confirmPassword\">confirm_password*</label>\r\n                                    <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\" class=\"form-control\" #confirmPassword=\"ngModel\" [(ngModel)]=\"user.confirmPassword\" required [equalTo]=\"password\" />\r\n                                    <div class=\"error-block\">\r\n                                        <small *ngIf=\"confirmPassword.errors?.required && confirmPassword.touched\" class=\"text-danger\">\r\n                                            confirm_password_is_required\r\n                                        </small>\r\n                                        <small *ngIf=\"(confirmPassword.errors?.equalTo && confirmPassword.touched)\" class=\"text-danger\">\r\n                                            password_mismatch\r\n                                        </small>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6\">\r\n                                <button class=\"btn btn-success signin\" [disabled]=\"!loginForm.valid\">{{language.getLabel('send')}}</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <!-- loginbox-->\r\n\r\n    </div>\r\n</main>\r\n<!--/Main layout-->\r\n\r\n<!-- <app-footer></app-footer> -->"
+module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n<!-- <app-header [isloading]=\"isloading\"></app-header> -->\n<!-- small banner-->\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'login'\"></breadcrumb>\n<!-- small banner-->\n\n<!--Main layout-->\n<main>\n    <div class=\"container-fluid\">\n\n        <!-- loginbox-->\n        <div class=\"loginbox my-2\">\n\n            <!--Form without header-->\n\n            <div class=\"text-center\">\n                <h2>reset_password</h2>\n            </div>\n\n            <div class=\"card\">\n\n                <!--Header-->\n\n                <div class=\"card-block\">\n                    <!-- <div class=\"error-block\" *ngIf=\"isError\">\n                        <p class=\"text-danger text-center\">\n                            {{errMessage}}\n                        </p>\n                    </div>\n                    <div class=\"error-block\" *ngIf=\"isSuccess\">\n                        <p class=\"text-success text-center\">\n                            {{errMessage}}\n                        </p>\n                    </div> -->\n                    <form role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                        <!--Body-->\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                                <div class=\"md-form has-required\">\n                                    <i class=\"fa fa-lock prefix\"></i>\n                                    <label for=\"password\">password</label>\n                                    <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" #password=\"ngModel\" [(ngModel)]=\"user.newPassword\" minlength=\"8\" required>\n                                    <div class=\"error-block\">\n                                        <small *ngIf=\"password.errors?.required && password.touched\" class=\"text-danger\">\n                                            password_is_required\n                                        </small>\n                                        <small *ngIf=\"password.errors?.minlength && password.touched\" class=\"text-danger\">\n                                           password_should_be_8_characters\n                                        </small>\n                                    </div>\n                                </div>\n                            </div>\n                    </div>\n                     <div class=\"row\">\n                            <div class=\"col-md-12\">\n                                <div class=\"md-form has-required\">\n                                    <i class=\"fa fa-lock prefix\"></i>\n                                    <label for=\"confirmPassword\">confirm_password*</label>\n                                    <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\" class=\"form-control\" #confirmPassword=\"ngModel\" [(ngModel)]=\"user.confirmPassword\" required [equalTo]=\"password\" />\n                                    <div class=\"error-block\">\n                                        <small *ngIf=\"confirmPassword.errors?.required && confirmPassword.touched\" class=\"text-danger\">\n                                            confirm_password_is_required\n                                        </small>\n                                        <small *ngIf=\"(confirmPassword.errors?.equalTo && confirmPassword.touched)\" class=\"text-danger\">\n                                            password_mismatch\n                                        </small>\n                                    </div>\n                                </div>\n                            </div>\n\n                        </div>\n\n                        <div class=\"row\">\n                            <div class=\"col-md-6\">\n                                <button class=\"btn btn-success signin\" [disabled]=\"!loginForm.valid\">{{language.getLabel('send')}}</button>\n                            </div>\n                        </div>\n\n                    </form>\n                </div>\n\n\n            </div>\n\n        </div>\n        <!-- loginbox-->\n\n    </div>\n</main>\n<!--/Main layout-->\n\n<!-- <app-footer></app-footer> -->"
 
 /***/ })
 

@@ -315,35 +315,35 @@ webpackContext.id = 1077;
 /***/ 1174:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\r\n<header >\r\n\r\n    <!-- top-->\r\n    \r\n    <!-- top-->\r\n    <!-- middle bar -->\r\n    <div class=\"container-fluid middlenavbar\">\r\n        <div class=\"row relative\">\r\n            <div class=\"col-md-2 col-xl-1\">\r\n                <a class=\"navbar-brand\" [routerLink]=\"['']\"> <img src=\"assets/img/logo.jpg\" alt=\"fitness\"> </a>\r\n            </div>\r\n            <div class=\"col-md-7 col-xl-9 pr-0 pl40\">\r\n                <form action=\"#\" class=\"ng-untouched ng-pristine ng-valid\" method=\"get\">\r\n                                <div class=\"flex\">\r\n                                   <img src=\"assets/img/banner.jpg\" alt=\"banner\" style=\"padding-top: 13px; position: static; max-width: 100%\">\r\n                                </div>\r\n                            </form>\r\n            </div>\r\n            <div class=\"col-md-3 col-xl-2 last\">\r\n                <ul class=\"row float-right\">\r\n                    <li *ngIf=\"!isLoggedIn\" class=\"nav-item\">\r\n                        <a class=\"btn btn-border-warning custombtn\" (click)=\"staticModal.show()\"><i class=\"fa fa-mobile\"></i> | Download App</a>\r\n                    </li>\r\n                    <li *ngIf=\"isLoggedIn\" class=\"nav-item dropdown btn-group\"> <a class=\"nav-link dropdown-toggle pr20\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" title=\"{{ (userData?.username) ? userData?.username: userData?.username}}\">hello {{ (userData?.username) ? (userData?.username | truncate : 13 : \"…\"): (userData?.username | truncate : 13 : \"…\")}}</a>\r\n                        <div class=\"dropdown-menu dropdown\" aria-labelledby=\"dropdownMenu1\">\r\n                            \r\n                            <a class=\"dropdown-item\" [routerLink]=\"['/dashboard']\">profile</a>\r\n                            <a class=\"dropdown-item\" (click)=\"logout()\">logout</a>\r\n                        </div>\r\n                    </li>\r\n                    <!-- <li *ngIf=\"isLoggedIn\" class=\"nav-item mt-2 relative\">\r\n                       <a [routerLink]=\"['/cart']\"> <i class=\"icon-basket icons\"></i>\r\n                        <span class=\"badge badge-danger\">2</span>\r\n\t\t\t\t\t\t</a>\r\n                    </li> -->\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- middle bar -->\r\n\r\n    <!-- main navbar-->\r\n    <nav class=\"navbar navbar-toggleable-md navbar-dark \">\r\n        <div class=\"container-fluid\">\r\n            <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#bottomnav\" aria-controls=\"bottomnav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n        </button>\r\n            <a class=\"navbar-brand none\" href=\"javascript:void(0);\">\r\n                <strong>Menu</strong>\r\n            </a>\r\n            <div class=\"collapse navbar-collapse\" id=\"bottomnav\">\r\n                <ul class=\"navbar-nav mr-auto\">\r\n                    <li class=\"nav-item single-item\">\r\n                        <a class=\"nav-link\" [routerLink]=\"['/']\"> <span><i class=\"fa fa-home\" aria-hidden=\"true\"></i></span> Home</a>\r\n                    </li>\r\n                    <li class=\"nav-item single-item\">\r\n                        <a class=\"nav-link\" [routerLink]=\"['/aboutus']\"> <span><i class=\"fa fa-info-circle\" aria-hidden=\"true\"></i></span> About us</a>\r\n                    </li>\r\n                    <li class=\"nav-item single-item\">\r\n                        <a class=\"nav-link\" [routerLink]=\"['/trainors']\"> <span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Consult</a>\r\n                    </li>\r\n                    <li class=\"nav-item single-item\">\r\n                        <a class=\"nav-link\" [routerLink]=\"['/category']\"> <span><i class=\"fa fa-retweet\" aria-hidden=\"true\"></i></span>Centers</a>\r\n                    </li>\r\n                    <li id=\"accountDropDown\" class=\"nav-item dropdown btn-group \">\r\n                        <a class=\"nav-link dropdown-toggle\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> <span><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i></span> account</a>\r\n                        <div class=\"dropdown-menu dropdown\" aria-labelledby=\"dropdownMenu1\">\r\n                            <a class=\"dropdown-item\" [routerLink]=\"['/login']\">login</a>\r\n                            <a class=\"dropdown-item\" [routerLink]=\"['/register']\">registeration</a>\r\n                        </div>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                    \r\n                        <a class=\"nav-item single-item\"  [routerLink]=\"['/contact']\"> <span><i class=\"fa fa-phone\"></i></span>Request</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </nav>\r\n    <!-- main navbar-->\r\n\r\n</header>\r\n<!-- header-->\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<!--Footer-->\r\n<footer class=\"page-footer center-on-small-only\" >\r\n\r\n    <!--Footer Links-->\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n\r\n            <!--first column-->\r\n            <div class=\"col-md-3\">\r\n                <h5 class=\"title\">Help</h5>\r\n                <ul>\r\n\r\n\r\n\r\n\r\n\r\n                    <li><a href=\"javascript:void(0);\">My Accounts</a></li>\r\n                    <li><a href=\"javascript:void(0);\">About Us</a></li>\r\n                    <li><a href=\"javascript:void(0);\">Services</a></li>\r\n                    <li><a href=\"javascript:void(0);\">Contact Us</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.first column-->\r\n\r\n            <hr class=\"hidden-md-up\">\r\n\r\n            <!--second column-->\r\n            <div class=\"col-md-3\">\r\n                <h5 class=\"title\">Fitness24</h5>\r\n                <ul>\r\n                    <li><a href=\"javascript:void(0);\">Terms and Conditions</a></li>\r\n                    <li><a href=\"javascript:void(0);\">Career</a></li>\r\n                    <ul class=\"address\">\r\n                                <li>\r\n                                    \r\n                                    <span>Address</span>\r\n                                </li>\r\n\r\n                                <li>\r\n                                     <i class=\"fa fa-map-marker\"></i>\r\n                                    <span>Delhi Ncr</span><br/>\r\n                                    <i class=\"fa fa-phone\"></i>\r\n                                    <span>+918707025813</span>\r\n                                </li>\r\n\r\n                                \r\n                            </ul>\r\n                </ul>\r\n            </div>\r\n            <!--/.second column-->\r\n\r\n            <!--three column-->\r\n            <div class=\"col-md-6\">\r\n                        \r\n                            <h4 class=\"title\">Subscribe to our Newsletter</h4>\r\n                            <div class=\"newsletter-box\">\r\n\r\n                                <form class=\"subscribe-form\" action=\"#\">\r\n                                    <i class=\"fa fa-envelope\"></i>\r\n                                    <input class=\"email\" type=\"text\" name=\"email\" placeholder=\"Enter Your E-mail Address\">\r\n                                    <input class=\"custom-btn subscribe\" type=\"submit\" value=\"Subscribe\">\r\n                                </form>\r\n                                <p class=\"privecy-policy\">\r\n                                    <i class=\"fa fa-lock\"></i>\r\n                                    Your e-mail address safe from 100% spam (<a href=\"#\">privecy policy</a>)\r\n                                </p>\r\n                            </div><!-- /.newsletter-box --> \r\n                       \r\n                    </div><!-- /.col-md-6 -->\r\n\r\n            <!--/.three column-->\r\n\r\n        </div>\r\n    </div>\r\n    <!--/.Footer Links-->\r\n\r\n    <!--Copyright-->\r\n    <div class=\"footer-copyright\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                    <!--Social buttons-->\r\n                    <div class=\"social-section\">\r\n                        <ul>\r\n                            \r\n                            <li><a href=\"javascript: void(0)\" target=\"_blank\" title=\"facebook\" class=\"btn-small\"><i class=\"fa fa-facebook\"> </i></a></li>\r\n                            <li class=\"nav navbar-nav nav-flex-icons ml-auto\"><a href=\"javascript: void(0)\" target=\"_blank\" title=\"download app\" class=\"btn-small\"><i class=\"fa fa-mobile\"> </i></a> | Download App</li>\r\n                        </ul>\r\n                    </div>\r\n                    <!--/.Social buttons-->\r\n                </div>\r\n                <div class=\"col-md-6 text-right\">All Rights Reserved | © 2017 Fitness24.com\r\n                    <a href=\"javascript:void(0);\"> </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!--/.Copyright-->\r\n    </div>\r\n\r\n    <!-- live chat\r\n  <div class=\"live-chat\"> <a href=\"javascript:void(0);\"><img src=\"assets/img/live-chat.png\" alt=\"live chat\"></a> </div>\r\n  <!-- live chat-->\r\n\r\n</footer>\r\n<!--/.Footer-->\r\n\r\n\r\n     \r\n    <div class=\"modal fade\" bsModal #staticModal=\"bs-modal\" [config]=\"{backdrop: 'static'}\"\r\n         tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">\r\n      <div class=\"modal-dialog modal-sm\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title pull-left\">Fitness24</h4>\r\n            <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"staticModal.hide()\">\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n            Coming Soon...\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n"
+module.exports = "<!-- header -->\n<header >\n\n    <!-- top-->\n    \n    <!-- top-->\n    <!-- middle bar -->\n    <div class=\"container-fluid middlenavbar\">\n        <div class=\"row relative\">\n            <div class=\"col-md-2 col-xl-1\">\n                <a class=\"navbar-brand\" [routerLink]=\"['']\"> <img src=\"assets/img/logo.jpg\" alt=\"fitness\"> </a>\n            </div>\n            <div class=\"col-md-7 col-xl-9 pr-0 pl40\">\n                <form action=\"#\" class=\"ng-untouched ng-pristine ng-valid\" method=\"get\">\n                                <div class=\"flex\">\n                                   <img src=\"assets/img/banner.jpg\" alt=\"banner\" style=\"padding-top: 13px; position: static; max-width: 100%\">\n                                </div>\n                            </form>\n            </div>\n            <div class=\"col-md-3 col-xl-2 last\">\n                <ul class=\"row float-right\">\n                    <li *ngIf=\"!isLoggedIn\" class=\"nav-item\">\n                        <a class=\"btn btn-border-warning custombtn\" (click)=\"staticModal.show()\"><i class=\"fa fa-mobile\"></i> | Download App</a>\n                    </li>\n                    <li *ngIf=\"isLoggedIn\" class=\"nav-item dropdown btn-group\"> <a class=\"nav-link dropdown-toggle pr20\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" title=\"{{ (userData?.username) ? userData?.username: userData?.username}}\">hello {{ (userData?.username) ? (userData?.username | truncate : 13 : \"…\"): (userData?.username | truncate : 13 : \"…\")}}</a>\n                        <div class=\"dropdown-menu dropdown\" aria-labelledby=\"dropdownMenu1\">\n                            \n                            <a class=\"dropdown-item\" [routerLink]=\"['/dashboard']\">profile</a>\n                            <a class=\"dropdown-item\" (click)=\"logout()\">logout</a>\n                        </div>\n                    </li>\n                    <!-- <li *ngIf=\"isLoggedIn\" class=\"nav-item mt-2 relative\">\n                       <a [routerLink]=\"['/cart']\"> <i class=\"icon-basket icons\"></i>\n                        <span class=\"badge badge-danger\">2</span>\n\t\t\t\t\t\t</a>\n                    </li> -->\n                </ul>\n            </div>\n        </div>\n    </div>\n    <!-- middle bar -->\n\n    <!-- main navbar-->\n    <nav class=\"navbar navbar-toggleable-md navbar-dark \">\n        <div class=\"container-fluid\">\n            <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#bottomnav\" aria-controls=\"bottomnav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n            <a class=\"navbar-brand none\" href=\"javascript:void(0);\">\n                <strong>Menu</strong>\n            </a>\n            <div class=\"collapse navbar-collapse\" id=\"bottomnav\">\n                <ul class=\"navbar-nav mr-auto\">\n                    <li class=\"nav-item single-item\">\n                        <a class=\"nav-link\" [routerLink]=\"['/']\"> <span><i class=\"fa fa-home\" aria-hidden=\"true\"></i></span> Home</a>\n                    </li>\n                    <li class=\"nav-item single-item\">\n                        <a class=\"nav-link\" [routerLink]=\"['/aboutus']\"> <span><i class=\"fa fa-info-circle\" aria-hidden=\"true\"></i></span> About us</a>\n                    </li>\n                    <li class=\"nav-item single-item\">\n                        <a class=\"nav-link\" [routerLink]=\"['/trainors']\"> <span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Consult</a>\n                    </li>\n                    <li class=\"nav-item single-item\">\n                        <a class=\"nav-link\" [routerLink]=\"['/category']\"> <span><i class=\"fa fa-retweet\" aria-hidden=\"true\"></i></span>Centers</a>\n                    </li>\n                    <li id=\"accountDropDown\" class=\"nav-item dropdown btn-group \">\n                        <a class=\"nav-link dropdown-toggle\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> <span><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i></span> account</a>\n                        <div class=\"dropdown-menu dropdown\" aria-labelledby=\"dropdownMenu1\">\n                            <a class=\"dropdown-item\" [routerLink]=\"['/login']\">login</a>\n                            <a class=\"dropdown-item\" [routerLink]=\"['/register']\">registeration</a>\n                        </div>\n                    </li>\n                    <li class=\"nav-item\">\n                    \n                        <a class=\"nav-item single-item\"  [routerLink]=\"['/contact']\"> <span><i class=\"fa fa-phone\"></i></span>Request</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <!-- main navbar-->\n\n</header>\n<!-- header-->\n\n<router-outlet></router-outlet>\n\n<!--Footer-->\n<footer class=\"page-footer center-on-small-only\" >\n\n    <!--Footer Links-->\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n\n            <!--first column-->\n            <div class=\"col-md-3\">\n                <h5 class=\"title\">Help</h5>\n                <ul>\n\n\n\n\n\n                    <li><a href=\"javascript:void(0);\">My Accounts</a></li>\n                    <li><a href=\"javascript:void(0);\">About Us</a></li>\n                    <li><a href=\"javascript:void(0);\">Services</a></li>\n                    <li><a href=\"javascript:void(0);\">Contact Us</a></li>\n                </ul>\n            </div>\n            <!--/.first column-->\n\n            <hr class=\"hidden-md-up\">\n\n            <!--second column-->\n            <div class=\"col-md-3\">\n                <h5 class=\"title\">Fitness24</h5>\n                <ul>\n                    <li><a href=\"javascript:void(0);\">Terms and Conditions</a></li>\n                    <li><a href=\"javascript:void(0);\">Career</a></li>\n                    <ul class=\"address\">\n                                <li>\n                                    \n                                    <span>Address</span>\n                                </li>\n\n                                <li>\n                                     <i class=\"fa fa-map-marker\"></i>\n                                    <span>Delhi Ncr</span><br/>\n                                    <i class=\"fa fa-phone\"></i>\n                                    <span>+918707025813</span>\n                                </li>\n\n                                \n                            </ul>\n                </ul>\n            </div>\n            <!--/.second column-->\n\n            <!--three column-->\n            <div class=\"col-md-6\">\n                        \n                            <h4 class=\"title\">Subscribe to our Newsletter</h4>\n                            <div class=\"newsletter-box\">\n\n                                <form class=\"subscribe-form\" action=\"#\">\n                                    <i class=\"fa fa-envelope\"></i>\n                                    <input class=\"email\" type=\"text\" name=\"email\" placeholder=\"Enter Your E-mail Address\">\n                                    <input class=\"custom-btn subscribe\" type=\"submit\" value=\"Subscribe\">\n                                </form>\n                                <p class=\"privecy-policy\">\n                                    <i class=\"fa fa-lock\"></i>\n                                    Your e-mail address safe from 100% spam (<a href=\"#\">privecy policy</a>)\n                                </p>\n                            </div><!-- /.newsletter-box --> \n                       \n                    </div><!-- /.col-md-6 -->\n\n            <!--/.three column-->\n\n        </div>\n    </div>\n    <!--/.Footer Links-->\n\n    <!--Copyright-->\n    <div class=\"footer-copyright\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-md-6\">\n                    <!--Social buttons-->\n                    <div class=\"social-section\">\n                        <ul>\n                            \n                            <li><a href=\"javascript: void(0)\" target=\"_blank\" title=\"facebook\" class=\"btn-small\"><i class=\"fa fa-facebook\"> </i></a></li>\n                            <li class=\"nav navbar-nav nav-flex-icons ml-auto\"><a href=\"javascript: void(0)\" target=\"_blank\" title=\"download app\" class=\"btn-small\"><i class=\"fa fa-mobile\"> </i></a> | Download App</li>\n                        </ul>\n                    </div>\n                    <!--/.Social buttons-->\n                </div>\n                <div class=\"col-md-6 text-right\">All Rights Reserved | © 2017 Fitness24.com\n                    <a href=\"javascript:void(0);\"> </a>\n                </div>\n            </div>\n        </div>\n        <!--/.Copyright-->\n    </div>\n\n    <!-- live chat\n  <div class=\"live-chat\"> <a href=\"javascript:void(0);\"><img src=\"assets/img/live-chat.png\" alt=\"live chat\"></a> </div>\n  <!-- live chat-->\n\n</footer>\n<!--/.Footer-->\n\n\n     \n    <div class=\"modal fade\" bsModal #staticModal=\"bs-modal\" [config]=\"{backdrop: 'static'}\"\n         tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">\n      <div class=\"modal-dialog modal-sm\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title pull-left\">Fitness24</h4>\n            <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"staticModal.hide()\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            Coming Soon...\n          </div>\n        </div>\n      </div>\n    </div>\n\n"
 
 /***/ }),
 
 /***/ 1175:
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"{{id}}\" class=\"{{class}}\">\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item\"><a [routerLink]=\"['/']\">home</a></li>\r\n        <li class=\"breadcrumb-item active\">{{page}}</li>\r\n    </ol>\r\n</section>"
+module.exports = "<section id=\"{{id}}\" class=\"{{class}}\">\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\"><a [routerLink]=\"['/']\">home</a></li>\n        <li class=\"breadcrumb-item active\">{{page}}</li>\n    </ol>\n</section>"
 
 /***/ }),
 
 /***/ 1176:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <button >Give Rating</button> -->\r\n\r\n<!--modal -->\r\n\r\n                    <div class=\"text-center\" *ngIf=\"!isRatingProcessed \" [hidden]=\"isPostingRating\" (click)=\"submitRating()\">\r\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(1)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 1, 'fa-star': rating >= 1}\" title=\"Poor\"></i></a>\r\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(2)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 2, 'fa-star': rating >= 2}\"  title=\"Not bad\"></i></a>\r\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(3)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 3, 'fa-star': rating >= 3}\"  title=\"Average\"></i></a>\r\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(4)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 4, 'fa-star': rating >= 4}\"  title=\"Good\"></i></a>\r\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(5)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 5, 'fa-star': rating >= 5}\"  title=\"Excellent\"></i></a>\r\n                    </div>\r\n                   "
+module.exports = "<!-- <button >Give Rating</button> -->\n\n<!--modal -->\n\n                    <div class=\"text-center\" *ngIf=\"!isRatingProcessed \" [hidden]=\"isPostingRating\" (click)=\"submitRating()\">\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(1)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 1, 'fa-star': rating >= 1}\" title=\"Poor\"></i></a>\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(2)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 2, 'fa-star': rating >= 2}\"  title=\"Not bad\"></i></a>\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(3)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 3, 'fa-star': rating >= 3}\"  title=\"Average\"></i></a>\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(4)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 4, 'fa-star': rating >= 4}\"  title=\"Good\"></i></a>\n                        <a href=\"javascript:void(0)\"><i (click)=\"clickStar(5)\" class=\"fa fa-2x orangetext\" [ngClass]=\"{'fa-star-o': rating < 5, 'fa-star': rating >= 5}\"  title=\"Excellent\"></i></a>\n                    </div>\n                   "
 
 /***/ }),
 
 /***/ 1177:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"overlayloader\" *ngIf=\"isloading\">\r\n   <div class=\"loader-inner\">\r\n    <div class=\"loader\"></div>\r\n   </div>\r\n</div>\r\n"
+module.exports = "<div class=\"overlayloader\" *ngIf=\"isloading\">\n   <div class=\"loader-inner\">\n    <div class=\"loader\"></div>\n   </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 1178:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" *ngIf=\"type == 'detail'\">\r\n\r\n\t<h2 class=\"p-0 text-capitalize\">Profile Rating</h2> \r\n\t  \r\n\t<div class=\"cropcoloumn\">\r\n\t  \r\n\t    <div class=\"col-md-12 col-12 col-lg-12 col-xl-12\">\r\n\t        \r\n\t       <div class=\"row\">\r\n\t            <div class=\"col-md-12 col-12 pl-0\">\r\n\t\t\t\t\t<i class=\"orangetext\" [ngClass]=\"ratingClass.one\"></i>\r\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.two\"></i>\r\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.three\"></i>\r\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.four\"></i>\r\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.five\"></i>\r\n\t            </div>\r\n\t        </div>\r\n\t    </div>\r\n\t</div>\r\n</div>\r\n<!-- card-->\r\n\r\n<ul class=\"d-inline pl-2\" *ngIf=\"type == 'list'\">\r\n\t<li class=\"d-inline orangetext\">\r\n\t    ( \r\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.one\" ></i>\r\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.two\" ></i>\r\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.three\" ></i>\r\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.four\" ></i>\r\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.five\" ></i> \r\n\t    )\r\n\t</li>\r\n</ul>\r\n\r\n\r\n"
+module.exports = "<div class=\"card\" *ngIf=\"type == 'detail'\">\n\n\t<h2 class=\"p-0 text-capitalize\">Profile Rating</h2> \n\t  \n\t<div class=\"cropcoloumn\">\n\t  \n\t    <div class=\"col-md-12 col-12 col-lg-12 col-xl-12\">\n\t        \n\t       <div class=\"row\">\n\t            <div class=\"col-md-12 col-12 pl-0\">\n\t\t\t\t\t<i class=\"orangetext\" [ngClass]=\"ratingClass.one\"></i>\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.two\"></i>\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.three\"></i>\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.four\"></i>\n\t                <i class=\"orangetext\" [ngClass]=\"ratingClass.five\"></i>\n\t            </div>\n\t        </div>\n\t    </div>\n\t</div>\n</div>\n<!-- card-->\n\n<ul class=\"d-inline pl-2\" *ngIf=\"type == 'list'\">\n\t<li class=\"d-inline orangetext\">\n\t    ( \n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.one\" ></i>\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.two\" ></i>\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.three\" ></i>\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.four\" ></i>\n\t\t    <i class=\"orangetext\" [ngClass]=\"ratingClass.five\" ></i> \n\t    )\n\t</li>\n</ul>\n\n\n"
 
 /***/ }),
 
@@ -543,7 +543,7 @@ SharedService = __decorate([
 ], SharedService);
 exports.SharedService = SharedService;
 var _a, _b, _c, _d;
-//# sourceMappingURL=G:/comproject/website-frontend/src/shared.service.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/shared.service.js.map
 
 /***/ }),
 
@@ -626,7 +626,7 @@ exports.CROP_QUANTITIES = [
         unit: 'MT'
     }
 ];
-//# sourceMappingURL=G:/comproject/website-frontend/src/tsconstant.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/tsconstant.js.map
 
 /***/ }),
 
@@ -778,7 +778,7 @@ FullLayoutComponent = __decorate([
 ], FullLayoutComponent);
 exports.FullLayoutComponent = FullLayoutComponent;
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=G:/comproject/website-frontend/src/full-layout.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/full-layout.component.js.map
 
 /***/ }),
 
@@ -861,7 +861,7 @@ if (environment_1.environment.production) {
     core_1.enableProdMode();
 }
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
-//# sourceMappingURL=G:/comproject/website-frontend/src/main.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/main.js.map
 
 /***/ }),
 
@@ -908,7 +908,7 @@ SharedModule = __decorate([
     })
 ], SharedModule);
 exports.SharedModule = SharedModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/shared.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/shared.module.js.map
 
 /***/ }),
 
@@ -938,7 +938,7 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
-//# sourceMappingURL=G:/comproject/website-frontend/src/app.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/app.component.js.map
 
 /***/ }),
 
@@ -1036,7 +1036,7 @@ AppModule = __decorate([
 ], AppModule);
 exports.AppModule = AppModule;
 // Angular2SocialLoginModule.loadProvidersScripts(providers);
-//# sourceMappingURL=G:/comproject/website-frontend/src/app.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/app.module.js.map
 
 /***/ }),
 
@@ -1137,7 +1137,7 @@ AppRoutingModule = __decorate([
     })
 ], AppRoutingModule);
 exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/app.routing.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/app.routing.js.map
 
 /***/ }),
 
@@ -1181,7 +1181,7 @@ ActiveRouteGuard = __decorate([
 ], ActiveRouteGuard);
 exports.ActiveRouteGuard = ActiveRouteGuard;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/activate-route-guard.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/activate-route-guard.js.map
 
 /***/ }),
 
@@ -1226,7 +1226,7 @@ DeactiveRouteGuard = __decorate([
 ], DeactiveRouteGuard);
 exports.DeactiveRouteGuard = DeactiveRouteGuard;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/deactivate-route-guard.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/deactivate-route-guard.js.map
 
 /***/ }),
 
@@ -1277,7 +1277,7 @@ BreadcrumbComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], BreadcrumbComponent);
 exports.BreadcrumbComponent = BreadcrumbComponent;
-//# sourceMappingURL=G:/comproject/website-frontend/src/breadcrumb.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/breadcrumb.component.js.map
 
 /***/ }),
 
@@ -1353,7 +1353,7 @@ GiveRatingComponent = __decorate([
 ], GiveRatingComponent);
 exports.GiveRatingComponent = GiveRatingComponent;
 var _a;
-//# sourceMappingURL=G:/comproject/website-frontend/src/give-rating.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/give-rating.component.js.map
 
 /***/ }),
 
@@ -1396,7 +1396,7 @@ LoaderComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], LoaderComponent);
 exports.LoaderComponent = LoaderComponent;
-//# sourceMappingURL=G:/comproject/website-frontend/src/loader.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/loader.component.js.map
 
 /***/ }),
 
@@ -1430,7 +1430,7 @@ CapitalizePipe = __decorate([
     })
 ], CapitalizePipe);
 exports.CapitalizePipe = CapitalizePipe;
-//# sourceMappingURL=G:/comproject/website-frontend/src/capitalize.pipe.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/capitalize.pipe.js.map
 
 /***/ }),
 
@@ -1472,7 +1472,7 @@ TruncatePipe = __decorate([
     })
 ], TruncatePipe);
 exports.TruncatePipe = TruncatePipe;
-//# sourceMappingURL=G:/comproject/website-frontend/src/truncate.pipe.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/truncate.pipe.js.map
 
 /***/ }),
 
@@ -1604,7 +1604,7 @@ ProfileRatingComponent = __decorate([
 ], ProfileRatingComponent);
 exports.ProfileRatingComponent = ProfileRatingComponent;
 var _a;
-//# sourceMappingURL=G:/comproject/website-frontend/src/profile-rating.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/profile-rating.component.js.map
 
 /***/ }),
 
@@ -1621,7 +1621,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false
 };
-//# sourceMappingURL=G:/comproject/website-frontend/src/environment.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/environment.js.map
 
 /***/ })
 

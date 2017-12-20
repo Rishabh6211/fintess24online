@@ -37,7 +37,7 @@ DashboardModule = __decorate([
     })
 ], DashboardModule);
 exports.DashboardModule = DashboardModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/dashboard.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/dashboard.module.js.map
 
 /***/ }),
 
@@ -59,12 +59,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var ngx_cookie_1 = __webpack_require__(112);
 var dashboard_service_1 = __webpack_require__(1492);
+var tsConstants = __webpack_require__(346);
 var DashboardComponent = (function () {
     function DashboardComponent(_cookieService, _dashboardService) {
         this._cookieService = _cookieService;
         this._dashboardService = _dashboardService;
         this.isLoggedIn = false;
         this.isloading = true;
+        this._host = tsConstants.HOST;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         this.profileLike();
@@ -102,7 +104,7 @@ DashboardComponent = __decorate([
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/dashboard.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -142,7 +144,7 @@ DashboardRoutingModule = __decorate([
     })
 ], DashboardRoutingModule);
 exports.DashboardRoutingModule = DashboardRoutingModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/dashboard-routing.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/dashboard-routing.module.js.map
 
 /***/ }),
 
@@ -185,14 +187,14 @@ DashboardService = __decorate([
 ], DashboardService);
 exports.DashboardService = DashboardService;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/dashboard.service.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/dashboard.service.js.map
 
 /***/ }),
 
 /***/ 1533:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<section id=\"about-we-do\" style=\"margin-top: 108px;\">\r\n\t\t\t<div class=\"section-padding\">\r\n\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-md-12\" >\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<!-- <div class=\"about-img\">\r\n\t\t\t\t\t\t\t\t<img src=\"assets/img/logo.jpg\" alt=\"aboutus\" class=\"img-thumbnail\" style=\"height: 150px;margin-top: 30px;max-width: 100%\" >\r\n\t\t\t\t\t\t\t</div> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-md-12\">\r\n\t\t\t\t\t\t\t<div class=\"about-content\">\r\n\t\t\t\t\t\t\t\t<h1><span style=\"color: black\">Welcome<br/></span>  <span style=\"color: #43aea8;font-size: larger;\">{{ (userData?.username) ? (userData?.username | truncate : 13 : \"…\"): (userData?.username | truncate : 13 : \"…\")}}</span></h1>\r\n\t\t\t\t\t\t\t\t<p><strong>FITNESSS 24</strong></p>\r\n\t\t\t\t\t\t\t\t<section id=\"classby\">\r\n\t\t\t<div class=\"section-padding\">\r\n\t\t\t\r\n\t\t\t\t<div class=\"container\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\t<!-- related post  -->\r\n\t\t\t\t\t\t<div class=\"related-post comment-area class-grid\" *ngFor=\"let obj of array\">\r\n\t\t\t\t\t\t\t<h3>Your Centers</h3>\r\n\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-xs-6 col-sm-4 col-md-3\" >\r\n\t\t\t\t\t\t\t\t<div class=\"f-product-box\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"box-img\">\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj.centerId.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.centerId?.image}}\"  alt=\"\">\r\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj.centerId.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\"> \r\n\t\t\t\t\t\t\t\t\t\t<div class=\"overlay\"></div><!-- /.overlay -->\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t</div><!-- /.box-img -->\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t<div class=\"fp-info\">\r\n\t\t\t\t\t\t\t\t\t\t<h4><a href=\"#\"></a></h4>\r\n\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"price-rating\">\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"product-price\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.name}}</span><br/>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.phone}}</span><br/>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-home\" aria-hidden=\"true\"></i>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.location}}</span><br/>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-street-view\" aria-hidden=\"true\"></i>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.address}}</span><br/>\r\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.product-price -->\r\n\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.price-rating -->\r\n\t\t\t\t\t\t\t\t\t</div><!-- /.image-des -->\r\n\t\t\t\t\t\t\t\t</div><!-- /.image-box -->\r\n\t\t\t\t\t\t\t</div><!-- /.col-sm-3 col-md-3 -->\r\n\r\n\t\t\t\t\t\t\t\r\n\r\n\t\t\t\t\t\r\n\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div><!-- end tabpanel -->\r\n\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t</div><!-- /.container -->\r\n\t\t\t\t\r\n\t\t\t</div><!-- /.section-padding -->\r\n\t\t</section>\r\n\t\t\t\t\t\t\t</div><!-- /.about-content -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div><!-- /.row -->\r\n\t\t\t\t</div><!-- /.container -->\r\n\t\t\t</div><!-- /.section-padding -->\r\n\t\t</section>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\n<section id=\"about-we-do\" style=\"margin-top: 108px;\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12\" >\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<!-- <div class=\"about-img\">\n\t\t\t\t\t\t\t\t<img src=\"assets/img/logo.jpg\" alt=\"aboutus\" class=\"img-thumbnail\" style=\"height: 150px;margin-top: 30px;max-width: 100%\" >\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12\">\n\t\t\t\t\t\t\t<div class=\"about-content\">\n\t\t\t\t\t\t\t\t<h1><span style=\"color: black\">Welcome<br/></span>  <span style=\"color: #43aea8;font-size: larger;\">{{ (userData?.username) ? (userData?.username | truncate : 13 : \"…\"): (userData?.username | truncate : 13 : \"…\")}}</span></h1>\n\t\t\t\t\t\t\t\t<p><strong>FITNESSS 24</strong></p>\n\t\t\t\t\t\t\t\t<section id=\"classby\">\n\t\t\t<div class=\"section-padding\">\n\t\t\t\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- related post  -->\n\t\t\t\t\t\t<div class=\"related-post comment-area class-grid\" *ngFor=\"let obj of array\">\n\t\t\t\t\t\t\t<h3>Your Centers</h3>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-6 col-sm-4 col-md-3\" >\n\t\t\t\t\t\t\t\t<div class=\"f-product-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"box-img\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"obj.centerId.image\" class=\"card-img-top img-fluid\" src=\"{{_host}}/images/yoga/{{obj?.centerId?.image}}\"  alt=\"\">\n\t\t\t\t\t\t\t\t\t\t<img *ngIf=\"!obj.centerId.image\" class=\"card-img-top img-fluid\" src=\"http://www.vacationrentalestates.com/images/no-image-available2.jpg\" alt=\"\"> \n\t\t\t\t\t\t\t\t\t\t<div class=\"overlay\"></div><!-- /.overlay -->\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div><!-- /.box-img -->\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"fp-info\">\n\t\t\t\t\t\t\t\t\t\t<h4><a href=\"#\"></a></h4>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"price-rating\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"product-price\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.name}}</span><br/>\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-phone\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.phone}}</span><br/>\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-home\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.location}}</span><br/>\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-street-view\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>{{obj.centerId.address}}</span><br/>\n\t\t\t\t\t\t\t\t\t\t\t</div><!-- /.product-price -->\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div><!-- /.price-rating -->\n\t\t\t\t\t\t\t\t\t</div><!-- /.image-des -->\n\t\t\t\t\t\t\t\t</div><!-- /.image-box -->\n\t\t\t\t\t\t\t</div><!-- /.col-sm-3 col-md-3 -->\n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div><!-- end tabpanel -->\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</div><!-- /.container -->\n\t\t\t\t\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\t\t\t\t\t\t\t</div><!-- /.about-content -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</div><!-- /.section-padding -->\n\t\t</section>\n\n\n\n\n"
 
 /***/ })
 

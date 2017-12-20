@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import {DashboardService} from './dashboard.service'
+import tsConstants = require('../shared/config/tsconstant');
 @Component({
   templateUrl: 'dashboard.component.html',
   providers:[DashboardService]
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
     public userData:any;
     public userId;
     public array;
-
+    private _host = tsConstants.HOST;
   constructor(private _cookieService: CookieService, private _dashboardService:DashboardService) { }
 
    ngOnInit(){

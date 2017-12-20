@@ -39,7 +39,7 @@ ForgotPasswordModule = __decorate([
     })
 ], ForgotPasswordModule);
 exports.ForgotPasswordModule = ForgotPasswordModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/forgot-password.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/forgot-password.module.js.map
 
 /***/ }),
 
@@ -108,7 +108,7 @@ LoginService = __decorate([
 ], LoginService);
 exports.LoginService = LoginService;
 var _a, _b;
-//# sourceMappingURL=G:/comproject/website-frontend/src/login.service.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/login.service.js.map
 
 /***/ }),
 
@@ -186,7 +186,7 @@ ForgotPasswordComponent = __decorate([
 ], ForgotPasswordComponent);
 exports.ForgotPasswordComponent = ForgotPasswordComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=G:/comproject/website-frontend/src/forgot-password.component.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/forgot-password.component.js.map
 
 /***/ }),
 
@@ -226,7 +226,7 @@ forgotPasswordRoutingModule = __decorate([
     })
 ], forgotPasswordRoutingModule);
 exports.forgotPasswordRoutingModule = forgotPasswordRoutingModule;
-//# sourceMappingURL=G:/comproject/website-frontend/src/forgotpassword-routing.module.js.map
+//# sourceMappingURL=/home/rishabhg/Documents/mygit/demo/fintess24online/src/forgotpassword-routing.module.js.map
 
 /***/ }),
 
@@ -251,7 +251,7 @@ module.exports = module.exports.toString();
 /***/ 1526:
 /***/ (function(module, exports) {
 
-module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\r\n<!-- <app-header [isloading]=\"isloading\"></app-header> -->\r\n<!-- small banner-->\r\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'login'\"></breadcrumb>\r\n<!-- small banner-->\r\n\r\n<!--Main layout-->\r\n<main>\r\n    <div class=\"container-fluid\">\r\n\r\n        <!-- loginbox-->\r\n        <div class=\"loginbox my-2\">\r\n\r\n            <!--Form without header-->\r\n\r\n            <div class=\"text-center\">\r\n                <h2>reset_your_password</h2>\r\n            </div>\r\n\r\n            <div class=\"card\">\r\n\r\n                <!--Header-->\r\n\r\n                <div class=\"card-block\" [hidden]=\"isSubmitted\">\r\n                    \r\n                    <form  role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"submit()\">\r\n                        <!--Body-->\r\n                          <label [ngClass]=\"{'active': hasUser}\">{{language.getLabel('enter_your_email')}}</label>\r\n                        <div class=\"md-form\">\r\n                            <i class=\"fa fa-envelope prefix\"></i>\r\n                            <label for=\"form2\" [ngClass]=\"{'active': hasUser}\">{{language.getLabel('Email')}}</label>\r\n                            <input type=\"email\" name=\"emailID\" #emailIDX=\"ngModel\" [(ngModel)]=\"emailID\" id=\"form2\" class=\"form-control\" email required />\r\n\r\n                            <div class=\"error-block\">\r\n                                <small *ngIf=\"emailIDX.errors?.required && emailIDX.dirty\" class=\"text-danger\">\r\n                                    email_is_required\r\n                                </small>\r\n                                <small *ngIf=\"emailIDX.errors?.email && emailIDX.dirty\" class=\"text-danger\">\r\n                                    email_is_not_valid\r\n                                </small>\r\n                            </div>\r\n\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6\">\r\n                                <button class=\"btn btn-success signin\" [disabled]=\"!loginForm.valid\">send</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n                 <div class=\"card-block\" *ngIf=\"isSubmitted\">\r\n                 <p>check_your_email_to_reset_your_password}</p>\r\n                 </div>\r\n\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <!-- loginbox-->\r\n\r\n    </div>\r\n</main>\r\n<!--/Main layout-->\r\n\r\n<!-- <app-footer></app-footer> -->"
+module.exports = "<app-loader [isloading]=\"isloading\"></app-loader>\n<!-- <app-header [isloading]=\"isloading\"></app-header> -->\n<!-- small banner-->\n<breadcrumb [id]=\"'banner-crop'\" [class]=\"''\" [page]=\"'login'\"></breadcrumb>\n<!-- small banner-->\n\n<!--Main layout-->\n<main>\n    <div class=\"container-fluid\">\n\n        <!-- loginbox-->\n        <div class=\"loginbox my-2\">\n\n            <!--Form without header-->\n\n            <div class=\"text-center\">\n                <h2>reset_your_password</h2>\n            </div>\n\n            <div class=\"card\">\n\n                <!--Header-->\n\n                <div class=\"card-block\" [hidden]=\"isSubmitted\">\n                    \n                    <form  role=\"form\" #loginForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                        <!--Body-->\n                          <label [ngClass]=\"{'active': hasUser}\">{{language.getLabel('enter_your_email')}}</label>\n                        <div class=\"md-form\">\n                            <i class=\"fa fa-envelope prefix\"></i>\n                            <label for=\"form2\" [ngClass]=\"{'active': hasUser}\">{{language.getLabel('Email')}}</label>\n                            <input type=\"email\" name=\"emailID\" #emailIDX=\"ngModel\" [(ngModel)]=\"emailID\" id=\"form2\" class=\"form-control\" email required />\n\n                            <div class=\"error-block\">\n                                <small *ngIf=\"emailIDX.errors?.required && emailIDX.dirty\" class=\"text-danger\">\n                                    email_is_required\n                                </small>\n                                <small *ngIf=\"emailIDX.errors?.email && emailIDX.dirty\" class=\"text-danger\">\n                                    email_is_not_valid\n                                </small>\n                            </div>\n\n                        </div>\n\n                        <div class=\"row\">\n                            <div class=\"col-md-6\">\n                                <button class=\"btn btn-success signin\" [disabled]=\"!loginForm.valid\">send</button>\n                            </div>\n                        </div>\n\n                    </form>\n                </div>\n                 <div class=\"card-block\" *ngIf=\"isSubmitted\">\n                 <p>check_your_email_to_reset_your_password}</p>\n                 </div>\n\n\n            </div>\n\n        </div>\n        <!-- loginbox-->\n\n    </div>\n</main>\n<!--/Main layout-->\n\n<!-- <app-footer></app-footer> -->"
 
 /***/ })
 
