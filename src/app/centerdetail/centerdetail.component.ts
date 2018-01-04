@@ -133,7 +133,7 @@ export class CenterdetailComponent implements OnInit {
       this.heartO = true;
     }
     else {
-      this._centerDetail.likeDetail(this.record.centerId).subscribe(res=>{
+      this._centerDetail.likeDetail(this.record.centerId,this.record.userId).subscribe(res=>{
         console.log("res",res);
         if(res.code===200){        
          this.heart = true;
