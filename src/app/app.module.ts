@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
+import { LocationStrategy,HashLocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -83,6 +83,10 @@ let providers = {
     ],
     providers: [
         AuthService,
+         {
+            provide: LocationStrategy,
+            useClass: HashLocationStrategy
+        },
         ActiveRouteGuard,
         DeactiveRouteGuard
     ],
