@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
 
     public isLoggedIn: boolean = false;
     public isloading: boolean  = true;
-
     public userData:any;
     public userId;
     public array;
