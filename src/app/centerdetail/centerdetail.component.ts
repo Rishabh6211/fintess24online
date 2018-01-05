@@ -3,7 +3,7 @@ import { CenterdetailService } from './centerdetail.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import tsConstants = require('../shared/config/tsconstant');
 import { CookieService } from 'ngx-cookie';
-import {GiveRatingComponent} from '../shared/give-rating/give-rating.component'
+//import {GiveRatingComponent} from '../shared/give-rating/give-rating.component'
 //import { SharedService } from '../../../../shared/services/shared.service';
 import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/star-rating-struct";
 @Component({
