@@ -4,7 +4,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import tsConstants = require('../shared/config/tsconstant');
 import { CookieService } from 'ngx-cookie';
 //import {GiveRatingComponent} from '../shared/give-rating/give-rating.component'
-//import { SharedService } from '../../../../shared/services/shared.service';
+import { SharedService } from '../shared/services/shared.service';
 import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/star-rating-struct";
 @Component({
   selector: 'app-centerdetail',
@@ -14,11 +14,6 @@ import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angula
 })
 export class CenterdetailComponent implements OnInit {
 
-  constructor( private _centerDetail:CenterdetailService,
-   private _activateRouter:ActivatedRoute,
-    private _router:Router,
-    private _cookieService: CookieService,
-    private _cd:ChangeDetectorRef) { }
   public profileData;
   public yogaId;
   public services;
@@ -42,6 +37,13 @@ export class CenterdetailComponent implements OnInit {
     userId : '',
     centerId:''
   }
+  private _pageUrl:string;
+  constructor( private _centerDetail:CenterdetailService,
+   private _activateRouter:ActivatedRoute,
+    private _router:Router,
+    private _cookieService: CookieService,
+    private _cd:ChangeDetectorRef,
+    private _sharedService:SharedService) { }
  onClickResult:OnClickEvent;
     onHoverRatingChangeResult:OnHoverRatingChangeEvent;
     onRatingChangeResult:OnRatingChangeEven;
@@ -57,6 +59,7 @@ export class CenterdetailComponent implements OnInit {
     this.yogaProfile();
     this.productView();
     this.countView();
+    this._pageUrl = "profile/"+this._activateRouter.snapshot.params['id'];
   }
 
 
@@ -123,7 +126,7 @@ export class CenterdetailComponent implements OnInit {
 
     }
     else{
-      this._router.navigate(['/login'])
+       this._sharedService.setReferer(this._pageUrl);
     }
   }
 

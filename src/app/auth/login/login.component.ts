@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 this._cd.markForCheck(); 
 
                 this._sharedService.showToast(('login_successful'), tsConstants.COLOR_SUCESS);
-                
+                this._sharedService.redirectToReferer();
             }else{
                 this._sharedService.showToast(("WRONG_PASSWORD"), tsConstants.COLOR_DANGER);
                 

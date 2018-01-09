@@ -91,50 +91,8 @@ export class SharedService {
         Materialize.toast(messageText, tsConstants.MESSAGE_SHOWTIME, className);
     }
 
-    /*Use to fetch all Manufactures*/
-    getAllManufactures() {
-          
-        let headers = new Headers();
-        let token   = this._cookieService.get('accesstoken');
-        
-        headers.append('Authorization', 'Bearer '+token);
-        return this._http.get(this._host +'/manufacturer?sort=name', { headers: headers }).map((res:Response) => res.json())
-    }
 
-    addWishlist( product_id, product_type ) {
-        
-        let headers = new Headers();
-        let token   = this._cookieService.get('accesstoken');
-        headers.append('Authorization', 'Bearer '+token);
-
-        let body    = {
-            user_id: this.getCurrentUserID(),
-            product_id: product_id,
-            product_type: product_type
-        }
-        return this._http.post(this._host +'/wishlist', body, { headers: headers }).map((res:Response) => res.json())
-    }
-
-    userWishlist(  ){
-        let headers = new Headers();
-        let token   = this._cookieService.get('accesstoken');
-        headers.append('Authorization', 'Bearer '+token);
-
-        return this._http.get(this._host +'/wishlist', { headers: headers }).map((res:Response) => res.json())
-    }
-
-    deleteWishlist( productID ){
-        let headers = new Headers();
-        let token   = this._cookieService.get('accesstoken');
-        headers.append('Authorization', 'Bearer'+token);
-
-        let body = {
-            product_id: productID
-        }
-
-        return this._http.post(this._host +'/delete/wishlist', body, { headers: headers }).map((res: Response) => res.json())
-    }
-
+    
     getFormattedDate( dateObj ) {
 
         if( dateObj ) {
@@ -194,20 +152,7 @@ export class SharedService {
     }
 
 
-    getLogisticCharges( distance,  weight ) {
-
-        distance = 100;
-        weight   = 2.5;
-
-        let headers = new Headers();
-        let token   = this._cookieService.get('accesstoken');
-        headers.append('Authorization', 'Bearer'+token);
-
-        let url = this._host +'/crops/lcharges/'+distance+'/'+weight;
-
-        return this._http.get(url, {headers:headers}).map((res: Response) => res.json())
-
-    }
+   
      addRating( data ) {
         let headers = this.getAuthorizationHeader(true);
 
@@ -227,7 +172,24 @@ export class SharedService {
         let url     = this._host+"/averating/"+userID;
         return this._http.get( url ).map((res:Response) => res.json());
     }
+    setReferer( url ){
+        console.log("Referer: ", url);
 
+        this._cookieService.put('referer', url);
+        this._router.navigate(['/login']);
+        return true;   
+    }
+
+    redirectToReferer( ){
+        let url = this._cookieService.get('referer');
+        this._cookieService.remove('referer');
+
+        if( url) {
+            this._router.navigate([url]);
+        }else{
+            this._router.navigate(['/']);
+        }
+    }
 
 
 }
